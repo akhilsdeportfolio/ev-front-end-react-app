@@ -1,20 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import { Skeleton,Avatar,Button,Chip,Box,Rating,FormGroup,FormControlLabel,Switch,Badge } from '@mui/material';
-import {red} from '@mui/material/colors'
-import MailIcon from '@mui/icons-material/Mail';
-import ReviewsComponent from './components/ReviewsComponent';
-
-
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import AllReviews from './components/AllReviews';
+import Review from './components/Review';
 
 function App() {
   
   return (
     <>
-      <Box sx={{padding:1}} >
-        <h1>Welcome</h1>
-        <ReviewsComponent/>
-      </Box>
+
+      <AllReviews/>
+      <Review/>
     </>
   );
 }

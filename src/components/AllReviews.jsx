@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import Review from './Review';
 
 
 const styles={
@@ -24,5 +25,16 @@ export default function()
                </Typography>
                </Toolbar>
           </AppBar>
+
+          <Box sx={{padding:2}}>
+          <Typography variant="h1" sx={{textDecoration:'underline',textDecorationColor:'#FF3D5A'}}
+          color="black" component="div" style={styles}>
+                    Reviews
+          </Typography>
+
+          <Review/>
+          </Box>
+
+          
      </>);
 }

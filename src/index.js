@@ -5,11 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
-
-
-
-
-
 const themeOptions = {
   palette: {
     type: 'light',

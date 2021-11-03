@@ -15,10 +15,7 @@ function App() {
   
   return (
     <>
-      {/* <AllReviews/>
-      <Review/> */}
-      {/* <Raise1/> */}
-      <Raise2/>
+      <AllReviews/>      
     </>
   );
 }

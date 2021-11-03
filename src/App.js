@@ -1,18 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import Raise2 from './component/Raise2';
-import About from './component/About';
-import Raise4 from './component/Raise4';
-import Raise1 from './component/Raise1';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import AllReviews from './components/AllReviews';
+import Review from './components/Review';
 
 function App() {
   
   return (
     <>
-    <Raise1/>
-    <Raise2></Raise2>
-    {/* <About/> */}
-    {/* <Raise4/> */}
+
+      <AllReviews/>
+      <Review/>
     </>
   );
 }

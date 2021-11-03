@@ -30,7 +30,23 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function()
 {
 
+
+
      const [value, setValue] = useState(4.2)
+     const [liked,setLiked]=useState(false);
+     
+     const handleLike = (id)=>{
+          console.log('like clicked',id);
+          setLiked(!liked);
+     };
+
+     const handleReply = (id)=>{
+          console.log("Reply clicked");
+     }
+
+     const handleShare = (id)=>{
+          console.log("Share clicked");
+     }
 
      return(<> 
 
@@ -63,7 +79,13 @@ export default function()
           <br/>
           <Stack direction="row" spacing={2}>
                <Stack style={{alignItems:'center'}} direction="row" spacing={2}>
-                    <ThumbUp/>
+                    
+                    {liked && true ? <ThumbUp onClick={()=>{
+                         handleLike('123');
+                    }} color='black' /> : <ThumbUp onClick={()=>{
+                         handleLike('123');
+                    }} color='primary'/>}
+                    
                     <p>0 Likes</p>
                </Stack>
 

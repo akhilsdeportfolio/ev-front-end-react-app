@@ -8,14 +8,17 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AllReviews from './components/AllReviews';
 import Review from './components/Review';
+import Raise1 from './component/Raise1';
+import Raise2 from './component/Raise2'
 
 function App() {
   
   return (
     <>
-
-      <AllReviews/>
-      <Review/>
+      {/* <AllReviews/>
+      <Review/> */}
+      {/* <Raise1/> */}
+      <Raise2/>
     </>
   );
 }

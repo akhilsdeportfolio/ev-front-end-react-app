@@ -1,5 +1,5 @@
 import './raise1.css'
-import Experience from './Experience'
+import Experience from '../components/Experience'
 import Support from './Support'
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';

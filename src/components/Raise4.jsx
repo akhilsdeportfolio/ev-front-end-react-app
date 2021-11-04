@@ -1,8 +1,9 @@
-import React from 'react'
+
 import Experience from './Experience'
 import Support from './Support'
 import TicketNumber from './TicketNumber'
-import Tickmark from './image/Vector 234.png'
+import Tickmark from './image/Group 76.png'
+import './raise1.css'
 const Raise4 = () => {
     return (
         <>
@@ -10,7 +11,8 @@ const Raise4 = () => {
          <Support/>
          <TicketNumber/>
          <div className="response-div">Your Response is Recorded</div> 
-         <div className="tickMark-div"><img className="mark" src={Tickmark} alt="..." /></div>  
+         <img className="mark" src={Tickmark} alt="..." />
+         <div className="solve-asap-div">We will solve your problem ASAP</div>  
         </>
     )
 }

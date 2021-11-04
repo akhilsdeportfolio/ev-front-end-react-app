@@ -123,7 +123,7 @@
 }
 
 .response-div{
-    width: 24.375%;
+    width: 26.375%;
     height: 96px;
     font-family: Montserrat;
     font-style: normal;
@@ -135,19 +135,50 @@
     margin: auto;
 }
 
-.tickMark-div{
+/* .tickMark-div{
     width: 146px;
 height: 146px;
 background: #00FF29;
 border-radius: 105px;
-}
+} */
 
 .mark{
-    width: 54px;
-    height: 33px;
+    /* width: 18.88%;
+    height: 274px; */
     justify-content: center; 
-align-items: center;
+    align-items: center;
+    margin: auto;
+    display: block;
+    margin-top: 4.05%;
+}
+
+.solve-asap-div{
+    width: 68%;
+    height: 65px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 53px;
+    line-height: 65px;
+    text-align: center;
+    color: #000000;
+    margin: auto;
+}
+
+.your-num-div{
+    width: 28%;
+height: 61px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 50px;
+line-height: 61px;
+text-align: center;
+color: #000000;
 margin: auto;
-margin-top: 0px;
-display: block;
+}
+
+.share-div{
+    width: 12%;
+    margin:auto;
 }

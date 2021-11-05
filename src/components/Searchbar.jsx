@@ -57,6 +57,7 @@ function Searchbar(){
   const handleChange = (e)=>{
     setText(e.target.value)
   }
+  
 
     return(
         <>

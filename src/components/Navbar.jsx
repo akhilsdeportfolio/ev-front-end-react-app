@@ -57,7 +57,7 @@ const styles = {
                          <Tab   style={styles.color}  label="E-Vehicles"/>
                          <Tab   style={styles.color}  label="About Us"/> 
                       </Tabs>
-                     <Button variant="outlined"   style={styles.btn} >Urgent</Button>
+                     <Button variant="outlined" style={styles.btn} >Urgent</Button>
                   </Toolbar>
                  <Searchbar/>
              </AppBar>

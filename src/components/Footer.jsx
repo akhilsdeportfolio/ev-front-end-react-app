@@ -62,7 +62,7 @@ const Hr = styled.div`
 function Footer(){
     return (
         <div>
-            {/* <Hr /> */}
+            
             <Section>
                 <section>
                 <Content>

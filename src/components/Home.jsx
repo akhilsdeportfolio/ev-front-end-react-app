@@ -4,7 +4,6 @@ import { Navbar } from "./Navbar";
 import { Urgent } from "./Urgent";
 
 
-
 function Home(){
     return (
         <>

@@ -58,7 +58,6 @@ function Searchbar(){
     setText(e.target.value)
   }
   
-
     return(
         <>
             <Search>

@@ -1,7 +1,6 @@
 
 import { Typography } from "@mui/material"
 import { makeStyles } from "@mui/styles"
-import { fontSize, letterSpacing } from "@mui/system"
 
 
 const useStyles = makeStyles({

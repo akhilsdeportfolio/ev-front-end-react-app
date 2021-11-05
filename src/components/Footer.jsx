@@ -58,7 +58,6 @@ const Hr = styled.div`
 `
 
 
-
 function Footer(){
     return (
         <div>

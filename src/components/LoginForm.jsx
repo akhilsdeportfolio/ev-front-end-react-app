@@ -1,3 +1,5 @@
+import Heading from "./HeadingInfo";
+import { InputInfo } from "./InputInfo";
 
 const styles = {
     box:{
@@ -11,14 +13,6 @@ const styles = {
         fontStyle: "normal",
         fontWeight: 500,
          textAlign: "center",
-    },
-    info:{
-      
-        fontFamily: "Poppins",
-        fontSize: "23px",
-        fontStyle: "normal",
-        fontWeight: 400,
-        
     },
     textFlex:{
         display:"flex",
@@ -74,10 +68,23 @@ export default function LoginForm() {
         event.preventDefault()
         if(email.trim().length <= 6){
             alert("please provide valid email address")
+            
             return
         }
+        if(!email.includes(".com")){
+           alert("please provide valid email address") 
+           return;
+        }
+        
         if(password.trim().length <= 6){
             alert("please enter more than six digit of password")
+            return
+        }
+        let passwordCheck = password;
+        let passpattern = /[0-9]/g;
+        let result3 = passwordCheck.match(passpattern);
+        if(result3.length === 0){
+            alert("password must include alphabet and digit both")
             return
         }
         const user = {
@@ -88,17 +95,9 @@ export default function LoginForm() {
     }
   return (
     <form style={styles.box} onSubmit = {handleSubmit}>
-       <h1 style={styles.headin}>
-       Already Registered?
-    </h1>
-       <p style={styles.info}>
-       Login
-    </p>
+    <Heading heading=" Already Registered?" subheading = "Login"/>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Email</div>
-            <div>Required Fields</div>
-        </div>
+       <InputInfo data1 = "Email" data2="Required Fields"/>
         <input style={styles.input} 
         type="text" 
         name = "email"
@@ -106,10 +105,7 @@ export default function LoginForm() {
         
     </div>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Password</div>
-            <div></div>
-        </div>
+       <InputInfo data1 = "Password"/>
         <input style={styles.input} 
         type="text"
         name="password" 
@@ -119,9 +115,7 @@ export default function LoginForm() {
     <button style = {
             styles.button
         }>LOGIN</button>
-       <div style={styles.textFlex}>
-            <div>Lost your Password?</div>
-        </div>
+        <InputInfo data1 = "Lost your Password"/>
         <br/>
         <h1 style={styles.headin}>
        New User

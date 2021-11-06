@@ -8,7 +8,7 @@ const Section = styled.section`
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-top: 18%;
+    margin-top: 10%;
     section:before{
         content: '';
         position: absolute;
@@ -43,25 +43,21 @@ const Content = styled.div`
 `
 
 const Hr = styled.div`
-    border-radius: 50% 50% 0 0/100% 100% 0 0;
-    transform: scaleX(1.5);
-    margin-top: 40px;
-    width: 65%;
-    border-bottom: none;
-    border-left: white;
-    border-radius: 50%;
-    height: 335px;
-    width: 62.1%;
-    padding:30px;
-    margin-bottom: -416px;
-    border: 1px solid #C11561;
+   /* width: 1350px; 
+   margin-left: -50px;
+  height: 1000px;  
+  border: solid 15px #C11561;
+  border-color: #C11561 transparent transparent transparent;
+  border-radius: 50%/100px 100px 0 0;
+  margin-top: 200px;
+  margin-bottom: -73%; */
 `
 
 
 function Footer(){
     return (
         <div>
-            
+            <Hr />
             <Section>
                 <section>
                 <Content>

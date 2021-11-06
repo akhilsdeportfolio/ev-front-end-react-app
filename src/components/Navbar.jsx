@@ -4,6 +4,7 @@ import {useState} from 'react'
 import { Searchbar } from './Searchbar';
 
 
+
 const useStyles = makeStyles({
     bar: {
         marginTop: "1.5%" , 
@@ -23,11 +24,11 @@ const useStyles = makeStyles({
 })
 
 const styles = {
-    btn:{
+    btn1:{
         backgroundColor: "white", 
         borderRadius: "51px", 
         boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.25)',
-        fontWeight: '800',
+        fontWeight: '700',
         fontSize: '15px'
     },
     color:{
@@ -57,11 +58,11 @@ const styles = {
                          <Tab   style={styles.color}  label="E-Vehicles"/>
                          <Tab   style={styles.color}  label="About Us"/> 
                       </Tabs>
-                     <Button variant="outlined" style={styles.btn}>Urgent</Button>
+                     <Button variant="outlined" style={styles.btn1}>Urgent</Button>
                   </Toolbar>
                  <Searchbar/>
              </AppBar>
-            
+             
          </div>
      )
  } 

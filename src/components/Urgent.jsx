@@ -17,7 +17,8 @@ const useStyles = makeStyles({
 
 const styles = {
     anchr:{
-        textDecoration:'none'
+        textDecoration:'none',
+        marginLeft: '1%',
     },
     section:{
         marginLeft:'-15%',

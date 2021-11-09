@@ -24,6 +24,10 @@ const useStyles = makeStyles({
 })
 
 const styles = {
+    appbar:{
+        zIndex: -1,
+        position: 'relative'
+    },
     btn1:{
         backgroundColor: "white", 
         borderRadius: "51px", 
@@ -46,17 +50,17 @@ const styles = {
     }
      return (
         <div>
-            <AppBar>
+            <AppBar style={styles.appbar}>
                 <Toolbar  className={classes.bar} >
                     <Typography variant="h5">
                      Your E-Assistant
                      </Typography>
                      <Tabs  onChange={handleClickTab} indicatorColor="secondary"   className={classes.sec}   value={value} >
-                        <Tab    style={styles.color}  label="Login"/>
-                         <Tab   style={styles.color}  label="Home"/>
-                         <Tab   style={styles.color}  label="News"/>
-                         <Tab   style={styles.color}  label="E-Vehicles"/>
-                         <Tab   style={styles.color}  label="About Us"/> 
+                        <Tab   style={styles.color}  label="Login"/>
+                        <Tab   style={styles.color}  label="Home"/>
+                        <Tab   style={styles.color}  label="News"/>
+                        <Tab   style={styles.color}  label="E-Vehicles"/>
+                        <Tab   style={styles.color}  label="About Us"/> 
                       </Tabs>
                      <Button variant="outlined" style={styles.btn1}>Urgent</Button>
                   </Toolbar>

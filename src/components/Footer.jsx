@@ -51,16 +51,24 @@ const Hr = styled.div`
   border-radius: 50%/100px 100px 0 0;
   margin-top: 200px;
   margin-bottom: -73%; */
+    display: block;
+    box-sizing: border-box;
+    height: 50px;
+    background-color: #5050ee;
+    clip-path: ellipse(60% 100% at 49.6% 100%);
+    border-radius: 50%/100px 100px 0 0;
+    transform: scaleX(1.5);
+    transform: scaleZ(1.5);
 `
 
 
 function Footer(){
     return (
         <div>
-            <Hr />
+            {/* <Hr /> */}
             <Section>
-                <section>
-                <Content>
+            <section>
+            <Content>
             <h1>Your E-Assistant</h1>
             <h2>© COPYRIGHT 2021. ALL RIGHTS RESERVED</h2>
             </Content>

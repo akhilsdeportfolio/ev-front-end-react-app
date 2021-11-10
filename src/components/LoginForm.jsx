@@ -1,6 +1,7 @@
 import Heading from "./HeadingInfo";
 import { InputInfo } from "./InputInfo";
-
+import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
 const styles = {
     box:{
         width:350,
@@ -106,6 +107,8 @@ export default function LoginForm() {
         event.target.password.value = null;
     }
   return (
+      <>
+      <Navbar/>
     <form style={styles.box} onSubmit = {handleSubmit}>
     <Heading heading=" Already Registered?" subheading = "Login"/>
     <div style={styles.padding}>
@@ -137,5 +140,7 @@ export default function LoginForm() {
             styles.button2
         }>CREATE AN ACCOUNT</button>
     </form>
+    <Footer/>
+    </>
   )
 }

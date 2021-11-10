@@ -1,4 +1,5 @@
 import "./Account.css"
+import { Footer } from "./Footer"
 let styles = {
     container:{
         width:"90%",
@@ -119,6 +120,7 @@ export let Account = (props)=>{
                view more
            </button>
            </div>
+           <Footer/>
         </>
     )
 }

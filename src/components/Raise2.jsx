@@ -8,10 +8,12 @@ import FormControl from '@mui/material/FormControl';
 // import FormLabel from '@mui/material/FormLabel';
 import { Button, Chip, Stack } from '@mui/material';
 import TicketNumber from './TicketNumber';
+import { Navbar } from './Navbar';
 
 const Raise2 = () => {
     return (
         <>
+        <Navbar />
         <Experience/>
         <Support/>
         <TicketNumber/>

@@ -1,3 +1,5 @@
+import { Footer } from "./Footer";
+import { Navbar } from "./Navbar";
 
 const styles = {
     box:{
@@ -87,6 +89,8 @@ export default function LoginForm() {
         console.log(user)
     }
   return (
+      <>
+      <Navbar/>
     <form style={styles.box} onSubmit = {handleSubmit}>
        <h1 style={styles.headin}>
        Already Registered?
@@ -130,5 +134,7 @@ export default function LoginForm() {
             styles.button2
         }>CREATE AN ACCOUNT</button>
     </form>
+    <Footer/>
+    </>
   )
 }

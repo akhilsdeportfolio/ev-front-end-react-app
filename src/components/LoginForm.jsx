@@ -6,7 +6,7 @@ const styles = {
         width:350,
         height:545,
         margin:"-1% 70% 0% 38%",
-        border: "2px solid red"
+
     },
     headin:{
         fontFamily: "Poppins",
@@ -93,7 +93,7 @@ export default function LoginForm() {
             email,
             password
         }
-       console.log(user)
+      // console.log(user)
        fetch("http://localhost:3000/user")
         .then((res)=>{
             let data = res.json();

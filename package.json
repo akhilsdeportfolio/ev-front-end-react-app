@@ -12,11 +12,8 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-<<<<<<< HEAD
     "mui": "^0.0.1",
-=======
     "material-ui-colors": "^1.0.0",
->>>>>>> 1822871e8c2b21520615cd8319329545639b2621
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",

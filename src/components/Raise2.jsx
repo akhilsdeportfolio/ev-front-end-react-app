@@ -6,9 +6,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { Button, Chip, Stack } from '@mui/material';
-import { useState, useEffect,} from "react"
+import { useState, useEffect, } from "react"
 import { Link, useHistory } from 'react-router-dom'
 import TicketNumber from './TicketNumber';
+import { Footer } from './Footer';
 
 
 const Raise2 = () => {
@@ -42,31 +43,21 @@ const Raise2 = () => {
     }
     console.log(data);
 
-    const handleAddform = (task ) => {
+    const handleAddform = (task) => {
         fetch("http://localhost:3001/raiseticket", {
             method: "POST",
             body: JSON.stringify(task),
             headers: {
                 "Content-type": "application/json"
             }
-        })  
-        .then((d) => d.json())
-        .then(getform)  
-      
+        })
+            .then((d) => d.json())
+            .then(getform)
+
     }
 
-    // const linkactivate = () => {
-    //     if(raiseform){
-    //         return true
-    //     } else{
-    //         return false
-    //     }
-        
-    // }
-
     const handleSubmit = (e) => {
-        // const navigate = useNavigate();
-        
+
         e.preventDefault();
         handleAddform(raiseform);
         setRaiseform({
@@ -75,14 +66,9 @@ const Raise2 = () => {
             email: "",
             problem: ""
         })
-        // history.push("/raise4")
-        // navigate("/raise4")
+        history.push("/raise4")
+
     };
-
-    const receiveCall = () => {
-        alert("You will receive a call from 789 385 4089")
-    }
-
     return (
         <>
             <Experience />
@@ -90,8 +76,8 @@ const Raise2 = () => {
             <TicketNumber></TicketNumber>
             <Stack direction="row" spacing={1} className="stack-div">
                 <Chip label="MESSAGE" color="primary"></Chip>
-                <Link to="/raise5"  style={{ textDecoration: "none" }}>
-                <Chip label="CALL" style={{ background: " #88CDF2" }} />
+                <Link to="/raise5" style={{ textDecoration: "none" }}>
+                    <Chip label="CALL" style={{ background: " #88CDF2" }} />
                 </Link>
             </Stack>
             <form onSubmit={handleSubmit}>
@@ -127,14 +113,13 @@ const Raise2 = () => {
                     </RadioGroup>
                 </FormControl>
                 <br />
-                <Link to="/raise4"  style={{ textDecoration: "none" }}>
-                    <Button type="submit" onClick={receiveCall} variant="contained" size="large" style={{ marginLeft: "112px" }}>
-                        Send
-                    </Button>
-            </Link> 
-                
+
+                <Button type="submit" variant="contained" size="large" style={{ marginLeft: "112px" }}>
+                    Send
+                </Button>
             </form>
-            
+            <Footer></Footer>
+
 
         </>
     )

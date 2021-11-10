@@ -10,20 +10,21 @@ import AllReviews from './components/AllReviews';
 import Review from './components/Review';
 import Raise4 from './components/Raise4';
 import Raise5 from './components/Raise5';
-// import Raise1 from './components/Raise1';
-// import Raise2 from './components/Raise2';
-// import About from './components/About';
+import Raise1 from './components/Raise1';
+import Raise2 from './components/Raise2';
+// import {Route, Switch} from 'react-router-dom'
 
 function App() {
   
   return (
     <>
-      {/* <AllReviews/>*/}
-      {/* <About/> */}
-      {/* <Raise1/> */}
-      {/* <Raise2/> */}
-      {/* <Raise4/> */}
-      <Raise5/>
+      {/* <Switch> */}
+        {/* <Route path="/raise1" ><Raise1></Raise1></Route>
+        <Route path="/raise2"><Raise2/></Route>
+        <Route path="/raise4"><Raise4/></Route>
+        <Route path="/raise5"><Raise5/></Route> */}
+     
+      {/* </Switch> */}
     </>
   );
 }

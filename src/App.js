@@ -1,6 +1,9 @@
 
 
- import { Home } from './components/Home';
+import { Home } from './components/Home';
+import { Route, Switch, component } from "react-router-dom";
+import LoginForm from './components/LoginForm'
+import Raise2 from './components/Raise2'
 
 /* import './App.css';
 import AppBar from '@mui/material/AppBar';
@@ -33,7 +36,7 @@ import About from './components/About';
 
 
 function App() {
-  
+
   return (
     <>
 
@@ -47,7 +50,15 @@ function App() {
        </Switch> */}
 
       {/* < HEAD/> */}
-        {/* <Home/> */}
+      <Switch>
+        <Route exact path='/Login' ><LoginForm /></Route>
+        <Route exact path='/Raise2' ><Raise2/></Route>
+        <Route exact path='/Home' ><Home/></Route>
+        <Route exact path='/' component={Home} />
+
+      </Switch>
+
+
       {/* <AllReviews/>*/}
       {/* <About/> */}
       {/* <Raise1/> */}
@@ -57,7 +68,7 @@ function App() {
 
       {/* <LoginForm/> */}
       {/* <SignupForm/> */}
-      {/* <Account/> */}
+      
 
     </>
   ); 

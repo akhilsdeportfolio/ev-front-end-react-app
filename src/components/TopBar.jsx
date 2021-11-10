@@ -3,6 +3,7 @@ import { makeStyles } from '@mui/styles';
 import { Searchbar } from './Searchbar';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
+import { Responsibility } from "./Responsibility";
 
 
 const useStyles = makeStyles({
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
 
 const styles = {
     appbar: {
-        zIndex: 1,
+        height: '500px',
         position: 'relative',
     },
     btn1: {
@@ -30,14 +31,13 @@ const styles = {
         boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.25)',
         fontWeight: '700',
         fontSize: '15px',
-        
         marginTop: '0.5%',
          
     },
     btnlink: {
         textDecoration: 'none',
         marginLeft: '2%',
-    }
+    },
 }
 
 const NavUnlisted = styled.ul`
@@ -54,18 +54,12 @@ const NavUnlisted = styled.ul`
     font-size: 19px;
     position: relative;
     list-style: none;
+    font-weight: 400;
     font-family: 'Montserrat';
-  }
-
-  .current {
-    li {
-      font-weight: 600;
-      border-bottom: 2px solid black;
-    }
   }
 `
 
-function Navbar() {
+function TopBar() {
     const classes = useStyles()
 
     return (
@@ -76,7 +70,7 @@ function Navbar() {
                         Your E-Assistant
                     </Typography>
                     <NavUnlisted>
-                        <NavLink to="/Home" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/Home" activeClassName="active">
                             <li>Home</li>
                         </NavLink>
                         <NavLink to="/News" activeStyle={{fontWeight: "600" }}>
@@ -95,9 +89,11 @@ function Navbar() {
                    <NavLink to="/Raise2" style={styles.btnlink}> <Button variant="outlined" style={styles.btn1} >Urgent</Button></NavLink>
                 </Toolbar>
                 <Searchbar />
+              <Responsibility />  
             </AppBar>
+            
         </>
     )
 }
 
-export { Navbar }
+export { TopBar }

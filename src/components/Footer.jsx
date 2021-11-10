@@ -1,9 +1,11 @@
 import styled  from 'styled-components';
+import footer from '../components/image/footer.png'
+import Wave from 'react-wavify'
 
-const Section = styled.section`
+ const Section = styled.section`
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,42 +42,46 @@ const Content = styled.div`
         letter-spacing: 3px;
     }
 
-`
-
-const Hr = styled.div`
-   /* width: 1350px; 
-   margin-left: -50px;
-  height: 1000px;  
-  border: solid 15px #C11561;
-  border-color: #C11561 transparent transparent transparent;
-  border-radius: 50%/100px 100px 0 0;
-  margin-top: 200px;
-  margin-bottom: -73%; */
-    display: block;
-    box-sizing: border-box;
-    height: 50px;
-    background-color: #5050ee;
-    clip-path: ellipse(60% 100% at 49.6% 100%);
-    border-radius: 50%/100px 100px 0 0;
+` 
+/* 
+const Hr = styled.hr`
+   
+   /*  transform: rotate(180deg);
+    width: 97.5%;
+    border: solid 10px #000;
+    border-top-right-radius: 100%;
+    border-top-left-radius: 155%;
     transform: scaleX(1.5);
-    transform: scaleZ(1.5);
-`
+    border-radius: 50% 50% 0 0 /100% 100% 0 0; */
 
+const styles = {
+    image:{
+        marginTop: '5%',
+        width: '100%',
+    },
+    text:{
+        marginBottom: '-40px',
+        position: 'absolute',
+        marginLeft: '40%'
+    }
+}
 
 function Footer(){
     return (
         <div>
-            {/* <Hr /> */}
-            <Section>
+       {/*   <Hr />  */}
+             <Section>
             <section>
             <Content>
             <h1>Your E-Assistant</h1>
             <h2>© COPYRIGHT 2021. ALL RIGHTS RESERVED</h2>
             </Content>
             </section>
-            </Section>
-        </div>
+            </Section> 
+         {/* <img style={styles.image} src={footer} alt={footer} /> */}
+        </div> 
     )
+        
 }
 
 export {Footer}

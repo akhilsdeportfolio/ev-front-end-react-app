@@ -1,7 +1,7 @@
 
 
 import { Home } from './components/Home';
-import { Route, Switch, Redirect, component } from "react-router-dom";
+import { Route, Switch, component } from "react-router-dom";
 import LoginForm from './components/LoginForm'
 import Raise2 from './components/Raise2'
 
@@ -30,7 +30,6 @@ function App() {
         <Route exact path='/Raise2' ><Raise2/></Route>
         <Route exact path='/Home' ><Home/></Route>
         <Route exact path='/' component={Home} />
-        {/* <Redirect exact from="/" to="Home" /> */}
 
       </Switch>
 

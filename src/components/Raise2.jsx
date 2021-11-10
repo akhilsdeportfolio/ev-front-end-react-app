@@ -1,4 +1,4 @@
-import './raise1.css'
+
 import Experience from '../components/Experience'
 import Support from './Support'
 import Radio from '@mui/material/Radio';
@@ -11,7 +11,90 @@ import { Link, useHistory } from 'react-router-dom'
 import TicketNumber from './TicketNumber';
 import { Footer } from './Footer';
 
+const styles = {
+    txtnone: {
+        textDecoration: "none"
+    },
+    bgclr: {
+        background: " #88CDF2"
+    },
+    bgclrPrimary: {
+        background: "#FF546D",
+        color: "white"
+    },
+    btn: {
+        marginLeft: "112px"
+    },
+    radioBtn:{
+        color: "#1C1C1C", 
+        marginLeft: "112px"
+    },
+    nameDiv:{
+        display: "flex",
+        flexBasis:"82"
+    },
+    nameInput:{
+        width: "346px",
+        height: "49px",
+        background: "#E8E8E8",
+        marginLeft: "113px",
+        border: "none",
+    },
+    nameInput1:{
+        width: "346px",
+        height: "49px",
+        background: "#E8E8E8",
+        marginLeft: "113px",
+        border: "none",
+        marginLeft: "36px"
+    },
+    nameLabel:{
+        width: "12.29%",
+        height: "22px",
+        fontFamily: "Montserrat",
+        fontStyle: "normal",
+        fontWeight: "500",
+        fontSize: "18px",
+        lineHeight: "22px",
+        color: "#000000",
+        marginLeft: "113px",
+    },
+    nameLabel1:{
+        width: "12.29%",
+        height: "22px",
+        fontFamily: "Montserrat",
+        fontStyle: "normal",
+        fontWeight: "500",
+        fontSize: "18px",
+        lineHeight: "22px",
+        color: "#000000",
+        marginLeft: "36px",
+    },
+    stackDiv:{
+        marginLeft: "8.08%"
+    },
+    problemInput:{
+        width: "83%",
+        height: "230px",
+        display: "block",
+        margin: "auto",
+        background: "#E8E8E8",  
+        border: "none",
+    },
+    
+    problemLabel:{
+        width: "12.29%",
+        height: "22px",
+        fontFamily: "Montserrat",
+        fontStyle: "normal",
+        fontWeight: "500",
+        fontSize: "18px",
+        lineHeight: "22px",
+        color: "#000000",
+        marginLeft: "8.2%",
+    }
 
+}
 const Raise2 = () => {
     const [raiseform, setRaiseform] = useState({
         name: "",
@@ -59,6 +142,26 @@ const Raise2 = () => {
     const handleSubmit = (e) => {
 
         e.preventDefault();
+        let email = e.target.email.value
+        let name = e.target.name.value
+        let phone = e.target.phone.value
+        let problem = e.target.problem.value
+        if (email.trim().length <= 6 || !email.includes(".com")) {
+            alert("please provide valid email address")
+            return
+        }
+        if (name.trim().length <= 3) {
+            alert("please provide name with atleast three character")
+            return
+        }
+        if (phone.trim().length <= 9) {
+            alert("please provide valid phone")
+            return
+        }
+        if (problem === "") {
+            alert("please do write your problem, it meant to us")
+            return
+        }
         handleAddform(raiseform);
         setRaiseform({
             name: "",
@@ -74,34 +177,34 @@ const Raise2 = () => {
             <Experience />
             <Support />
             <TicketNumber></TicketNumber>
-            <Stack direction="row" spacing={1} className="stack-div">
-                <Chip label="MESSAGE" color="primary"></Chip>
-                <Link to="/raise5" style={{ textDecoration: "none" }}>
-                    <Chip label="CALL" style={{ background: " #88CDF2" }} />
+            <Stack direction="row" spacing={1} style={styles.stackDiv}>
+                <Chip label="MESSAGE" style={styles.bgclrPrimary}></Chip>
+                <Link to="/raise5" style={styles.txtnone}>
+                    <Chip label="CALL" style={styles.bgclr} />
                 </Link>
             </Stack>
             <form onSubmit={handleSubmit}>
-                <div className="name-div">
+                <div style={styles.nameDiv}>
                     <div>
-                        <label className="name-label">Name (Required)</label>
+                        <label style={styles.nameLabel}>Name (Required)</label>
                         <br />
-                        <input type="name" name="name" value={raiseform.name} onChange={handleChange} className="name-input" />
+                        <input type="name" name="name" value={raiseform.name} onChange={handleChange} style={styles.nameInput} />
                     </div>
                     <div>
-                        <label className="name-label m-left" >Phone Number (Required)</label>
+                        <label style={styles.nameLabel1} >Phone Number (Required)</label>
                         <br />
-                        <input type="Number" name="phone" value={raiseform.phone} onChange={handleChange} className="name-input m-left" />
+                        <input type="Number" name="phone" value={raiseform.phone} onChange={handleChange} style={styles.nameInput1} />
                     </div>
                     <div>
-                        <label className="name-label m-left" >Email (Required)</label>
+                        <label style={styles.nameLabel1} >Email (Required)</label>
                         <br />
-                        <input type="Email" name="email" value={raiseform.email} onChange={handleChange} className="name-input m-left" />
+                        <input type="Email" name="email" value={raiseform.email} onChange={handleChange} style={styles.nameInput1} />
                     </div>
                 </div>
                 <div>
-                    <label className="problem-label"> State your Problem</label>
+                    <label style={styles.problemLabel}> State your Problem</label>
                     <br />
-                    <input type="text" name="problem" value={raiseform.problem} onChange={handleChange} className="problem-input" />
+                    <textarea type="problem" name="problem" value={raiseform.problem} onChange={handleChange} style={styles.problemInput} />
                 </div>
                 <FormControl component="fieldset">
                     <RadioGroup
@@ -109,12 +212,11 @@ const Raise2 = () => {
                         defaultValue="location"
                         name="radio-buttons-group"
                     >
-                        <FormControlLabel value="location" control={<Radio style={{ color: "#1C1C1C", marginLeft: "112px" }} />} label="Send Your Location" />
+                        <FormControlLabel value="location" control={<Radio style={styles.radioBtn} />} label="Send Your Location" />
                     </RadioGroup>
                 </FormControl>
                 <br />
-
-                <Button type="submit" variant="contained" size="large" style={{ marginLeft: "112px" }}>
+                <Button type="submit" variant="contained" size="large" style={styles.btn}>
                     Send
                 </Button>
             </form>

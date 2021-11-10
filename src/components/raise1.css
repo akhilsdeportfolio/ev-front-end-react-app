@@ -178,7 +178,24 @@ color: #000000;
 margin: auto;
 }
 
-.share-div{
+.share-img{
     width: 12%;
     margin:auto;
+}
+
+.share-div{
+    width: 9%;
+    margin:auto;
+}
+
+.share-p {
+    width: 59px;
+    height: 24px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
 }

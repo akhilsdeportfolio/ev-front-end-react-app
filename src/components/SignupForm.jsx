@@ -1,25 +1,12 @@
-
+import Heading from "./HeadingInfo";
+import { InputInfo } from "./InputInfo";
 const styles = {
     box:{
         width:350,
         height:500,
         marginLeft:"38%",
     },
-    headin:{
-        fontFamily: "Poppins",
-        fontSize: "35px",
-        fontStyle: "normal",
-        fontWeight: 500,
-         textAlign: "center",
-    },
-    info:{
-      
-        fontFamily: "Poppins",
-        fontSize: "23px",
-        fontStyle: "normal",
-        fontWeight: 400,
-        
-    },
+   
     textFlex:{
         display:"flex",
         justifyContent:"space-between",
@@ -92,6 +79,7 @@ export default function SignupForm() {
         }
         if(!email.includes(".com")){
            alert("please provide valid email address") 
+           return
         }
         
         if(password.trim().length <= 6){
@@ -101,8 +89,9 @@ export default function SignupForm() {
         let passwordCheck = password;
         let passpattern = /[0-9]/g;
         let result3 = passwordCheck.match(passpattern);
-        if(result3.length === 0){
+        if(result3 === null){
             alert("password must include alphabet and digit both")
+            return
         }
         const user = {
             firstName,
@@ -111,6 +100,23 @@ export default function SignupForm() {
             password,
         }
         console.log(user)
+        fetch("http://localhost:3000/user",{
+            method:'POST',
+            body:JSON.stringify(user),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(response =>{
+            if (response.status >= 200 && response.status < 300) {
+                console.log(response);
+                return ;
+              } else {
+               console.log('Somthing happened wrong');
+              }
+        }).catch(err => err);
+
+        let local = localStorage.setItem('users',JSON.stringify(user))
+        console.log("local",local)
         e.target.firstName.value = null;
         e.target.lastName.value = null;
         e.target.email.value = null;
@@ -118,60 +124,41 @@ export default function SignupForm() {
     }
   return (
     <form style={styles.box} type="submit" onSubmit = {handleSignup}>
-       <h1 style={styles.headin}>
-       Create an Account
-    </h1>
-       <p style={styles.info}>
-       Personal Information
-    </p>
+      <Heading heading="Create an Account" subheading = "Personal Information"/>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>First Name</div>
-            <div>Required Fields</div>
-        </div>
+        <InputInfo data1 = "First Name" data2="Required Fields"/>
         <input style={styles.input} 
         type="text" 
         name="firstName"
-        placeholder = "Enter First Name"/>
+        required = "true" placeholder = "Enter First Name" />
         
     </div>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Last Name</div>
-            <div></div>
-        </div>
+        <InputInfo data1 = "Last Name"/>
         <input style={styles.input} 
         type="text" 
         name = "lastName"
-        placeholder = "Enter Last Name"/>
+        required = "true" placeholder = "Enter Last Name"/>
         
     </div>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Email</div>
-            <div></div>
-        </div>
+    <InputInfo data1 = "Email"/>
         <input style={styles.input} 
         name = "email"
         type="email" 
-        placeholder = "Enter Email"/>
+        required = "true" placeholder = "Enter Email"/>
     </div>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Password</div>
-            <div></div>
-        </div>
+    <InputInfo data1 = "Password"/>
         <input style={styles.input} 
         type="password" 
         name = "password"
-        placeholder = "Enter Password"/>
+        required = "true" placeholder = "Enter Password"/>
     </div>
     <button style = {
             styles.button
         }>Create</button>
-       <div style={styles.textFlex}>
-            <div>or Return to page</div>
-        </div>
+       <InputInfo data1 = "or Return to page"/>
     </form>
   )
 }

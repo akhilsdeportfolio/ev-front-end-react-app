@@ -1,11 +1,12 @@
-import { Footer } from "./Footer";
-import { Navbar } from "./Navbar";
+import Heading from "./HeadingInfo";
+import { InputInfo } from "./InputInfo";
 
 const styles = {
     box:{
         width:350,
-        height:500,
-        marginLeft:"38%",
+        height:545,
+        margin:"-1% 70% 0% 38%",
+        border: "2px solid red"
     },
     headin:{
         fontFamily: "Poppins",
@@ -13,14 +14,6 @@ const styles = {
         fontStyle: "normal",
         fontWeight: 500,
          textAlign: "center",
-    },
-    info:{
-      
-        fontFamily: "Poppins",
-        fontSize: "23px",
-        fontStyle: "normal",
-        fontWeight: 400,
-        
     },
     textFlex:{
         display:"flex",
@@ -76,33 +69,49 @@ export default function LoginForm() {
         event.preventDefault()
         if(email.trim().length <= 6){
             alert("please provide valid email address")
+            
             return
         }
+        if(!email.includes(".com")){
+           alert("please provide valid email address") 
+           return;
+        }
+        
         if(password.trim().length <= 6){
             alert("please enter more than six digit of password")
+            return
+        }
+        let passwordCheck = password;
+        let passpattern = /[0-9]/g;
+        let result3 = passwordCheck.match(passpattern);
+        // console.log(result3,"r3")
+        if(result3=== null){
+            alert("password must include alphabet and digit both")
             return
         }
         const user = {
             email,
             password
         }
-        console.log(user)
+       console.log(user)
+       fetch("http://localhost:3000/user")
+        .then((res)=>{
+            let data = res.json();
+            return data
+           
+        }).then((data)=>{
+            console.log(data)
+        }).catch(err=>err)
+        event.target.email.value = null;
+        event.target.password.value = null;
     }
   return (
       <>
       <Navbar/>
     <form style={styles.box} onSubmit = {handleSubmit}>
-       <h1 style={styles.headin}>
-       Already Registered?
-    </h1>
-       <p style={styles.info}>
-       Login
-    </p>
+    <Heading heading=" Already Registered?" subheading = "Login"/>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Email</div>
-            <div>Required Fields</div>
-        </div>
+       <InputInfo data1 = "Email" data2="Required Fields"/>
         <input style={styles.input} 
         type="text" 
         name = "email"
@@ -110,22 +119,18 @@ export default function LoginForm() {
         
     </div>
     <div style={styles.padding}>
-        <div style={styles.textFlex}>
-            <div>Password</div>
-            <div></div>
-        </div>
+       <InputInfo data1 = "Password"/>
         <input style={styles.input} 
-        type="text"
+        type="password"
         name="password" 
+        required = "true"
         placeholder = "Enter Password"/>
         
     </div>
     <button style = {
             styles.button
         }>LOGIN</button>
-       <div style={styles.textFlex}>
-            <div>Lost your Password?</div>
-        </div>
+        <InputInfo data1 = "Lost your Password"/>
         <br/>
         <h1 style={styles.headin}>
        New User

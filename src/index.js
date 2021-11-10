@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import {BrowserRouter} from 'react-router-dom'
 
 const themeOptions = {
   palette: {
@@ -28,11 +28,11 @@ const theme=createTheme(themeOptions);
 
 ReactDOM.render(
   <BrowserRouter>
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-    <App />
-    </ThemeProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+      <ThemeProvider theme={theme}>
+      <App />
+      </ThemeProvider>
+    </React.StrictMode>
   </BrowserRouter>,
   document.getElementById('root')
 );

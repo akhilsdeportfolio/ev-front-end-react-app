@@ -1,0 +1,7 @@
+{
+    "editor.colorDecorators": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.scrollbar.horizontal": "auto",
+    "editor.language.colorizedBracketPairs": true
+
+}

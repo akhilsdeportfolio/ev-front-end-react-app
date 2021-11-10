@@ -1,6 +1,8 @@
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import { Account } from './components/Account';
+import { Gallery } from './components/Gallery';
+
 //  import { Home } from './components/Home';
 
 /* import './App.css';
@@ -36,7 +38,8 @@ function App() {
       {/* <Raise5/> */}
       {/* <LoginForm/> */}
       {/* <SignupForm/> */}
-      <Account/>
+      {/* <Account/> */}
+      <Gallery/>
     </>
   ); 
 }

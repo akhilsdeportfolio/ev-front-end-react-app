@@ -12,6 +12,7 @@ const themeOptions = {
     primary: {
       main: '#FF3D5A',
       light: '#ff546d',
+      
     },
     secondary: {
       main: '#c31761',

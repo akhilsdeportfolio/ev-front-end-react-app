@@ -1,179 +1,39 @@
 {
-  "raiseticket": [
+  "user": [
     {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "problem": "",
-      "id": 1
+      "id": 1,
+      "Name": "Deepak"
     },
     {
-      "name": "Shashank Shekhar Singh",
-      "phone": "45347658763",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
+      "email": "dchaurasiya8589@gmail.com",
+      "password": "1234asdf",
       "id": 2
     },
     {
-      "name": "ww",
-      "phone": "2333223",
-      "email": "w@w.com",
-      "problem": "wwwwwww",
+      "email": "abc@gmail.com",
+      "password": "ddddd123",
       "id": 3
     },
     {
-      "name": "dddddd",
-      "phone": "3456543456",
-      "email": "w@w.com",
-      "problem": "qqqq",
+      "firstName": "Deepak",
+      "lastName": "Chaurasiya",
+      "email": "dchaurasiya8589@gmail.com",
+      "password": "&&xku2B@CGw37#k",
       "id": 4
     },
     {
-      "name": "Shashank Shekhar Singh",
-      "phone": "23536",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
+      "firstName": "Deepak",
+      "lastName": "Chaurasiya",
+      "email": "deepu123@gmail.com",
+      "password": "deepau123",
       "id": 5
     },
     {
-      "name": "wwwwwwwwww",
-      "phone": "333333333",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
+      "firstName": "raj",
+      "lastName": "chaurasiya",
+      "email": "raj123@gmail.com",
+      "password": "rajkumar123",
       "id": 6
-    },
-    {
-      "name": "ee",
-      "phone": "456876454365",
-      "email": "r@r.com",
-      "problem": "dfhfsffdh",
-      "id": 7
-    },
-    {
-      "name": "sgsg",
-      "phone": "33",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 8
-    },
-    {
-      "name": "errhfh",
-      "phone": "2536266622",
-      "email": "q4@g.com",
-      "problem": "sshhs",
-      "id": 9
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "34567654323456",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 10
-    },
-    {
-      "name": "hh",
-      "phone": "88",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 11
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "4444",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 12
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "8765434567",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 13
-    },
-    {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "problem": "",
-      "id": 14
-    },
-    {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "problem": "",
-      "id": 15
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "2534375654",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 16
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "345675463524234265657565",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 17
-    },
-    {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "problem": "",
-      "id": 18
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "45678567456",
-      "email": "shashank0194@gmail.com",
-      "problem": "Uttar Pradesh",
-      "id": 19
-    },
-    {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "problem": "",
-      "id": 20
-    },
-    {
-      "name": "3456",
-      "phone": "45678",
-      "email": "w@w.com",
-      "problem": "fdgh",
-      "id": 21
-    },
-    {
-      "name": "66",
-      "phone": "3333333333",
-      "email": "w@w.com",
-      "problem": "sss",
-      "id": 22
-    },
-    {
-      "name": "",
-      "phone": "",
-      "email": "",
-      "problem": "",
-      "id": 23
-    },
-    {
-      "name": "shashal",
-      "phone": "4565434565",
-      "email": "shashank0194@gmail.com",
-      "problem": "hjhghj",
-      "id": 24
-    },
-    {
-      "name": "Shashank Shekhar Singh",
-      "phone": "8888888888",
-      "email": "shashank0194@gmail.com",
-      "problem": "problem",
-      "id": 25
     }
   ]
 }

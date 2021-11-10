@@ -7856,6 +7856,11 @@
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.1.tgz"
   "version" "2.1.1"
 
+"mui@^0.0.1":
+  "integrity" "sha1-Rppx8JMpaVJiceyTncWVmAZZB2I="
+  "resolved" "https://registry.npmjs.org/mui/-/mui-0.0.1.tgz"
+  "version" "0.0.1"
+
 "multicast-dns-service-types@^1.1.0":
   "integrity" "sha1-iZ8R2WhuXgXLkbNdXw5jt3PPyQE="
   "resolved" "https://registry.npmjs.org/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz"

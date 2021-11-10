@@ -4,8 +4,9 @@ import { InputInfo } from "./InputInfo";
 const styles = {
     box:{
         width:350,
-        height:500,
-        marginLeft:"38%",
+        height:545,
+        margin:"-1% 70% 0% 38%",
+        border: "2px solid red"
     },
     headin:{
         fontFamily: "Poppins",
@@ -83,7 +84,8 @@ export default function LoginForm() {
         let passwordCheck = password;
         let passpattern = /[0-9]/g;
         let result3 = passwordCheck.match(passpattern);
-        if(result3.length === 0){
+        // console.log(result3,"r3")
+        if(result3=== null){
             alert("password must include alphabet and digit both")
             return
         }
@@ -91,7 +93,17 @@ export default function LoginForm() {
             email,
             password
         }
-        console.log(user)
+       console.log(user)
+       fetch("http://localhost:3000/user")
+        .then((res)=>{
+            let data = res.json();
+            return data
+           
+        }).then((data)=>{
+            console.log(data)
+        }).catch(err=>err)
+        event.target.email.value = null;
+        event.target.password.value = null;
     }
   return (
     <form style={styles.box} onSubmit = {handleSubmit}>
@@ -107,8 +119,9 @@ export default function LoginForm() {
     <div style={styles.padding}>
        <InputInfo data1 = "Password"/>
         <input style={styles.input} 
-        type="text"
+        type="password"
         name="password" 
+        required = "true"
         placeholder = "Enter Password"/>
         
     </div>

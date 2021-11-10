@@ -89,7 +89,7 @@ export default function SignupForm() {
         let passwordCheck = password;
         let passpattern = /[0-9]/g;
         let result3 = passwordCheck.match(passpattern);
-        if(result3.length === 0){
+        if(result3 === null){
             alert("password must include alphabet and digit both")
             return
         }
@@ -100,6 +100,23 @@ export default function SignupForm() {
             password,
         }
         console.log(user)
+        fetch("http://localhost:3000/user",{
+            method:'POST',
+            body:JSON.stringify(user),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(response =>{
+            if (response.status >= 200 && response.status < 300) {
+                console.log(response);
+                return ;
+              } else {
+               console.log('Somthing happened wrong');
+              }
+        }).catch(err => err);
+
+        let local = localStorage.setItem('users',JSON.stringify(user))
+        console.log("local",local)
         e.target.firstName.value = null;
         e.target.lastName.value = null;
         e.target.email.value = null;
@@ -113,7 +130,7 @@ export default function SignupForm() {
         <input style={styles.input} 
         type="text" 
         name="firstName"
-        placeholder = "Enter First Name"/>
+        required = "true" placeholder = "Enter First Name" />
         
     </div>
     <div style={styles.padding}>
@@ -121,7 +138,7 @@ export default function SignupForm() {
         <input style={styles.input} 
         type="text" 
         name = "lastName"
-        placeholder = "Enter Last Name"/>
+        required = "true" placeholder = "Enter Last Name"/>
         
     </div>
     <div style={styles.padding}>
@@ -129,14 +146,14 @@ export default function SignupForm() {
         <input style={styles.input} 
         name = "email"
         type="email" 
-        placeholder = "Enter Email"/>
+        required = "true" placeholder = "Enter Email"/>
     </div>
     <div style={styles.padding}>
     <InputInfo data1 = "Password"/>
         <input style={styles.input} 
         type="password" 
         name = "password"
-        placeholder = "Enter Password"/>
+        required = "true" placeholder = "Enter Password"/>
     </div>
     <button style = {
             styles.button

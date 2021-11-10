@@ -1,5 +1,39 @@
 {
-    "user": [
-      { "id": 1, "title": "json-server", "author": "typicode" }, { "id": 1, "title": "json-server", "author": "typicode" }
-    ]
-  }
+  "user": [
+    {
+      "id": 1,
+      "Name": "Deepak"
+    },
+    {
+      "email": "dchaurasiya8589@gmail.com",
+      "password": "1234asdf",
+      "id": 2
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "ddddd123",
+      "id": 3
+    },
+    {
+      "firstName": "Deepak",
+      "lastName": "Chaurasiya",
+      "email": "dchaurasiya8589@gmail.com",
+      "password": "&&xku2B@CGw37#k",
+      "id": 4
+    },
+    {
+      "firstName": "Deepak",
+      "lastName": "Chaurasiya",
+      "email": "deepu123@gmail.com",
+      "password": "deepau123",
+      "id": 5
+    },
+    {
+      "firstName": "raj",
+      "lastName": "chaurasiya",
+      "email": "raj123@gmail.com",
+      "password": "rajkumar123",
+      "id": 6
+    }
+  ]
+}

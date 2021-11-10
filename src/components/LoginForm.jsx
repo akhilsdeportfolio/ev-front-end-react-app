@@ -93,7 +93,7 @@ export default function LoginForm() {
             email,
             password
         }
-      // console.log(user)
+      console.log(user)
        fetch("http://localhost:3000/user")
         .then((res)=>{
             let data = res.json();

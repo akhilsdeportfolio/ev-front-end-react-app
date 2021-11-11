@@ -1,3 +1,5 @@
+import { Footer } from "./Footer"
+import { Navbar } from "./Navbar"
 
 const styles = {
   we: {
@@ -11,6 +13,7 @@ const styles = {
     textAlign: "center",
     color: "#000000",
     margin: "auto",
+    marginTop:"51px",
     marginBottom: "72px",
   },
 
@@ -39,6 +42,7 @@ const styles = {
     textAlign: "center",
     color: "#000000",
     margin: "auto",
+    marginBottom: "25px",
   },
 
   helpingYou: {
@@ -57,10 +61,12 @@ const styles = {
 const About = () => {
   return (
     <>
+      <Navbar></Navbar>
       <div style={styles.we}>WE ARE</div>
       <div style={styles.para1}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor in placerat leo gravida id adipiscing id consequat sit. Condimentum id magna duis nulla imperdiet dignissim. Sapien odio blandit sociis integer. Lorem egestas mi massa interdum erat ullamcorper cursus eu. Viverra sed sed ipsum morbi justo id odio tellus. Cras ullamcorper lacinia elit et fringilla augue senectus dui amet. Imperdiet malesuada sed facilisis scelerisque iaculis morbi amet. Vitae arcu vitae pulvinar diam sociis mattis. Gravida aenean mattis fermentum dictum ultrices mi.</div>
       <div style={styles.para2}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor in placerat leo gravida id adipiscing id consequat sit. Condimentum id magna duis nulla imperdiet dignissim. Sapien odio blandit sociis integer. Lorem egestas mi massa interdum erat ullamcorper cursus eu. Viverra sed sed ipsum morbi justo id odio tellus. Cras ullamcorper lacinia elit et fringilla augue senectus dui amet. Imperdiet malesuada sed facilisis scelerisque iaculis morbi amet. Vitae arcu vitae pulvinar diam sociis mattis. Gravida aenean mattis fermentum dictum ultrices mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor in placerat leo gravida id adipiscing id consequat sit. Condimentum id magna duis nulla imperdiet dignissim. Sapien odio blandit sociis integer. Lorem egestas mi massa interdum erat ullamcorper cursus eu. Viverra sed sed ipsum morbi justo id odio tellus. Cras ullamcorper lacinia elit et fringilla augue senectus dui amet. Imperdiet malesuada sed facilisis scelerisque iaculis morbi amet. Vitae arcu vitae pulvinar diam sociis mattis. Gravida aenean mattis fermentum dictum ultrices mi.</div>
       <div style={styles.helpingYou}>ALWAYS  HELPING YOU</div>
+      <Footer></Footer>
     </>
   )
 }

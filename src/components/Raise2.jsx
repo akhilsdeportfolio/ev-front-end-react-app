@@ -10,6 +10,7 @@ import { useState, useEffect, } from "react"
 import { Link, useHistory } from 'react-router-dom'
 import TicketNumber from './TicketNumber';
 import { Footer } from './Footer';
+import { Navbar } from './Navbar';
 
 const styles = {
     txtnone: {
@@ -23,7 +24,8 @@ const styles = {
         color: "white"
     },
     btn: {
-        marginLeft: "112px"
+        marginLeft: "112px",
+        marginTop:"15px"
     },
     radioBtn:{
         color: "#1C1C1C", 
@@ -36,6 +38,7 @@ const styles = {
     nameInput:{
         width: "346px",
         height: "49px",
+        fontSize:"20px",
         background: "#E8E8E8",
         marginLeft: "113px",
         border: "none",
@@ -43,6 +46,7 @@ const styles = {
     nameInput1:{
         width: "346px",
         height: "49px",
+        fontSize:"20px",
         background: "#E8E8E8",
         marginLeft: "113px",
         border: "none",
@@ -71,11 +75,14 @@ const styles = {
         marginLeft: "36px",
     },
     stackDiv:{
-        marginLeft: "8.08%"
+        marginLeft: "8.08%",
+        marginTop:"30px",
+        marginBottom:"30px"
     },
     problemInput:{
         width: "83%",
         height: "230px",
+        fontSize:"20px",
         display: "block",
         margin: "auto",
         background: "#E8E8E8",  
@@ -92,6 +99,10 @@ const styles = {
         lineHeight: "22px",
         color: "#000000",
         marginLeft: "8.2%",
+    },
+    mTopBotttom:{
+        marginTop:"30px",
+        marginBottom:"15px"
     }
 
 }
@@ -174,6 +185,7 @@ const Raise2 = () => {
     };
     return (
         <>
+        <Navbar></Navbar>
             <Experience />
             <Support />
             <TicketNumber></TicketNumber>
@@ -201,7 +213,7 @@ const Raise2 = () => {
                         <input type="Email" name="email" value={raiseform.email} onChange={handleChange} style={styles.nameInput1} />
                     </div>
                 </div>
-                <div>
+                <div style={styles.mTopBotttom}>
                     <label style={styles.problemLabel}> State your Problem</label>
                     <br />
                     <textarea type="problem" name="problem" value={raiseform.problem} onChange={handleChange} style={styles.problemInput} />

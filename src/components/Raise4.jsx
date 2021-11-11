@@ -3,6 +3,8 @@ import Experience from './Experience'
 import Support from './Support'
 import TicketNumber from './TicketNumber'
 import Tickmark from './image/Group 76.png'
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
 
 const styles = {
@@ -17,13 +19,15 @@ const styles = {
         textAlign: "center",
         color: "#000000",
         margin: "auto",
+        marginTop:"80px"
     },
     mark:{
         justifyContent: "center", 
         alignItems: "center",
         margin: "auto",
         display: "block",
-        marginTop: "4.05%"
+        marginTop: "4.05%",
+        marginBottom:"40px"
     },
     
     solveAsapDiv:{
@@ -42,12 +46,14 @@ const styles = {
 const Raise4 = () => {
     return (
         <>
+        <Navbar></Navbar>
          <Experience/>
          <Support/>
          <TicketNumber/>
          <div style={styles.responseDiv}>Your Response is Recorded</div> 
          <img style={styles.mark} src={Tickmark} alt="..." />
          <div style={styles.solveAsapDiv}>We will solve your problem ASAP</div>  
+         <Footer></Footer>
         </>
     )
 }

@@ -13,7 +13,7 @@ const styles = {
         textDecorationLine: "underline",
         color: "#000000",
         margin: "auto",
-        marginTop: "10px"
+        marginTop: "16px"
     }
 }
 

@@ -12,7 +12,8 @@ const styles = {
     lineHeight: "29px",
     textAlign: "center",
     color: "#000000",
-    margin: "auto"
+    margin: "auto",
+    marginTop:"24px"
   },
   spanStyle:{
     color: "blue"

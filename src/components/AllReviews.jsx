@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Review from './Review';
-
-
+import { Footer } from './Footer';
+import { Link } from 'react-router-dom';
 const styles={
      textAlign:'center',width:'100%',fontFamily:'Rozha One',fontSize:'37px'
 };
@@ -15,9 +15,10 @@ export default function()
      return(<>
           <AppBar position="static" >
                <Toolbar variant="dense" >
-               <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+               <Link to="/" style={{color:'white'}}> <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                     <ArrowBackIosNewIcon />
                </IconButton>
+               </Link>
 
                
                <Typography variant="h1" color="inherit" component="div" style={styles}>
@@ -35,6 +36,7 @@ export default function()
           <Review/>
           </Box>
 
+          <Footer/>
           
      </>);
 }

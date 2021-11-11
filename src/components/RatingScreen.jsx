@@ -5,7 +5,8 @@ import FormControl, { useFormControl } from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormHelperText from '@mui/material/FormHelperText';
 import { useMemo, useState } from "react";
-
+import { Footer } from "./Footer";
+import { Navbar } from './Navbar';
 
 
 function MyFormHelperText() {
@@ -29,6 +30,7 @@ export default function()
 
      return(<>
 
+     <Navbar/> 
      <Box sx={{padding:25,spacing:3}}>
 
           <Stack direction="column" spacing={5}>
@@ -75,7 +77,7 @@ export default function()
 
      </Box>          
 
-
+     <Footer/>         
 
      </>)
 }

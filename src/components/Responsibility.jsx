@@ -83,18 +83,12 @@ function Responsibility(){
             <Content>
             <h1>Your Experience</h1>
             <h2>Our Responsibility</h2>
-            
             </Content>
-            
-
             </section>
-            
             </Section>
-             
             <img style={styles.nexon} src={nexon} alt={nexon}/>
             <img style={styles.huyndai} src={huyndai} alt={huyndai}/>
             <h4 style={styles.urgent}>URGENT</h4>
-           
         </div>
     )
 }

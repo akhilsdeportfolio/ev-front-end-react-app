@@ -6,11 +6,10 @@ import { useState } from 'react';
 
 const Search = styled.div`
   background-color: #FFB3D4;
-  width: 35%;
-  height: 9%;
+  width: 37%;
+  height: 38px;
   border-radius: 30px;
   display: flex;
-  padding: 0.05%;
   margin: auto;
   margin-top: 3%;
   margin-bottom: 3%;
@@ -19,8 +18,10 @@ const Search = styled.div`
 const SearchWrapper = styled.div`
  background-color: white;
  width: 16%;
- border-radius: 25px;
- margin-left: 3.5%;
+ height: 32px;
+ border-radius: 20px;
+ margin-top: 2.8px;
+ margin-left: 1%;
 `
 
 
@@ -31,6 +32,8 @@ const StyledInputBase = styled(InputBase)(() => ({
     borderRadius: "42px",
     padding: "0.2%",
     paddingLeft: "2%",
+    marginTop: '20px',
+    marginLeft: '10px',
     input:{
     '&::placeholder': {
       color: 'black',

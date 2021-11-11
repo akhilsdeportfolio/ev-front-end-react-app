@@ -1,15 +1,81 @@
 import { Footer } from "./Footer";
-import "./gallery.css"
 import { GalleryHead } from "./GalleryHead"
+
+const styles = {
+    contain:{
+        width: "90%",
+        marginLeft: "5%",
+    },
+    gallery:{
+        fontFamily: "Rozha One",
+        fontStyle: "normal",
+        fontWeight: "normal",
+        fontSize: "350%",
+        lineHeight: "95px",
+        textAlign: "center",
+    },
+    line:{
+        width:"20%",
+        height: "10px",
+        borderRadius: "10px",
+        marginLeft: "40%",
+        background: "#FF546D",
+    },
+    row1Img:{
+        display: "grid",
+        marginTop: "-19px",
+        gridTemplateColumns:" repeat(3,34%)",
+        marginBottom:" 40px"
+    },
+    img:{
+        width: "95%",
+        height: "237px",
+    },
+    selectColor:{
+        display: "grid",
+        gridTemplateColumns: "repeat(3,34%)"
+    },
+    white:{
+        width: "95%",
+        height: "25px",
+        marginTop: "-25px",
+        border: "1px solid #000000",
+        marginBottom: "40px",
+    },
+    grey:{
+        width: "95%",
+        height: "25px",
+        marginTop: "-25px",
+        backgroundColor: "grey"
+    },
+    blue:{
+        width: "95%",
+        height: "25px",
+        marginTop: "-25px",
+        backgroundColor: "#FF546D"
+    },
+    playButton:{
+        display: "grid",
+        gridTemplateColumns: "repeat(3,34%)"
+    },
+    playButtonImg:{
+        position: "relative",
+    top: "-170px",
+    left: "210px",
+    width: "40px",
+    height: "40px"
+    }
+   
+}
 
 export const Gallery = ()=>{
     function ImageList(props){
         const images = props.image;
         const listItems = images.map((el)=>
-            <img src = {el} alt="" />
+            <img style={styles.img} src = {el} alt="" />
         );
         return (
-            <div id="row1img">{listItems}</div>
+            <div style={styles.row1Img}>{listItems}</div>
         )
     }
     var row1Img = ["https://s3-alpha-sig.figma.com/img/9026/ff35/a00dd10fd914ecd93f0abe139b563f5b?Expires=1637539200&Signature=Q0DssljF4d4AgB2sn8OUX2jLiQCytmW0k6xe0367Vn4smryzSuoRg9VMbC8Zv-~EIzcau8VJ1OavqUaxG15sjmRaqavI4lptzN1TbBYxP092MWb1VbDppnMrGt5cWKA7kYoF-XtlNJMOyJZGvQlGgBfU~GThog23AvrFVwrvgcJEnfO9jR3lYK9iNuxaUGMfU-k37CNrGyukCH~cI0I6zq6PHlu~gABZfk6~LjjFSxh1ryD~vlSuZOH~yjru1p1iaiswQCOrCPjDiOBEAHz-6DC5GmbvBGkJXFcmGeHYGMnmGo3ebyDMn6vrq76NSHChHzYmdhE006mQZ2a8QSKaaA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/9290/b25c/d2ab3a0afadddac8d1e970d928facfd5?Expires=1637539200&Signature=VdhaULeaOGdQQc~fCGjcZsGjii5oulzHOnEEmQUlEflASz88JCHIJ89J7IyGGuywhHa6m0EWUIWrr9PnaqRCVXXdoXwSoubj45IKfLwR42QUUu6rJ3tVYVnTgsVwp-G9wL5CQOITm~GQl7VMbP9OUTC2HdHl0O1m8bviqzsFC0qcLMP3juK4jKcsgIW7tJXLnbGmiEUdB4HwEldwIzs~L8zGjlOBoxV2eJVrvQsz5Y6~ekOZKc2lHjPsYcZaqKs8Xi-rRnOKmO4LwTPqs447ctWYZACUrnSTev5QdIBHjwCYZT1mCbB421AFB-koCez0w1veGDiVpS~KDwKAlSKJxA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/e0cf/8f02/c6743e8df515f1b5bc23c46931846ae3?Expires=1637539200&Signature=bSHOeJ6YAnK2DZM7Q0qjVgGouk7FP6Xf1uLRXhMrbUAGg3F2qJk-wy4Fw3qANi2oSQnWVld~anw1TanJzrJQCjEarWU3ORw6RKBzZPL0szZER8ZTHg7nK8jbTag0X2nSMGPPJLFOY6jANxsv~MjdTN1kt7BbmvW3rd2JhpgThVkXM2pexsuu4MjrfVDn96LaFk1hBXq98fqAGy3auLvpyMpwE~NaUOEZ1oDqq5MpwRo6mvHgfK197nwmGThLknr7WjcZtMSijKYYt9mJEzJYoD~8zodJxu1acbQ5hkiiesSanKnEm~NvoYiA3o7ek9KfWHQACR5SdOYjhwdn1zJlMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
@@ -27,9 +93,9 @@ export const Gallery = ()=>{
     var row7Img = ["https://s3-alpha-sig.figma.com/img/ed16/33ca/7667246b4110aadb20c113166c0abb38?Expires=1637539200&Signature=Rrq0ovo0jsvvUNt4DIqmdRMbAG6JpOvomwhiOygID24n8Putyhi4omATVfGqrnMHw4G3yEmbtG1SHuPeNSSFq-5EzxvEJROGAjQIs2Ii1wpjuMWDG4gPgKn-BJEkzb01l2Md0VnPBn141pci2-6gAipVPzZw484B2F11qu-iWqwoeKhPV5rw9Kj3afU52JQvYeHYnWZkcniWCCPZ1bYIj7uyoyJMPA-gXoSg~z5Jojz6gSLJT2pZs9aeg~vQQ8pzbj5gtfz9GADQ2O6Gt3eibiKdR6UMjdhWkQZDzgf~ASPVBmCWBPltTBt1ot~uZGrAQmiEfcj9NEwMv3UvKYY2Ng__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/e0cf/8f02/c6743e8df515f1b5bc23c46931846ae3?Expires=1637539200&Signature=bSHOeJ6YAnK2DZM7Q0qjVgGouk7FP6Xf1uLRXhMrbUAGg3F2qJk-wy4Fw3qANi2oSQnWVld~anw1TanJzrJQCjEarWU3ORw6RKBzZPL0szZER8ZTHg7nK8jbTag0X2nSMGPPJLFOY6jANxsv~MjdTN1kt7BbmvW3rd2JhpgThVkXM2pexsuu4MjrfVDn96LaFk1hBXq98fqAGy3auLvpyMpwE~NaUOEZ1oDqq5MpwRo6mvHgfK197nwmGThLknr7WjcZtMSijKYYt9mJEzJYoD~8zodJxu1acbQ5hkiiesSanKnEm~NvoYiA3o7ek9KfWHQACR5SdOYjhwdn1zJlMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/a9c1/3f5b/01cd7db563ee580284b787dd2f0157b8?Expires=1637539200&Signature=Vo7QkZXFc0aSdhC07oCqqulCkCkvrZA4MgC0RtRvNShwJ1mqT-dfhuNRgK3Oz~rD2RmQF70ps2MUns0yN0FroLmgHBrOolFRBcejLd~UFTOqClJt8Gr3oSZ7oKL8cRlCAzijW7kWTHKc54Xih5EBLxbsdFY~mi585b~0lRDB0IM4ymgVkds6nw~kHyfMlVdSXeV8DT9F49rHbz68ioTvsOm5ClPOEhtUwQTpJZIRswjvWerWKHDSuRiGTEh-H579pEs8bRZKLNPK8VywUdXMVEZ1AzJCNVygzeJCJaIHwGwjhwe4NEwvG4gdvwGS2iqx2w~3EaYirJ0BN4DygdMGUQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
     return (
         <>
-           <div id = "contain">
-           <div className = "gallery">Gallery</div>
-            <div className = "line"></div>
+           <div style={styles.contain}>
+           <div style={styles.gallery}>Gallery</div>
+            <div style={styles.line}></div>
             <GalleryHead name = "Exterior"/>
             <ImageList image = {row1Img}/>
             <ImageList image = {row2Img}/>
@@ -38,19 +104,19 @@ export const Gallery = ()=>{
             <ImageList image = {row4Img}/>
             <GalleryHead name="Colors"/>
             <ImageList image = {row5Img}/>
-            <div className = "selectColor">
-                <p className = "white"></p>
-                <p className = "grey"></p>
-                <p className = "blue"></p>
+            <div style = {styles.selectColor}>
+                <p style = {styles.white}></p>
+                <p style = {styles.grey}></p>
+                <p style = {styles.blue}></p>
             </div>
             <GalleryHead name="Road Test"/>
             <ImageList image = {row6Img}/>
             <GalleryHead name="Videos"/>
             <ImageList image = {row7Img}/>
-          <div className = "playButton">
-          <img src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
-          <img src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
-          <img src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
+          <div style = {styles.playButton}>
+          <img style = {styles.playButtonImg} src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
+          <img style = {styles.playButtonImg} src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
+          <img style = {styles.playButtonImg} src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
           </div>
            </div>
           <Footer/>

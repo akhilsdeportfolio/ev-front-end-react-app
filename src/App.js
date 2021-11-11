@@ -71,9 +71,9 @@ function App() {
       {/* <Raise5/> */}
 
       {/* <LoginForm/> */}
-      {/* <SignupForm/> */}
+      <SignupForm/>
       {/* <Account/> */}
-      <Gallery/>
+      {/* <Gallery/> */}
     </>
   ); 
 }

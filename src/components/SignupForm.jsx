@@ -161,7 +161,7 @@ export default function SignupForm() {
     <button style = {
             styles.button
         }>Create</button>
-       <InputInfo data1 = "or Return to page"/>
+       <InputInfo data1 = "or Return to Home Page"/>
     </form>
     <Footer/>
     </>

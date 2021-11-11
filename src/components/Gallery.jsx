@@ -54,29 +54,42 @@ let styles = {
     img:{
         width: "95%",
         height: "237px",
+        cursor:"pointer",
     },
-    selectColor:{
-        display: "grid",
-        gridTemplateColumns: "repeat(3,34%)"
-    },
+    
     white:{
-        width: "95%",
+        position:"absolute",
+        top:"236%",
+        borderRadius:10,
+        width: "29.2%",
         height: "25px",
-        marginTop: "-25px",
+       
         backgroundColor:"#5D6D61",
-        marginBottom: "40px",
+       
+        marginRight:"1.7%",
+        float:"left"
     },
     grey:{
-        width: "95%",
+        position:"absolute",
+        top:"236%",
+        borderRadius:10,
+        left:"35.6%",
+        width: "29%",
         height: "25px",
-        marginTop: "-25px",
-        backgroundColor: "#FF546D"
+        marginRight:"1.7%",
+       
+        backgroundColor: "#FF546D",
+        float:"left"
     },
     blue:{
-        width: "95%",
+        position:"absolute",
+        top:"236%",
+        borderRadius:10,
+        width: "28.4%",
         height: "25px",
-        marginTop: "-25px",
-        backgroundColor: "#0380BE"
+        left:"66%",
+        backgroundColor: "#0380BE",
+        float:"left"
     },
     playButton:{
         display: "grid",
@@ -113,33 +126,53 @@ export const Gallery = ()=>{
             <div style={styles.row1Img}>{listItems}</div>
         )
     }
+    function fun1(){
+        setVisible3(false)
+        setVisible2(false)
+        setVisible(true) 
+    }
+    function fun2(){
+        setVisible3(true)
+        setVisible2(false)
+        setVisible(false)   
+    }
+    function fun3(){
+        setVisible3(false)
+        setVisible2(true)
+        setVisible(false)   
+    }
 
     function colorChange(el){
-        if(el.target.src === "https://stimg.cardekho.com/images/carexteriorimages/930x620/Tata/Nexon/7297/1579769179487/front-view-118.jpg"){
+        if(el.target.src === "https://imgd.aeplcdn.com/664x374/n/cw/ec/41645/tata-nexon-right-front-three-quarter3.jpeg?q=85"){
+            fun1()
             setColor6(whiteRow6)
             setColor(whiteRow1)
             setColor2(whiteRow2)
             setColor3(whiteRow3)
             setColor4(whiteRow4)
             setColor7(whiteRow7)
-
+           //https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-exterior-right-front-three-quarter-148706.jpeg?q=85&wm=1
+            
         }
         else if(el.target.src ==="https://s3-alpha-sig.figma.com/img/1ed9/c597/d8de9e461aa8cc6700ff9fe8ba548e15?Expires=1637539200&Signature=bpqukmDRnptOkkZI8qsNDcb~m23U3KqwmLCc5UlMRAQ~x2CGOaCwQHzrm7GIBY-cZaVqR9dbdeh2tx52IoGT2fshig0fzuUhRKkpfeWrNIJCcrgy1mEQns2hfYbYH3NCdLInB9KIArUlfDTksaudMMqYcvdevFWDOTlRIi0Hb8x1SjbnfigTUs~ACzNiltA7XwETe2Rj7Fo3keqggu6nwsD8mnGf0GyUX3bnUR3aJuQGMOUhun6XtkcJxlh6dF7N8p0t4-aW7-qidbVw5HgF3gbqLbaeDkVfx9ZJeCuKZa4EzaAHKlWCi~HI8~1Mxhk9FN8sccPA9Zmp0Qe8N45FTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"){
-            setColor6(row1Img)
+           fun2()
+        setColor6(row1Img)
             setColor(row2Img)
             setColor2(row3Img)
             setColor3(row4Img)
             setColor4(row6Img)
             setColor7(row7Img)
+           
         }
         else if(el.target.src ==="https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-exterior-right-front-three-quarter-148706.jpeg?q=85&wm=1"){
-            setColor6(redRow6)   
+        fun3()
+        setColor6(redRow6)   
             setColor(redRow1)
             setColor2(redRow2)
             setColor3(redRow3)
             setColor4(redRow4)
             setColor7(redRow7)
-            
+           
         }
         
     }
@@ -177,7 +210,7 @@ export const Gallery = ()=>{
 
     var row4Img = ["https://s3-alpha-sig.figma.com/img/7c94/092a/c8663a64c3d79b102290ef6bbdd8b681?Expires=1637539200&Signature=eqMRif5ngHwXCKKaPIAevQVcRQaMdWuzNTgIiJv~TMHkXHTHratVNs3vk0Wy0rbnDk3r14Rv~AwfmPmNc37RK2QU8nH88b7ZtHPaATr6BkvbpmO1HqolLqoG~WhoRu4tT2pZVQiHP7UkhmPxrVAv5B-LjI7oZvPspOr21fXzge7KZxU4pNmu3K5~kX60Zsvm-KaG7ivLUxFGLzzyL~e1I4HcUTtdxOcdgcQAW9Xbw-OnFGQUYOU-IsfJQHkrZL7U6cUI5LKMiwr3dHksE~plOvjMzaueUIuCETGL-wnzV4OF63DRKoQnYQ3V7dsi0F0Ok17boMdbUSiciAt9ziIfZw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/c746/af80/6f53a6f3028cbbb747c885c6a6a97a29?Expires=1637539200&Signature=EaVUUuIV5zlbq5qR8ynpcQ6qglt12GplPQw1iJ7Zfg1wmENM6gIhWV7sMaHJ9t9G2JkgEvIOG~zNchD6OAHXMnCakn9a-GvUuU3e0TR4AoaAVHandt6p7~qLork7Wg3hsd5md35glCiJ12UZe5ThH4VPb92~p3U-uea6X6rgiF8dZ6oy9810AcaqC555byXAsZnmKJcSvBoO6fS84yJiWojabLqZVF~GMlGDJrsxZ4xKPf6B-lGWz2zR~SZrRTwb3Zhlw1azTQvOz~ODKAuQWiutysdEHoyi7d-2hSixBL8a5J3yJzfIMf0azAmZQPnJ7~bz~bDFiFhgZZAdIwisXg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/e7a2/9d3c/f547fc1edb1015692bb19621070f6b49?Expires=1637539200&Signature=hYe8orViGtQXex1vec2VRs9kZX2M9lOrrjbCQksvZiE1gauzL7tCIHQBEEeM6ajd3utSC7F~2bXYsQEMbynoHxMpkiN6O4EdVbjXqM9EoG4DvoACMXQ9WhXIR6KQ0UZQW-9O4lFKbea10PT0LWWhSWhz3n7gcITRzy0k0b6CqFpklwZP~3WKwLzvDk0rnv35NXOp1ISurfBl8PTTNcX5RkYFTa3wiId4VlLG-PL7110jP3cRIy8nsWK3SLKXleHGL4CkylDLWUSLlTBT0g7AuzFMdfi4WJraGqlNi8HNz3d~iH-rEppQrHZ6ALYaXhInliyC7A~gYcz1kKydOqENyg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
     
-    var row5Img = ["https://stimg.cardekho.com/images/carexteriorimages/930x620/Tata/Nexon/7297/1579769179487/front-view-118.jpg","https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-exterior-right-front-three-quarter-148706.jpeg?q=85&wm=1","https://s3-alpha-sig.figma.com/img/1ed9/c597/d8de9e461aa8cc6700ff9fe8ba548e15?Expires=1637539200&Signature=bpqukmDRnptOkkZI8qsNDcb~m23U3KqwmLCc5UlMRAQ~x2CGOaCwQHzrm7GIBY-cZaVqR9dbdeh2tx52IoGT2fshig0fzuUhRKkpfeWrNIJCcrgy1mEQns2hfYbYH3NCdLInB9KIArUlfDTksaudMMqYcvdevFWDOTlRIi0Hb8x1SjbnfigTUs~ACzNiltA7XwETe2Rj7Fo3keqggu6nwsD8mnGf0GyUX3bnUR3aJuQGMOUhun6XtkcJxlh6dF7N8p0t4-aW7-qidbVw5HgF3gbqLbaeDkVfx9ZJeCuKZa4EzaAHKlWCi~HI8~1Mxhk9FN8sccPA9Zmp0Qe8N45FTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
+    var row5Img = ["https://imgd.aeplcdn.com/664x374/n/cw/ec/41645/tata-nexon-right-front-three-quarter3.jpeg?q=85","https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-exterior-right-front-three-quarter-148706.jpeg?q=85&wm=1","https://s3-alpha-sig.figma.com/img/1ed9/c597/d8de9e461aa8cc6700ff9fe8ba548e15?Expires=1637539200&Signature=bpqukmDRnptOkkZI8qsNDcb~m23U3KqwmLCc5UlMRAQ~x2CGOaCwQHzrm7GIBY-cZaVqR9dbdeh2tx52IoGT2fshig0fzuUhRKkpfeWrNIJCcrgy1mEQns2hfYbYH3NCdLInB9KIArUlfDTksaudMMqYcvdevFWDOTlRIi0Hb8x1SjbnfigTUs~ACzNiltA7XwETe2Rj7Fo3keqggu6nwsD8mnGf0GyUX3bnUR3aJuQGMOUhun6XtkcJxlh6dF7N8p0t4-aW7-qidbVw5HgF3gbqLbaeDkVfx9ZJeCuKZa4EzaAHKlWCi~HI8~1Mxhk9FN8sccPA9Zmp0Qe8N45FTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
     
     var row6Img = ["https://s3-alpha-sig.figma.com/img/89c5/d575/0c19acbe2d425e7f7808c6f7fd43efca?Expires=1637539200&Signature=SvMv4ksio9B0u-Q9XGkONv71s4L6swobyVpseN3D-uPVjODEyWpIHvXt0fjAmUYhTTSJBVdqyXAff~Mvb3PC8FSEm2ZWHLUj88M9SPXjsuD~75Fl8dKM2eFdoBqBFYfuKrfJXDeZVnX5cmVg36sJc0ixaY2oIDIX2unQA6s-0Olh4uwlbpc-TGbEFNWz2DHqMEba96x8Hp47X6bELTVG~k9h2ubhhjQWOiwG75cabPshNSJl4aJqh9xm1eekTuOQBqw1grofHR0T4q7cgJaGDazACcRGr3HWoskIrU15AnNvFDpqfk6Uv8mIAAAWeUSwO0Ei3E5RK4qLc8XKTUkdzQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/1096/b530/d0751bba10bbd04efb905f64162014b5?Expires=1637539200&Signature=WCuNLju3ynEX56fCXWVNs8qPjSgEA5gK56XKs~Ee3vWtnfXom7Qt33X6E0TNqk5qYw4E4f7wgaax3508pdSfLlpqUpSz-miv2R4GERe7ALdDo1g~qO5ACy38Bg4lLcWk39KWnSKjgnYRCQp8TN80heJaZjpbLxdxWl2eJCrdG5jvmGXw0w0Be9RNwjzx4~uPqIkpGHiQAUP7VyqR4Ya2fNoUfFciI1-X92C0OSNQwsY3mhVyXilBK9ZKkht4Q0h3Ld~3lVQKgJuKObK40sV7NH~1OgvuKF5HznygiQk-ptE9VuY6Nf~DA2wMJgwTDxEo3~ytDzva7Ne61WiyA6HU7g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/38ee/3f9d/4ef801e3c15edf70099e99c1bc65ec60?Expires=1637539200&Signature=JVdgbc~4lLKW~NWK5KS7OgwngHcNQEpJBL0KOGk2Jnut-~OdrMi2u6RoCG4BGj3TQ717RwcX~VQTaNKSKxO4MbM0NSvV7ormldFeaijgll-fjAhggt6fYVUSPDBMEY8CFCou72z3nWRcCrDv~Sb6Nnl66ceCcAAtnH4E1kipcenmwrIo2e7o6jCT-98BhZuYiGlKtKUCdnb9Q3xS-nn8BYYmpO-xC3JWBrK1hu5EqVtEWHpWTy4rBsSGfe1YOCp6eXIP0Gm2XI5rKqoe9LtFlWnJk8oaigEdAVwCuYI1sT5scwAfwz7J6lG77AbdwDicLrQ7fuHp~1F3u8Lvn53WNQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
   
@@ -202,7 +235,11 @@ export const Gallery = ()=>{
     const redRow3 = ["https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-interior-dashboard.jpeg?q=85&wm=1","https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-interior-instrument-cluster.jpeg?q=85&wm=1","https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-interior-front-row-seats.jpeg?q=85&wm=1"]
     const redRow4 = ["https://imgd.aeplcdn.com/1056x594/cw/ec/40702/Mahindra-XUV300-Interior-160476.jpg?wm=1&q=85","https://imgd.aeplcdn.com/1056x594/n/cw/ec/53749/ac-controls22.jpeg?wm=1&q=85","https://imgd.aeplcdn.com/1056x594/cw/ec/40702/Mahindra-XUV300-Interior-160492.jpg?wm=1&q=85"]
     const redRow6 = ["https://imgd.aeplcdn.com/1056x594/cw/ec/38319/Mahindra-XUV300-Exterior-148147.jpg?wm=1&q=85","https://imgd.aeplcdn.com/1056x594/cw/ec/38319/Mahindra-XUV300-Exterior-148145.jpg?wm=1&q=85","https://imgd.aeplcdn.com/1056x594/cw/ec/40702/Mahindra-XUV300-Exterior-160497.jpg?wm=1&q=85"] 
-    const redRow7 = ["1kM-JVd4FLM","wZA1oxypzuE","wygbf1VJp0U"]
+    const redRow7 = ["1kM-JVd4FLM","wZA1oxypzuE","wygbf1VJp0U"];
+
+    const [visible, setVisible] = React.useState(false);
+    const [visible2, setVisible2] = React.useState(false);
+    const [visible3, setVisible3] = React.useState(true);
     return (
         <>
            <div style={styles.contain}>
@@ -227,9 +264,9 @@ export const Gallery = ()=>{
             <GalleryHead name="Colors"/>
             <ColorList image = {row5Img}/>
             <div style = {styles.selectColor}>
-                <p style = {styles.white}></p>
-                <p style = {styles.grey}></p>
-                <p style = {styles.blue}></p>
+                {visible && <p style = {styles.white}></p>}
+                {visible2 &&  <p style = {styles.grey}></p>}
+                {visible3 && <p style = {styles.blue}></p>}
             </div>
             <GalleryHead name="Road Test"/>
             <ImageList image = {color6}/>

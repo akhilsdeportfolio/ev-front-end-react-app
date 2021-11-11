@@ -25,11 +25,7 @@ import Raise2 from './components/Raise2';
 
 
 import LoginForm from './components/LoginForm';
-<<<<<<< HEAD
-// import ProductDetails from './components/ProductDetails';
-=======
 /* import ProductDetails from './components/ProductDetails'; */
->>>>>>> 6fd2475473dc82bfb97006411cc8bc80b62b4bd5
 
 //import Raise5 from './components/Raise5'; */
 // import {Route, Switch} from 'react-router-dom'
@@ -64,10 +60,10 @@ function App() {
 
       
      {/*  <News/> */}
-        <Route exact path='/Home' ><Home/></Route>
+        {/* <Route exact path='/Home' ><Home/></Route>
         <Route exact path='/Search'><SearchResults/></Route>
         <Route exact path = '/About'><About /></Route>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Home} /> */}
         {/* <Route exact path='/ProductDetails/:id' component={ProductDetails} /> */}
 
       {/* </Switch>  */} 
@@ -83,7 +79,7 @@ function App() {
       {/* <LoginForm/> */}
       {/* <SignupForm/> */}
       {/* <Account/> */}
-     {/*  <Gallery/> */}
+      <Gallery/>
     </>
   ); 
 }

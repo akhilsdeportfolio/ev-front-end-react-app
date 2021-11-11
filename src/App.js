@@ -4,6 +4,8 @@ import { Home } from './components/Home';
 import { Route, Switch, component } from "react-router-dom";
 import LoginForm from './components/LoginForm'
 import Raise2 from './components/Raise2'
+import { News } from './components/News';
+import { SearchResults } from './components/SearchResults';
 
 /* import './App.css';
 import AppBar from '@mui/material/AppBar';
@@ -47,13 +49,17 @@ function App() {
       {/* </Switch> */}
 
       {/* < HEAD/> */}
-      <Switch>
+      {/* <Switch>
         <Route exact path='/Login' ><LoginForm /></Route>
         <Route exact path='/Raise2' ><Raise2/></Route>
-        <Route exact path='/Home' ><Home/></Route>
-        <Route exact path='/' component={Home} />
+        
 
-      </Switch>
+      </Switch> */}
+     {/*  <News/> */}
+        <Route exact path='/Home' ><Home/></Route>
+        <Route exact path='/Search'><SearchResults/></Route>
+        <Route exact path='/raise2'><Raise2 /></Route>
+        <Route exact path='/' component={Home} />
 
 
       {/* <AllReviews/>*/}

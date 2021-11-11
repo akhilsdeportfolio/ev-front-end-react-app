@@ -1,5 +1,7 @@
 import Heading from "./HeadingInfo";
 import { InputInfo } from "./InputInfo";
+import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
 
 const styles = {
     box:{

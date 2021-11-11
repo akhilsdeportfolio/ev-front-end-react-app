@@ -1,5 +1,7 @@
+import { Footer } from "./Footer";
 import Heading from "./HeadingInfo";
 import { InputInfo } from "./InputInfo";
+import { Navbar } from "./Navbar";
 const styles = {
     box:{
         width:350,
@@ -122,7 +124,8 @@ export default function SignupForm() {
         e.target.email.value = null;
         e.target.password.value = null;
     }
-  return (
+  return (<>
+      <Navbar/>
     <form style={styles.box} type="submit" onSubmit = {handleSignup}>
       <Heading heading="Create an Account" subheading = "Personal Information"/>
     <div style={styles.padding}>
@@ -160,5 +163,7 @@ export default function SignupForm() {
         }>Create</button>
        <InputInfo data1 = "or Return to page"/>
     </form>
+    <Footer/>
+    </>
   )
 }

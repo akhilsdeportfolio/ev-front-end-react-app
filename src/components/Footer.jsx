@@ -1,6 +1,5 @@
 import styled  from 'styled-components';
 import footer from '../components/image/footer.png'
-import Wave from 'react-wavify'
 
  const Section = styled.section`
     position: relative;
@@ -78,7 +77,6 @@ function Footer(){
             </Content>
             </section>
             </Section> 
-         {/* <img style={styles.image} src={footer} alt={footer} /> */}
         </div> 
     )
         

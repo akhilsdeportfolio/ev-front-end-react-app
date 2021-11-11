@@ -1,8 +1,9 @@
 import "./Account.css"
+import { Footer } from "./Footer"
 let styles = {
     container:{
         width:"90%",
-        height:"900px",
+       border:"4 ps solid red",
         marginLeft:"5%",
        
        
@@ -14,7 +15,7 @@ let styles = {
     },
     box:{
         width:"99.8%",
-        height:"150px",
+       
         marginTop:20
     },
     pic:{
@@ -44,7 +45,7 @@ let styles = {
         fontWeight: 500,
         lineHeight: "25.5px",
         color:"#333333",
-        marginTop:-8
+       
     },thin:{
         marginLeft:100
     },thins:{
@@ -55,12 +56,12 @@ let styles = {
         float:"right",
         width:"160px",
         marginTop:5,
+        marginRight:80,
         height:"30px",
         cursor:"pointer",
         border:"1px solid red",
         backgroundColor:"white",
-        color:"red"
-        
+        color:"red",
     },
    
 }
@@ -92,26 +93,34 @@ export let Account = (props)=>{
                 <img  alt="" />
                 <img alt="" />
                 <img style = {{margin:0}} alt="" />            
-            </div>
-            <button style = {styles.button}>View All</button>
-            <br/>
-            <p style = {styles.para}>Recent Vehicles</p>
-            <div style = {styles.box} className = "dataimg">
-                <img  alt="" />
-                <img alt="" />
-                <img style = {{margin:0}} alt="" />            
-            </div>
-            <button style = {styles.button}>View All</button>
-            <br/>
-            <p style = {styles.para}>Recent Tickets</p>
-            <div style = {styles.box} className = "dataimg">
-                <img  alt="" />
-                <img alt="" />
-                <img style = {{margin:0}} alt="" />            
-            </div>
-            <button style = {styles.button}>View All</button>
-            <br/>
+            </div> 
            </div>
+           <button style = {styles.button}>
+               view more
+           </button>
+           <div className = "rows3">
+           <p style = {styles.para}>Recent Vehicles </p>
+            <div style = {styles.box} className = "dataimg">
+                <img  alt="" />
+                <img alt="" />
+                <img style = {{margin:0}} alt="" />            
+            </div>
+            <button style = {styles.button}>
+               view more
+           </button> 
+           </div>
+           <div className = "rows3">
+           <p style = {styles.para}>Recent Tickets</p>
+            <div style = {styles.box} className = "dataimg">
+                <img  alt="" />
+                <img alt="" />
+                <img style = {{margin:0}} alt="" />            
+            </div> 
+            <button style = {styles.button}>
+               view more
+           </button>
+           </div>
+           <Footer/>
         </>
     )
 }

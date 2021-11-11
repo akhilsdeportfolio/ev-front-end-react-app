@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Carousel from "react-elastic-carousel";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
-
+import './arrow.css'
 
 const styles = {
     content: {

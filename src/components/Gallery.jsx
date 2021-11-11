@@ -1,17 +1,131 @@
 import { Footer } from "./Footer";
-import "./gallery.css"
 import { GalleryHead } from "./GalleryHead"
+import * as React from 'react';
+import Box from '@mui/material/Box';
+
+import Modal from '@mui/material/Modal';
+
+const styles = {
+    style:{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 670,
+        height:440,
+        bgcolor: 'white',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      },
+      tt:{
+        width:100,
+    
+      },
+      zoomIn:{
+          width:"100%",
+          height:"100%"
+      },
+    contain:{
+        width: "90%",
+        marginLeft: "5%",
+    },
+    gallery:{
+        fontFamily: "Rozha One",
+        fontStyle: "normal",
+        fontWeight: "normal",
+        fontSize: "350%",
+        lineHeight: "95px",
+        textAlign: "center",
+    },
+    line:{
+        width:"20%",
+        height: "10px",
+        borderRadius: "10px",
+        marginLeft: "40%",
+        background: "#FF546D",
+    },
+    row1Img:{
+        display: "grid",
+        marginTop: "-19px",
+        gridTemplateColumns:" repeat(3,34%)",
+        marginBottom:" 40px"
+    },
+    img:{
+        width: "95%",
+        height: "237px",
+    },
+    selectColor:{
+        display: "grid",
+        gridTemplateColumns: "repeat(3,34%)"
+    },
+    white:{
+        width: "95%",
+        height: "25px",
+        marginTop: "-25px",
+        border: "1px solid #000000",
+        marginBottom: "40px",
+    },
+    grey:{
+        width: "95%",
+        height: "25px",
+        marginTop: "-25px",
+        backgroundColor: "grey"
+    },
+    blue:{
+        width: "95%",
+        height: "25px",
+        marginTop: "-25px",
+        backgroundColor: "#1795CA"
+    },
+    playButton:{
+        display: "grid",
+        gridTemplateColumns: "repeat(3,34%)"
+    },
+    playButtonImg:{
+        position: "relative",
+    top: "-170px",
+    left: "210px",
+    width: "40px",
+    height: "40px"
+    }
+   
+}
 
 export const Gallery = ()=>{
+
+    const [pic,setPic] = React.useState("xyz")
+    const [open, setOpen] = React.useState(false);
+     const handleOpen = ((e)=>{
+        setPic(e.target.src);
+         setOpen(true);
+        return
+    })
+    const handleClose = () => setOpen(false);
+
+
     function ImageList(props){
         const images = props.image;
         const listItems = images.map((el)=>
-            <img src = {el} alt="" />
+            <img style={styles.img} src = {el} alt="" onClick = {handleOpen}/>
         );
         return (
-            <div id="row1img">{listItems}</div>
+            <div style={styles.row1Img}>{listItems}</div>
         )
     }
+
+    function VideoList(props){
+        const images = props.image;
+        
+        const listItems = images.map((el)=>
+            <iframe  width="95%" height="245" src={`https://www.youtube.com/embed/${el}?&autoplay=1`} title = "Nexon" onClick = {handleOpen} >
+            </iframe>
+        );
+        return (
+            <div style={styles.row1Img}>{listItems}</div>
+        )
+    }
+
     var row1Img = ["https://s3-alpha-sig.figma.com/img/9026/ff35/a00dd10fd914ecd93f0abe139b563f5b?Expires=1637539200&Signature=Q0DssljF4d4AgB2sn8OUX2jLiQCytmW0k6xe0367Vn4smryzSuoRg9VMbC8Zv-~EIzcau8VJ1OavqUaxG15sjmRaqavI4lptzN1TbBYxP092MWb1VbDppnMrGt5cWKA7kYoF-XtlNJMOyJZGvQlGgBfU~GThog23AvrFVwrvgcJEnfO9jR3lYK9iNuxaUGMfU-k37CNrGyukCH~cI0I6zq6PHlu~gABZfk6~LjjFSxh1ryD~vlSuZOH~yjru1p1iaiswQCOrCPjDiOBEAHz-6DC5GmbvBGkJXFcmGeHYGMnmGo3ebyDMn6vrq76NSHChHzYmdhE006mQZ2a8QSKaaA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/9290/b25c/d2ab3a0afadddac8d1e970d928facfd5?Expires=1637539200&Signature=VdhaULeaOGdQQc~fCGjcZsGjii5oulzHOnEEmQUlEflASz88JCHIJ89J7IyGGuywhHa6m0EWUIWrr9PnaqRCVXXdoXwSoubj45IKfLwR42QUUu6rJ3tVYVnTgsVwp-G9wL5CQOITm~GQl7VMbP9OUTC2HdHl0O1m8bviqzsFC0qcLMP3juK4jKcsgIW7tJXLnbGmiEUdB4HwEldwIzs~L8zGjlOBoxV2eJVrvQsz5Y6~ekOZKc2lHjPsYcZaqKs8Xi-rRnOKmO4LwTPqs447ctWYZACUrnSTev5QdIBHjwCYZT1mCbB421AFB-koCez0w1veGDiVpS~KDwKAlSKJxA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/e0cf/8f02/c6743e8df515f1b5bc23c46931846ae3?Expires=1637539200&Signature=bSHOeJ6YAnK2DZM7Q0qjVgGouk7FP6Xf1uLRXhMrbUAGg3F2qJk-wy4Fw3qANi2oSQnWVld~anw1TanJzrJQCjEarWU3ORw6RKBzZPL0szZER8ZTHg7nK8jbTag0X2nSMGPPJLFOY6jANxsv~MjdTN1kt7BbmvW3rd2JhpgThVkXM2pexsuu4MjrfVDn96LaFk1hBXq98fqAGy3auLvpyMpwE~NaUOEZ1oDqq5MpwRo6mvHgfK197nwmGThLknr7WjcZtMSijKYYt9mJEzJYoD~8zodJxu1acbQ5hkiiesSanKnEm~NvoYiA3o7ek9KfWHQACR5SdOYjhwdn1zJlMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
     
     var row2Img = ["https://s3-alpha-sig.figma.com/img/208b/a13c/0d834497bd602af2168a48df4f92b960?Expires=1637539200&Signature=XBUB6eWQLZphdiHWqwxSjeFlEUUAyqe4q-3q~IhHLciJAHbW26LFsiQ2rUD3JOIWNYC31nVDwYi9XnvU2Dhdhh2kbalm~9K3T93aTyvZnsvPv~f9pe1lWfBvOHWjYzgC21QFgGiVfQ93-yPGGXOLdj-aN4iBdhgvHDAGIcskZ4Awhl6DZPavxKz6EbbtPmCw85XofcJhUsPR~sKsfomjQReOQhbQKdF2TGrVQEdwjtlynFhx2G66mT5mxoryH42MsRaA3YhZFBZLq7n-B6xxkV1CSdd0drdLuQF52HKIcQc38wUXV4asYKdxipWFxc5NTx4LPmpETjxC0i1avkayog__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/59bd/6810/537cabb71195af1126883c6cbb0ad682?Expires=1637539200&Signature=a1eM~rwY0sSLSTmzWrccqzVUsiIb2rnt2fKTOGgiNm0YCheQZNsMFjhY6PpEcRAF3uZ0V9M8ntB4hD0Qm1nGl5DuglG3asy4SeI5Lx0HlTtU8TI-YemaZriPhj8BJzHrOVJ~9IiyNBtTD-vrNVLHv1m1obWcAVwPXVQlWY7q1z~oBKxdmvOcwb3xTdZbDNVT2AYUpnUCprsRpdCPaoCorekLb1DY4u-Rf~RA~scw8~dXrZiTsz0tFXtJHrISsudEQsQsKAm8JHyLJTuHEB2BWvgHVF7vjG5SBFNgjCXm~daitvnnV9eyQcE989PTFNahuvbDEE~8PsgpKYrwP~hx4Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/2c34/e222/9440bf9445bb92d3596513809a8ce731?Expires=1637539200&Signature=MXFK79zKOUMjqCUxFLpWMT-z-t06kxgC6vFyJj6b5MTEj6q6z9aFFISrbQ4kJMOChhQXzGmyeLDIUFcCT9TvLFBjVNWKA1qXoyCIfTBUZfHBMwJGmHBeYWP1FR-jq5L4fzVJIlNUirtEW0SgHpYMWgRJpXgfcD294RdtTZzLsxTd34tQT-j7pGnjkfPup6D7umt4dnJ29-MuHpfMXurtKzcDRbCvKSnA6P1Nc2eaNNhhQSwXgWECMo0pZMQqAsSNV0mmPU0NGB0rS3f9TAlg8IkxG2ebJlcc1TTJO~dEU13jl89rY4DZOyzWY8STBtLNFgjwN3oPgeT50z1b0nqjAg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
@@ -24,33 +138,40 @@ export const Gallery = ()=>{
     
     var row6Img = ["https://s3-alpha-sig.figma.com/img/89c5/d575/0c19acbe2d425e7f7808c6f7fd43efca?Expires=1637539200&Signature=SvMv4ksio9B0u-Q9XGkONv71s4L6swobyVpseN3D-uPVjODEyWpIHvXt0fjAmUYhTTSJBVdqyXAff~Mvb3PC8FSEm2ZWHLUj88M9SPXjsuD~75Fl8dKM2eFdoBqBFYfuKrfJXDeZVnX5cmVg36sJc0ixaY2oIDIX2unQA6s-0Olh4uwlbpc-TGbEFNWz2DHqMEba96x8Hp47X6bELTVG~k9h2ubhhjQWOiwG75cabPshNSJl4aJqh9xm1eekTuOQBqw1grofHR0T4q7cgJaGDazACcRGr3HWoskIrU15AnNvFDpqfk6Uv8mIAAAWeUSwO0Ei3E5RK4qLc8XKTUkdzQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/1096/b530/d0751bba10bbd04efb905f64162014b5?Expires=1637539200&Signature=WCuNLju3ynEX56fCXWVNs8qPjSgEA5gK56XKs~Ee3vWtnfXom7Qt33X6E0TNqk5qYw4E4f7wgaax3508pdSfLlpqUpSz-miv2R4GERe7ALdDo1g~qO5ACy38Bg4lLcWk39KWnSKjgnYRCQp8TN80heJaZjpbLxdxWl2eJCrdG5jvmGXw0w0Be9RNwjzx4~uPqIkpGHiQAUP7VyqR4Ya2fNoUfFciI1-X92C0OSNQwsY3mhVyXilBK9ZKkht4Q0h3Ld~3lVQKgJuKObK40sV7NH~1OgvuKF5HznygiQk-ptE9VuY6Nf~DA2wMJgwTDxEo3~ytDzva7Ne61WiyA6HU7g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/38ee/3f9d/4ef801e3c15edf70099e99c1bc65ec60?Expires=1637539200&Signature=JVdgbc~4lLKW~NWK5KS7OgwngHcNQEpJBL0KOGk2Jnut-~OdrMi2u6RoCG4BGj3TQ717RwcX~VQTaNKSKxO4MbM0NSvV7ormldFeaijgll-fjAhggt6fYVUSPDBMEY8CFCou72z3nWRcCrDv~Sb6Nnl66ceCcAAtnH4E1kipcenmwrIo2e7o6jCT-98BhZuYiGlKtKUCdnb9Q3xS-nn8BYYmpO-xC3JWBrK1hu5EqVtEWHpWTy4rBsSGfe1YOCp6eXIP0Gm2XI5rKqoe9LtFlWnJk8oaigEdAVwCuYI1sT5scwAfwz7J6lG77AbdwDicLrQ7fuHp~1F3u8Lvn53WNQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
   
-    var row7Img = ["https://s3-alpha-sig.figma.com/img/ed16/33ca/7667246b4110aadb20c113166c0abb38?Expires=1637539200&Signature=Rrq0ovo0jsvvUNt4DIqmdRMbAG6JpOvomwhiOygID24n8Putyhi4omATVfGqrnMHw4G3yEmbtG1SHuPeNSSFq-5EzxvEJROGAjQIs2Ii1wpjuMWDG4gPgKn-BJEkzb01l2Md0VnPBn141pci2-6gAipVPzZw484B2F11qu-iWqwoeKhPV5rw9Kj3afU52JQvYeHYnWZkcniWCCPZ1bYIj7uyoyJMPA-gXoSg~z5Jojz6gSLJT2pZs9aeg~vQQ8pzbj5gtfz9GADQ2O6Gt3eibiKdR6UMjdhWkQZDzgf~ASPVBmCWBPltTBt1ot~uZGrAQmiEfcj9NEwMv3UvKYY2Ng__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/e0cf/8f02/c6743e8df515f1b5bc23c46931846ae3?Expires=1637539200&Signature=bSHOeJ6YAnK2DZM7Q0qjVgGouk7FP6Xf1uLRXhMrbUAGg3F2qJk-wy4Fw3qANi2oSQnWVld~anw1TanJzrJQCjEarWU3ORw6RKBzZPL0szZER8ZTHg7nK8jbTag0X2nSMGPPJLFOY6jANxsv~MjdTN1kt7BbmvW3rd2JhpgThVkXM2pexsuu4MjrfVDn96LaFk1hBXq98fqAGy3auLvpyMpwE~NaUOEZ1oDqq5MpwRo6mvHgfK197nwmGThLknr7WjcZtMSijKYYt9mJEzJYoD~8zodJxu1acbQ5hkiiesSanKnEm~NvoYiA3o7ek9KfWHQACR5SdOYjhwdn1zJlMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA","https://s3-alpha-sig.figma.com/img/a9c1/3f5b/01cd7db563ee580284b787dd2f0157b8?Expires=1637539200&Signature=Vo7QkZXFc0aSdhC07oCqqulCkCkvrZA4MgC0RtRvNShwJ1mqT-dfhuNRgK3Oz~rD2RmQF70ps2MUns0yN0FroLmgHBrOolFRBcejLd~UFTOqClJt8Gr3oSZ7oKL8cRlCAzijW7kWTHKc54Xih5EBLxbsdFY~mi585b~0lRDB0IM4ymgVkds6nw~kHyfMlVdSXeV8DT9F49rHbz68ioTvsOm5ClPOEhtUwQTpJZIRswjvWerWKHDSuRiGTEh-H579pEs8bRZKLNPK8VywUdXMVEZ1AzJCNVygzeJCJaIHwGwjhwe4NEwvG4gdvwGS2iqx2w~3EaYirJ0BN4DygdMGUQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"]
+    var row7Img = ["3E_EAGt_RJU","tHNMWvW3BR8","tHNMWvW3BR8"]
     return (
         <>
-           <div id = "contain">
-           <div className = "gallery">Gallery</div>
-            <div className = "line"></div>
+           <div style={styles.contain}>
+           <div style={styles.gallery}>Gallery</div>
+            <div style={styles.line}></div>
             <GalleryHead name = "Exterior"/>
             <ImageList image = {row1Img}/>
             <ImageList image = {row2Img}/>
             <GalleryHead name="Interior"/>
             <ImageList image = {row3Img}/>
             <ImageList image = {row4Img}/>
+            <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={styles.style}>
+            <img src={pic} alt="" style = {styles.zoomIn} />
+        </Box>
+      </Modal>
             <GalleryHead name="Colors"/>
             <ImageList image = {row5Img}/>
-            <div className = "selectColor">
-                <p className = "white"></p>
-                <p className = "grey"></p>
-                <p className = "blue"></p>
+            <div style = {styles.selectColor}>
+                <p style = {styles.white}></p>
+                <p style = {styles.grey}></p>
+                <p style = {styles.blue}></p>
             </div>
             <GalleryHead name="Road Test"/>
             <ImageList image = {row6Img}/>
             <GalleryHead name="Videos"/>
-            <ImageList image = {row7Img}/>
-          <div className = "playButton">
-          <img src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
-          <img src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
-          <img src="https://freepngimg.com/download/play_button/25569-6-play-button-transparent.png" alt="" /> 
+            <VideoList image = {row7Img}/>
+          <div style = {styles.playButton}>
           </div>
            </div>
           <Footer/>

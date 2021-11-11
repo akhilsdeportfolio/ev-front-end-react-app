@@ -51,7 +51,7 @@ export default function()
      return(<> 
 
 <Card sx={{ display: 'flex',padding:0,margin:5,borderRadius:2,border:"2px solid",borderColor:'whitesmoke',backgroundColor:'white','&:hover': {
-            backgroundColor: 'whitesmoke'
+            backgroundColor: '#FFB3D4'
           }}} raised={false} >
       <Box sx={{ display: 'flex', flexDirection: 'column', }}>
         <CardContent sx={{ flex: '1 0 auto' }}>

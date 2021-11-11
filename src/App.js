@@ -6,10 +6,10 @@ import { Gallery } from './components/Gallery';
 
 import { Home } from './components/Home';
 import { Route, Switch, component } from "react-router-dom";
-import LoginForm from './components/LoginForm'
-import Raise2 from './components/Raise2'
+//import LoginForm from './components/LoginForm'
+//import Raise2 from './components/Raise2'
 
-/* import './App.css';
+import './App.css';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,12 +25,11 @@ import Raise2 from './components/Raise2';
 
 
 import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
-import { Account } from './components/Account';
+import ProductDetails from './components/ProductDetails';
 
-import Raise5 from './components/Raise5'; */
+//import Raise5 from './components/Raise5'; */
 // import {Route, Switch} from 'react-router-dom'
-import Raise1 from './components/Raise1';
+//import Raise1 from './components/Raise1';
 // import Raise2 from './components/Raise2';
 import Raise4 from './components/Raise4';
 import Raise5 from './components/Raise5';
@@ -54,13 +53,14 @@ function App() {
        </Switch> */}
 
       {/* < HEAD/> */}
-      {/* <Switch>
+       <Switch>
         <Route exact path='/Login' ><LoginForm /></Route>
         <Route exact path='/Raise2' ><Raise2/></Route>
         <Route exact path='/Home' ><Home/></Route>
         <Route exact path='/' component={Home} />
+        <Route exact path='/ProductDetails/:id' component={ProductDetails} />
 
-      </Switch> */}
+      </Switch> 
 
 
       {/* <AllReviews/>*/}

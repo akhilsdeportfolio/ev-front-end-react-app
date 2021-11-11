@@ -7,7 +7,7 @@ const styles = {
         height: "40px",
         marginLeft: "16px",
         margin: "auto",
-        marginTop: "20px",
+        marginTop: "33px",
         fontFamily: "Montserrat",
         fontStyle: "normal",
         fontWeight: "600",

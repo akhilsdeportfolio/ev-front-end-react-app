@@ -2,7 +2,7 @@ import SignupForm from './components/SignupForm';
 // import LoginForm from './components/LoginForm';
 import { Account } from './components/Account';
 import { Gallery } from './components/Gallery';
-
+import {SearchResults} from './components/SearchResults'
 
 import { Home } from './components/Home';
 import { Route, Switch, component } from "react-router-dom";
@@ -25,7 +25,11 @@ import Raise2 from './components/Raise2';
 
 
 import LoginForm from './components/LoginForm';
+<<<<<<< HEAD
 // import ProductDetails from './components/ProductDetails';
+=======
+/* import ProductDetails from './components/ProductDetails'; */
+>>>>>>> 6fd2475473dc82bfb97006411cc8bc80b62b4bd5
 
 //import Raise5 from './components/Raise5'; */
 // import {Route, Switch} from 'react-router-dom'
@@ -35,7 +39,7 @@ import Raise4 from './components/Raise4';
 import Raise5 from './components/Raise5';
 import About from './components/About';
 
-// import About from './components/About';
+ 
 
 
 function App() {
@@ -56,7 +60,13 @@ function App() {
        {/* <Switch>
         <Route exact path='/Login' ><LoginForm /></Route>
         <Route exact path='/Raise2' ><Raise2/></Route>
+        
+
+      
+     {/*  <News/> */}
         <Route exact path='/Home' ><Home/></Route>
+        <Route exact path='/Search'><SearchResults/></Route>
+        <Route exact path = '/About'><About /></Route>
         <Route exact path='/' component={Home} />
         {/* <Route exact path='/ProductDetails/:id' component={ProductDetails} /> */}
 
@@ -73,7 +83,7 @@ function App() {
       {/* <LoginForm/> */}
       {/* <SignupForm/> */}
       {/* <Account/> */}
-      <Gallery/>
+     {/*  <Gallery/> */}
     </>
   ); 
 }

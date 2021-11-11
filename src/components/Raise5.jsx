@@ -6,6 +6,8 @@ import Frame98 from './image/Frame 98.png'
 import Frame99 from './image/Frame 99.png'
 import { Link } from 'react-router-dom'
 import { Button, Chip, Stack } from '@mui/material';
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
 const styles = {
     txtnone: {
@@ -29,16 +31,20 @@ const styles = {
         textAlign: "center",
         color: "#000000",
         margin: "auto",
+        marginTop:"70px"
     },
 
     shareImg: {
         width: "12%",
         margin: "auto",
+        marginTop:"20px"
     },
 
     shareDiv: {
         width: "9%",
         margin: "auto",
+        marginTop:"20px",
+        
     },
 
     shareP: {
@@ -53,11 +59,13 @@ const styles = {
         color: "#000000",
     },
     stackDiv:{
-        marginLeft: "8.08%"
+        marginLeft: "8.08%",
+        marginTop:"30px"
     },
     btnDiv:{
         width: "90px", 
-        margin: "auto"
+        margin: "auto",
+        marginTop:"20px"
     }
 }
 const Raise5 = () => {
@@ -67,6 +75,7 @@ const Raise5 = () => {
     }
     return (
         <>
+        <Navbar></Navbar>
             <Experience />
             <Support />
             <TicketNumber />
@@ -90,6 +99,7 @@ const Raise5 = () => {
                     <Button onClick={receiveCall} variant="contained" size="large" >Call</Button>
                 </div>
             </Link>
+            <Footer></Footer>
         </>
     )
 }

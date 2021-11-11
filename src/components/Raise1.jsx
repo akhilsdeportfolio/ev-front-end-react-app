@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Experience from './Experience'
 import Support from './Support'
 import { Link } from 'react-router-dom'
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
 const Img = styled.img`
 width: 18.88%;
@@ -53,6 +55,7 @@ const Raise1 = () => {
    
     return (
         <>
+            <Navbar></Navbar>
             <Experience />
             <Support />
             <div ><Img src={Hand} alt="hand"></Img></div>
@@ -62,6 +65,7 @@ const Raise1 = () => {
                     </div>
                 </Link>
             <div style={styles.connectDiv}>We will connect you to the nearest help center</div>
+            <Footer></Footer>
         </>
     )
 }

@@ -1,5 +1,24 @@
 import { useState, useEffect } from "react"
 
+const styles = {
+  
+  ticketNumDiv: {
+    width: "38%",
+    height: "29px",
+    fontFamily: "Montserrat",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "24px",
+    lineHeight: "29px",
+    textAlign: "center",
+    color: "#000000",
+    margin: "auto"
+  },
+  spanStyle:{
+    color: "blue"
+  }
+}
+
 // to get the value from local storage
 const getTicket = () => {
   let getT = JSON.parse(localStorage.getItem("ticket"))
@@ -19,7 +38,7 @@ const TicketNumber = () => {
 
   return (
     <>
-      <div className="ticket-num-div">Your Ticket number is <span style={{ color: "blue" }}>{`00000000000${ticket}`}</span></div>
+      <div style={styles.ticketNumDiv}>Your Ticket number is <span style={styles.spanStyle}>{`00000000000${ticket}`}</span></div>
     </>
   )
 }

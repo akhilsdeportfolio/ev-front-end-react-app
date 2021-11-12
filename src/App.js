@@ -18,6 +18,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AllReviews from './components/AllReviews';
 import Review from './components/Review';
+import {News} from './components/News';
 
 
 import Raise1 from './components/Raise1';
@@ -57,6 +58,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/Home' component={Home} />
         <Route exact path='/Login' component={LoginForm} />
+        
         
         
      

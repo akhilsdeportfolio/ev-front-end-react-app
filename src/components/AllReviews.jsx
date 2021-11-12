@@ -7,11 +7,29 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Review from './Review';
 import { Footer } from './Footer';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
+import {useHistory,useParams} from 'react-router-dom';
 const styles={
      textAlign:'center',width:'100%',fontFamily:'Rozha One',fontSize:'37px'
 };
 export default function()
 {
+
+     const [reviews,setReviews]=useState([]);
+     const history = useHistory();
+     const {id}=useParams();
+
+     useEffect(async ()=>{          
+               let data =await axios.get(`http://localhost:2000/vehicles/${id}/reviews`);               
+               let rev = data.data.reviews;
+               console.log(rev);
+               setReviews(rev);
+
+     },[]);
+
+
      return(<>
           <AppBar position="static" >
                <Toolbar variant="dense" >
@@ -32,8 +50,14 @@ export default function()
           color="black" component="div" style={styles}>
                     Reviews
           </Typography>
-
-          <Review/>
+          
+          {
+               reviews.map((el)=>{
+                    console.log(el);
+                   return  <Review name={el.name} email={el.email} date={el.createdAt} star={el.star} text={el.text} />     
+               })
+          }
+               
           </Box>
 
           <Footer/>

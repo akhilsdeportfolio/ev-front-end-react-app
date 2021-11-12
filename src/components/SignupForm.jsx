@@ -2,6 +2,8 @@ import { Footer } from "./Footer";
 import Heading from "./HeadingInfo";
 import { InputInfo } from "./InputInfo";
 import { Navbar } from "./Navbar";
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 const styles = {
     box:{
         width:350,
@@ -43,7 +45,10 @@ const styles = {
     },
 }
 export default function SignupForm() {
-    let handleSignup = (e) =>{
+
+    const history = useHistory();
+
+    let handleSignup = async (e) =>{
         e.preventDefault()
         let firstName = e.target.firstName.value;
         let lastName = e.target.lastName.value
@@ -102,13 +107,10 @@ export default function SignupForm() {
             password,
         }
         console.log(user)
-        fetch("http://localhost:3000/user",{
-            method:'POST',
-            body:JSON.stringify(user),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        }).then(response =>{
+        let req=await axios.post('http://localhost:2000/users',user);
+        alert("created account successfully");
+        console.log(req);
+        /* .then(response =>{
             if (response.status >= 200 && response.status < 300) {
                 console.log(response);
                 alert("Signup Successful")
@@ -117,13 +119,17 @@ export default function SignupForm() {
                console.log('Somthing happened wrong');
               }
         }).catch(err => err);
-
+ */
         let local = localStorage.setItem('users',JSON.stringify(user))
+
+        history.push("/Login");
         console.log("local",local)
         e.target.firstName.value = null;
         e.target.lastName.value = null;
         e.target.email.value = null;
         e.target.password.value = null;
+
+
     }
   return (<>
       <Navbar/>

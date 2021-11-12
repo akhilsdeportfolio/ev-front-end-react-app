@@ -59,6 +59,9 @@ function App() {
         <Route exact path='/Login' component={LoginForm} />
         <Route exact path='/signup' component={SignupForm} />
         <Route exact path='/News' component={NewsSection} />
+        <Route exact path='/News/:id' component={Home} />
+        <Route exact path='/Vehicles/:id' component={NewsSection} />
+        <Route exact path='/News/:id' component={NewsSection} />
         <Route exact path='/' component={Home} />
         <Route exact path='/Search' component={SearchResults} />
         
@@ -68,8 +71,7 @@ function App() {
        </Switch> 
 
         
-      
-    </>
+            </>
   ); 
 }
 

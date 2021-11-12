@@ -72,15 +72,17 @@ export default function ProductDetails({})
      const [reviews,setReviews]=useState([]);
 
 
-     let getVehicleSpec=(int)=>{
-           return vehicleData.key_specs[int];
-     }
+     //let getVehicleSpec=(int)=>{
+       //    return vehicleData.key_specs[int];
+     //}
 
+
+     
      let intro=[
-          <IconText icon="timer" feature="Time to charge" text={getVehicleSpec(0)}></IconText>,
-          <IconText icon="road" feature="Driving Ranges" text={getVehicleSpec(1)}></IconText>,
-          <IconText icon="battery" feature="Battery Capacity" text={getVehicleSpec(2)}></IconText>
-          ,<IconText icon="power" feature="Power" text={getVehicleSpec(3)}></IconText>
+          <IconText icon="timer" feature="Time to charge" text="20min"></IconText>,
+          <IconText icon="road" feature="Driving Ranges" text="20min"></IconText>,
+          <IconText icon="battery" feature="Battery Capacity" text="20min"></IconText>
+          ,<IconText icon="power" feature="Power" text="20min"></IconText>
      ]
 
 
@@ -99,7 +101,7 @@ export default function ProductDetails({})
                
           });
           axios.get(`http://localhost:2000/vehicles/${id}/reviews`).then((data)=>{
-               setReviews(data.data.reviews.splice(10));
+               setReviews(data.data.reviews);
                console.log(reviews)
           })
           
@@ -110,10 +112,7 @@ export default function ProductDetails({})
      },[]);
 
 
-     useEffect(()=>{
-          
-       },[])
-  
+
   
 
 

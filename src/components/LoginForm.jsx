@@ -3,7 +3,7 @@ import { InputInfo } from "./InputInfo";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { NavLink } from "react-router-dom";
-
+import {useHistory} from 'react-router-dom';
 
 const styles = {
     box:{
@@ -66,6 +66,8 @@ const styles = {
     },
 }
 export default function LoginForm() {
+
+    const history = useHistory();
     function handleSubmit(event){
         let email = event.target.email.value
         let password = event.target.password.value;
@@ -98,9 +100,10 @@ export default function LoginForm() {
             password
         }
       
-       fetch("http://localhost:2000/user")
+       fetch("http://localhost:2000/users")
         .then((res)=>{
             let users = res.json();
+            //console.log(users);
             return users
            
         }).then((users)=>{
@@ -109,7 +112,8 @@ export default function LoginForm() {
             for(var i = 0; i < users.length; i++){
                 if(users[i].email === user.email && users[i].password === user.password){
                     alert("Login Successfull");
-                    return;
+                    localStorage.setItem('activeUser',JSON.stringify(users[i]));
+                    history.push("/");
                 }
             }
 

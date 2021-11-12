@@ -54,10 +54,13 @@ function App() {
         <Route path="/about"> <About></About> </Route>
         <Route exact path='/ProductDetails/:id' component={ProductDetails} />
         <Route exact path='/Gallery/:id' component={Gallery} />
-        <Route exact path='/Reviews/:id' component={AllReviews} />
-        <Route exact path='/' component={Home} />
+        <Route exact path='/Reviews/:id' component={AllReviews} />        
         <Route exact path='/Home' component={Home} />
         <Route exact path='/Login' component={LoginForm} />
+        <Route exact path='/signup' component={SignupForm} />
+        <Route exact path='/News' component={NewsSection} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/Search' component={SearchResults} />
         
         
         

@@ -98,7 +98,7 @@ export default function LoginForm() {
             password
         }
       
-       fetch("http://localhost:3000/user")
+       fetch("http://localhost:2000/user")
         .then((res)=>{
             let users = res.json();
             return users

@@ -76,12 +76,11 @@ function App() {
       {/* <Raise4/> */}
       {/* <Raise5/> */}
 
-      {/* <LoginForm/> */}
+      <LoginForm/>
       {/* <SignupForm/> */}
       {/* <Account/> */}
 {/*       <Gallery/> */}
-      {/* <Account/> */}
-      {/* <Gallery/> */}
+      
     </>
   ); 
 }

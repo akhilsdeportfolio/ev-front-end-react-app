@@ -1,6 +1,7 @@
 const styles = {
     headin:{
-        fontFamily: "Poppins",
+        fontFamily: "Rozha One",
+        
         fontSize: "35px",
         fontStyle: "normal",
         fontWeight: 500,

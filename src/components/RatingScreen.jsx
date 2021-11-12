@@ -7,7 +7,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { useMemo, useState } from "react";
 import { Footer } from "./Footer";
 import { Navbar } from './Navbar';
-
+import axios from "axios";
 
 function MyFormHelperText() {
      const { focused } = useFormControl() || {};
@@ -38,7 +38,7 @@ export default function()
     
      const [review,setReview]=useState(initData);
      const [rating,setValue]=useState(0);
-
+     const [close,setClose]=useState(false);
 
 
      let handleChange=(e)=>{
@@ -53,26 +53,19 @@ export default function()
      let handleSubmit = async (e)=>{
        
         console.log(e);
-        let data = {...review,["rating"]:rating};
+        let data = {...review,["star"]:rating};
 
-        console.log(data);
+        console.log(JSON.stringify(data));
         //let vehiclesData = await fetch("http://localhost:2000/vehicles");
         //console.log(await vehiclesData) 
 
-        fetch("http://localhost:2000/reviews", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            data
-
-          }),
-        }).then((response) => response.json());
+        axios.post("http://localhost:2000/reviews",data).then((res)=>{
+          alert('rating updated');
+          
+        });
     
     
-        //console.log(await res.json());
+      
 
 
      }
@@ -97,7 +90,7 @@ export default function()
 
           <FormControl sx={{ width: '100%' }} >
           <Typography>Comments</Typography>               
-          <OutlinedInput placeholder="Please enter text" style={{height:'5rem',textAlign:'start',cursor:'pointer'}}  onChange={handleChange} name="review" required="true"/>
+          <OutlinedInput placeholder="Please enter text" style={{height:'5rem',textAlign:'start',cursor:'pointer'}}  onChange={handleChange} name="text" required="true"/>
           <MyFormHelperText />
           </FormControl>
 

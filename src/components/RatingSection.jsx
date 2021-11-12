@@ -34,7 +34,7 @@ export default function({reviews,avgRating,totalReviews,title})
                          aria-describedby="modal-modal-description"
                          >
                               <Box sx={style}>
-                                   <RatingScreen/>
+                                   <RatingScreen />
                               </Box>
                     </Modal>
           <Card style={{border:'1px solid gray'}}>

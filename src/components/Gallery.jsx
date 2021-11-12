@@ -1,10 +1,12 @@
 import { Footer } from "./Footer";
-import { GalleryHead } from "./GalleryHead"
+// import { GalleryHead } from "./GalleryHead"
 import * as React from 'react';
 import Box from '@mui/material/Box';
 
 import Modal from '@mui/material/Modal';
-
+import { blue } from "@mui/material/colors";
+// var lines;
+// var setLines;
 let styles = {
     style:{
         position: 'absolute',
@@ -18,6 +20,23 @@ let styles = {
         boxShadow: 24,
         p: 4,
       },
+      lines:{
+        width:15,
+        height:65,
+        background:"#FF546D",
+        marginLeft:-30,
+        borderRadius:5
+    },
+    exterior:{
+        position: "relative",
+        top: "-55px",
+        fontFamily: "Montserrat",
+        fontStyle: "normal",
+        fontWeight: 600,
+        fontSize: "40px",
+        lineHeight: "49px",
+        color: "#000000", 
+    },
       tt:{
         width:100,
     
@@ -43,7 +62,7 @@ let styles = {
         height: "10px",
         borderRadius: "10px",
         marginLeft: "40%",
-        background: "#FF546D",
+        
     },
     row1Img:{
         display: "grid",
@@ -106,7 +125,8 @@ let styles = {
 }
 
 export const Gallery = ()=>{
-
+  
+    // [lines,setLines] = React.useState("#00000")
     const [pic,setPic] = React.useState("xyz")
     const [open, setOpen] = React.useState(false);
      const handleOpen = ((e)=>{
@@ -127,6 +147,7 @@ export const Gallery = ()=>{
         )
     }
     function fun1(){
+  
         setVisible3(false)
         setVisible2(false)
         setVisible(true) 
@@ -145,6 +166,8 @@ export const Gallery = ()=>{
     function colorChange(el){
         if(el.target.src === "https://imgd.aeplcdn.com/664x374/n/cw/ec/41645/tata-nexon-right-front-three-quarter3.jpeg?q=85"){
             fun1()
+            setColorLine({...styles.line,background:"rgb(93, 109, 97)"})
+            setColorLine2({...styles.lines,background:"rgb(93, 109, 97)"})
             setColor6(whiteRow6)
             setColor(whiteRow1)
             setColor2(whiteRow2)
@@ -156,16 +179,20 @@ export const Gallery = ()=>{
         }
         else if(el.target.src ==="https://s3-alpha-sig.figma.com/img/1ed9/c597/d8de9e461aa8cc6700ff9fe8ba548e15?Expires=1637539200&Signature=bpqukmDRnptOkkZI8qsNDcb~m23U3KqwmLCc5UlMRAQ~x2CGOaCwQHzrm7GIBY-cZaVqR9dbdeh2tx52IoGT2fshig0fzuUhRKkpfeWrNIJCcrgy1mEQns2hfYbYH3NCdLInB9KIArUlfDTksaudMMqYcvdevFWDOTlRIi0Hb8x1SjbnfigTUs~ACzNiltA7XwETe2Rj7Fo3keqggu6nwsD8mnGf0GyUX3bnUR3aJuQGMOUhun6XtkcJxlh6dF7N8p0t4-aW7-qidbVw5HgF3gbqLbaeDkVfx9ZJeCuKZa4EzaAHKlWCi~HI8~1Mxhk9FN8sccPA9Zmp0Qe8N45FTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"){
            fun2()
-        setColor6(row1Img)
-            setColor(row2Img)
-            setColor2(row3Img)
-            setColor3(row4Img)
-            setColor4(row6Img)
+           setColorLine({...styles.line,background:"rgb(3, 128, 190)"})
+           setColorLine2({...styles.lines,background:"rgb(3, 128, 190)"})
+           setColor6(row1Img)
+           setColor(row2Img)
+           setColor2(row3Img)
+           setColor3(row4Img)
+           setColor4(row6Img)
             setColor7(row7Img)
-           
+            
         }
         else if(el.target.src ==="https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-exterior-right-front-three-quarter-148706.jpeg?q=85&wm=1"){
-        fun3()
+            fun3()
+            setColorLine({...styles.line,background:"rgb(255, 84, 109)"})
+            setColorLine2({...styles.lines,background:"rgb(255, 84, 109)"})
         setColor6(redRow6)   
             setColor(redRow1)
             setColor2(redRow2)
@@ -240,15 +267,26 @@ export const Gallery = ()=>{
     const [visible, setVisible] = React.useState(false);
     const [visible2, setVisible2] = React.useState(false);
     const [visible3, setVisible3] = React.useState(true);
+
+    const [colorLine,setColorLine] = React.useState({...styles.line,background:"rgb(3, 128, 190)"})
+    const [colorLine2,setColorLine2] = React.useState({...styles.lines,background:"rgb(3, 128, 190)"})
     return (
         <>
            <div style={styles.contain}>
            <div style={styles.gallery}>Gallery</div>
-            <div style={styles.line}></div>
-            <GalleryHead name = "Exterior"/>
+            <div style={colorLine}></div>
+            {/* <GalleryHead name = "Exterior"/> */}
+            <div style = {
+               colorLine2
+            }></div>
+            <div style={styles.exterior}>Exterior</div>
             <ImageList image = {color}/>
             <ImageList image = {color2}/>
-            <GalleryHead name="Interior"/>
+            {/* <GalleryHead name="Interior"/> */}
+            <div style = {
+                colorLine2
+            }></div>
+            <div style={styles.exterior}>Interior</div>
             <ImageList image = {color3}/>
             <ImageList image = {color4}/>
             <Modal
@@ -261,16 +299,28 @@ export const Gallery = ()=>{
             <img src={pic} alt="" style = {styles.zoomIn} />
         </Box>
       </Modal>
-            <GalleryHead name="Colors"/>
+            {/* <GalleryHead name="Colors"/> */}
+            <div style = {
+                colorLine2
+            }></div>
+            <div style={styles.exterior}>Colors</div>
             <ColorList image = {row5Img}/>
             <div style = {styles.selectColor}>
                 {visible && <p style = {styles.white}></p>}
                 {visible2 &&  <p style = {styles.grey}></p>}
                 {visible3 && <p style = {styles.blue}></p>}
             </div>
-            <GalleryHead name="Road Test"/>
+            {/* <GalleryHead name="Road Test"/> */}
+            <div style = {
+                colorLine2
+            }></div>
+            <div style={styles.exterior}>Road Test</div>
             <ImageList image = {color6}/>
-            <GalleryHead name="Videos"/>
+            {/* <GalleryHead name="Videos"/> */}
+            <div style = {
+                colorLine2
+            }></div>
+            <div style={styles.exterior}>Videos</div>
             <VideoList image = {color7}/>
           <div style = {styles.playButton}>
           </div>

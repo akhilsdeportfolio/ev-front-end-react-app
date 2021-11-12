@@ -82,8 +82,8 @@ function App() {
       {/* <Raise4/> */}
       {/* <Raise5/> */}
 
-      <LoginForm/>
-      {/* <SignupForm/> */}
+      {/* <LoginForm/> */}
+      <SignupForm/>
       {/* <Account/> */}
 {/*       <Gallery/> */}
       

@@ -16,7 +16,7 @@ const styles = {
         fontFamily: "Poppins",
         fontSize: "35px",
         fontStyle: "normal",
-        fontWeight: 500,
+        fontWeight: 600,
          textAlign: "center",
     },
     textFlex:{
@@ -143,7 +143,9 @@ export default function LoginForm() {
     <button style = {
             styles.button
         }>LOGIN</button>
+        <a href="">
         <InputInfo data1 = "Lost your Password"/>
+        </a>
         <br/>
         <h1 style={styles.headin}>
        New User

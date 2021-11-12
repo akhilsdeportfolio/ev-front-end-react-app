@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Carousel from "react-elastic-carousel";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
+import Rating from '@mui/material/Rating';
 import './arrow.css'
 
 const styles = {
@@ -23,11 +24,10 @@ const styles = {
         backgroundColor: '#FFFF',
         width: '450px',
         marginTop: '2%',
-        height: '500px',
+        height: '470px',
         marginLeft: '3%',
         textAlign: 'center',
-        boxShadow: '0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06)',
-
+        boxShadow: '0 50px 20px rgba(0,0,0,.12), 0 14px 8px rgba(0,0,0,.06)',
     },
     image: {
         width: '90%',
@@ -64,29 +64,10 @@ function Vehicles() {
     const getVehicle = async () => {
         let res = await fetch('http://localhost:2000/vehicles')
         let vehiclesData = await res.json()
-        console.log(vehiclesData.length);
         setVehicleArticles(vehiclesData)
     }
 
-
-
-    /* return (
-        <div>
-                {newsArticles.map((e)=>{
-                    console.log(e)
-                   let url = String(e.images).split("\\")
-                   let path = url[url.length-1]
-                   console.log(path)
-                   return (
-                       <>
-                       <img src={`http://localhost:2000/static/${path}`} alt="masai" />
-                       </>
-                   )
-            })}
-        </div>
-    ) */
-
-    return (
+     return (
         <>
             <div style={styles.content}>
                 <Line />
@@ -94,14 +75,18 @@ function Vehicles() {
                 <Grid container direction='row' justify='center' alignItems='center' >
                     <Carousel breakPoints={breakPoints} >
                         {vehicleArticles.map((e, index) => {
+                             let url = String(e.images).split("\\")
+                             let path = url[url.length-1]
+                             path = path.split(",")[0]
                             return (
                                 <div key={index} >
                                     <Grid container>
                                         <NavLink to='' style={styles.autodata}>
                                             <Card style={styles.cards}>
-                                                <img style={styles.image} src="https://media.zigcdn.com/media/content/2021/Jan/honda-cb150-2021-1_1_640x480.jpg" alt="cbr" />
+                                                <img style={styles.image} src={path} alt={path} />
                                                 <h3>{e.name}</h3>
                                                 <h3>Rs. {e.price}</h3>
+                                                <Rating name="half-rating" defaultValue={3.5} precision={0.5} />
                                             </Card>
                                         </NavLink>
                                     </Grid>
@@ -113,7 +98,7 @@ function Vehicles() {
             </div>
             <Hr />
         </>
-    )
+    ) 
 }
 
 export { Vehicles }

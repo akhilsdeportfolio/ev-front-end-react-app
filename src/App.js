@@ -34,6 +34,8 @@ import LoginForm from './components/LoginForm';
 import Raise4 from './components/Raise4';
 import Raise5 from './components/Raise5';
 import About from './components/About';
+import Trending from './components/TrendingTopics';
+import { NewsSection } from './components/NewsSection';
 
  
 
@@ -57,8 +59,10 @@ function App() {
         <Route exact path='/Login' ><LoginForm /></Route>
         <Route exact path='/Raise2' ><Raise2/></Route>
         
+        <Route exact path='/Raise2' ><Raise2/></Route>
+         */}
 
-      
+      <Switch>
      {/*  <News/> */}
         {/* <Route exact path='/Home' ><Home/></Route>
         <Route exact path='/Search'><SearchResults/></Route>
@@ -68,6 +72,8 @@ function App() {
 
       {/* </Switch>  */} 
 
+      {/*   <Trending /> */}
+        {/* <Home /> */}
 
       {/* <AllReviews/>*/}
       {/* <About/> */}

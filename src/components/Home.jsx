@@ -3,6 +3,7 @@ import { Urgent } from "./Urgent";
 import { TopBar } from "./TopBar";
 import { News } from "./News";
 import { Vehicles } from "./Vehicles";
+import Trending from "./TrendingTopics";
 
 
 function Home(){
@@ -10,8 +11,9 @@ function Home(){
         <>
         <TopBar/>
         <Urgent/>
-        {/* <News /> */}
+        <News />
         <Vehicles />
+        <Trending />
         <Footer/>
         </>
     )

@@ -70,19 +70,19 @@ function TopBar() {
                         Your E-Assistant
                     </Typography>
                     <NavUnlisted>
-                        <NavLink to="/Home" activeClassName="active">
+                        <NavLink to="/Home" activeStyle={{fontWeight: "bolder" }}>
                             <li>Home</li>
                         </NavLink>
-                        <NavLink to="/News" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/News" activeStyle={{fontWeight: "bolder" }}>
                             <li>News</li>
                         </NavLink>
-                        <NavLink to="/Vehicles" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/Vehicles" activeStyle={{fontWeight: "bolder" }}>
                             <li>E-Vehicles</li>
                         </NavLink>
-                        <NavLink to="/About" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/About" activeStyle={{fontWeight: "bolder" }}>
                             <li>About Us</li>
                         </NavLink>
-                        <NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/Login" activeStyle={{fontWeight: "bolder" }}>
                             <li>Login</li>
                         </NavLink>
                     </NavUnlisted>

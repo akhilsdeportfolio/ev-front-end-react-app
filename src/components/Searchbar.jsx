@@ -19,11 +19,12 @@ const Search = styled.div`
 
 const SearchWrapper = styled.div`
  background-color: white;
- width: 15%;
+ width: 25%;
  height: 32px;
  border-radius: 20px;
  margin-top: 2.8px;
- margin-left: 43%;
+ margin-left: 40%;
+ margin-right: 1%;
 `
 
 
@@ -41,10 +42,17 @@ const StyledInputBase = styled(InputBase)(() => ({
       color: 'black',
       fontSize: '15px',
       fontWeight: '500',
-      textDecoration: 'none'
+      
     }
   }
 }));
+
+const styles = {
+  searchbar:{
+    textDecoration: 'none',
+    cursor: 'auto'
+  }
+}
 
 const useStyles = makeStyles({
   icon:{
@@ -61,15 +69,16 @@ function Searchbar(){
   
     return(
         <>
+        <Link to='/Search' style={styles.searchbar}>
             <Search>
-              <Link to='/Search'>
             <StyledInputBase
               placeholder="SEARCH"
-            /></Link>
+            />
             <SearchWrapper>
               <SearchIcon className={classes.icon}/>
               </SearchWrapper>
           </Search>
+          </Link>
         </>
     )
 }

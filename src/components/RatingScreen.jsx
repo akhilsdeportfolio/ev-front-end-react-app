@@ -9,6 +9,8 @@ import { Footer } from "./Footer";
 import { Navbar } from './Navbar';
 import axios from "axios";
 
+import {useParams} from 'react-router-dom';
+
 function MyFormHelperText() {
      const { focused } = useFormControl() || {};
    
@@ -35,7 +37,8 @@ let initData = {
 export default function()
 {
 
-    
+    let {id}=  useParams();
+
      const [review,setReview]=useState(initData);
      const [rating,setValue]=useState(0);
      const [close,setClose]=useState(false);
@@ -69,6 +72,8 @@ export default function()
 
 
      }
+
+
 
      return(<>
 

@@ -9,7 +9,8 @@ export default function({name,date,rating,comment})
 {
 
           return(<>
-                    <Card sx={{ maxWidth: 475 ,border:'1px solid whitesmoke'}}>
+                    
+                    <Card sx={{ minWidth:'400px' ,border:'1px solid whitesmoke'}}>
                     <CardContent>
                          <Stack spacing={2}>
                               <Typography variant="h5">{name}</Typography>
@@ -20,6 +21,7 @@ export default function({name,date,rating,comment})
                          </Stack>
                     </CardContent>
                     </Card>  
+                    
           </>)
 
 }

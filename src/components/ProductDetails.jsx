@@ -16,7 +16,9 @@ import Wall from './Wall';
 import { Rating } from "@mui/material";
 import FeatureCard from "./FeatureCard";
 import IconText from "./IconText";
-import { Timer } from "@material-ui/icons";
+import { LocalConvenienceStoreOutlined, Timer } from "@material-ui/icons";
+import {useParams} from 'react-router-dom';
+import axios from  'axios';
 const styles={
      textAlign:'center',width:'100%',fontFamily:'Montserrat',fontSize:'37px',fontWeight:'600'
 };
@@ -31,7 +33,7 @@ const styles2={
 export default function ProductDetails({})
 {
 
-     let id ="123"
+     let { id }= useParams();
 
      let data ={
           vehicleName :'TATA NEXON',
@@ -41,7 +43,7 @@ export default function ProductDetails({})
           location :' Exshowroom price in Bangalore'
      }
 
-     let arr=[
+   /*   let arr=[
           {
                name:"akhil",
                date:"3/03/2020",
@@ -63,16 +65,22 @@ export default function ProductDetails({})
           
           
 
-     ]
+     ] */
      const [vehicleData,setVehicleData]=useState(data);
      const [features,setFeatures]=useState([]);
      const [gallery,setGallery]=useState("/gallery");
+     const [reviews,setReviews]=useState([]);
+
+
+     let getVehicleSpec=(int)=>{
+           return vehicleData.key_specs[int];
+     }
 
      let intro=[
-          <IconText icon="timer" feature="Time to charge" text="20mins"></IconText>,
-          <IconText icon="road" feature="Driving Ranges" text="200Km/fullcharge"></IconText>,
-          <IconText icon="battery" feature="Battery Capacity" text="30.2KWH"></IconText>
-          ,<IconText icon="power" feature="Power" text="127bhp"></IconText>
+          <IconText icon="timer" feature="Time to charge" text={getVehicleSpec(0)}></IconText>,
+          <IconText icon="road" feature="Driving Ranges" text={getVehicleSpec(1)}></IconText>,
+          <IconText icon="battery" feature="Battery Capacity" text={getVehicleSpec(2)}></IconText>
+          ,<IconText icon="power" feature="Power" text={getVehicleSpec(3)}></IconText>
      ]
 
 
@@ -80,16 +88,33 @@ export default function ProductDetails({})
      
 
      useEffect(()=>{
-          setVehicleData(data);
-          setFeatures(['black','red','white','black','black','red','white'])
 
-          console.log(vehicleData)
+          setVehicleData({data});
+          setFeatures(features);
+          axios.get(`http://localhost:2000/vehicles/${id}`).then((data)=>{
+               setVehicleData(data.data);
+               setFeatures(data.data.features);
+               console.log(data.data.features);
+               //setFeatures(/data.features);
+               
+          });
+          axios.get(`http://localhost:2000/vehicles/${id}/reviews`).then((data)=>{
+               setReviews(data.data.reviews.splice(10));
+               console.log(reviews)
+          })
+          
+
+          console.log("vehicleDAta",vehicleData)
           setGallery(gallery+`/${id}`);
 
      },[]);
 
 
-
+     useEffect(()=>{
+          
+       },[])
+  
+  
 
 
      return(<>
@@ -115,10 +140,10 @@ export default function ProductDetails({})
 
      <Box style={{marginTop:'475px'}}>
      <Typography variant="h1" color="black" component="div" style={styles}>
-                    {vehicleData.vehicleName}
+                    {vehicleData.name}
      </Typography>
      <div style={{textAlign:'center'}}>
-     <Rating value={vehicleData.rating} precision="0.5" readOnly="true" size="large" style={{fontSize:'30px'}}/>
+     <Rating value={vehicleData.star} precision="0.5" readOnly="true" size="large" style={{fontSize:'30px'}}/>
 
      <Typography variant="p" color="black" component="div" style={styles2} >
                     {vehicleData.totalReviews} Reviews
@@ -134,17 +159,12 @@ export default function ProductDetails({})
 
      <Link to={gallery} sx={{textColor:'white'}} style={{textDecoration:'none'}}><Button  variant="contained" style={{marginTop:'10px',backgroundColor:"#FF546D",color:"white"}}>
           Gallery</Button></Link>
-     </div>          
-     
-
-          
-
-     
+     </div>               
      </Box>          
      
 
      <Box sx={{margin:'auto',width:'80%'}}>
-          <FeatureCard titles="Key Specs of Tata Nexon EV" featureList={intro}/>
+          <FeatureCard titles="Key Specs of Tata Nexon EV" featureList={intro} isQuestions="false"/>
      </Box>
 
      <Box sx={{margin:'auto',width:'80%'}}>
@@ -165,7 +185,9 @@ Rivals: The Nexon rivals the likes of Maruti Suzuki Vitara Brezza, Ford EcoSport
      </Box>
 
      <Box sx={{margin:'auto',width:'78%'}}>
-          <RatingSection reviews={arr} title="Tata Nexon EV User Reviews" avgRating="4.2" totalReviews="70" />
+     
+          <RatingSection style={{overflow:'scroll'}} reviews={reviews} title="Tata Nexon EV User Reviews" avgRating="4.2" totalReviews="70" />
+     
      </Box>
      
      

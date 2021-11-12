@@ -43,45 +43,26 @@ function App() {
   return (
     <>
 
-      {/* <Switch>
+       <Switch>
         <Route path="/raise1" ><Raise1></Raise1></Route>
         <Route path="/raise2"><Raise2/></Route>
         <Route path="/raise4"><Raise4/></Route>
         <Route path="/raise5"><Raise5/></Route>
         <Route path="/about"> <About></About> </Route>
+        <Route exact path='/ProductDetails/:id' component={ProductDetails} />
+        <Route exact path='/Gallery/:id' component={Gallery} />
+        <Route exact path='/Reviews/:id' component={AllReviews} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/Home' component={Home} />
+        <Route exact path='/Login' component={LoginForm} />
+        
+        
      
-       </Switch> */}
+       </Switch> 
 
-      {/* < HEAD/> */}
-       {/* <Switch>
-        <Route exact path='/Login' ><LoginForm /></Route>
-        <Route exact path='/Raise2' ><Raise2/></Route>
         
 
-      
-     {/*  <News/> */}
-        {/* <Route exact path='/Home' ><Home/></Route>
-        <Route exact path='/Search'><SearchResults/></Route>
-        <Route exact path = '/About'><About /></Route>
-        <Route exact path='/' component={Home} /> */}
-        <Route exact path='/ProductDetails/:id' component={ProductDetails} />
-
-      {/* </Switch>  */} 
-
-
-      {/* <AllReviews/>*/}
-      {/* <About/> */}
-      {/* <Raise1/> */}
-      {/* <Raise2/> */}
-      {/* <Raise4/> */}
-      {/* <Raise5/> */}
-
-      {/* <LoginForm/> */}
-      {/* <SignupForm/> */}
-      {/* <Account/> */}
-{/*       <Gallery/> */}
-      {/* <Account/> */}
-      {/* <Gallery/> */}
+     
     </>
   ); 
 }

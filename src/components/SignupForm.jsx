@@ -111,6 +111,7 @@ export default function SignupForm() {
         }).then(response =>{
             if (response.status >= 200 && response.status < 300) {
                 console.log(response);
+                alert("Signup Successful")
                 return ;
               } else {
                console.log('Somthing happened wrong');
@@ -161,7 +162,9 @@ export default function SignupForm() {
     <button style = {
             styles.button
         }>Create</button>
+       <a href="">
        <InputInfo data1 = "or Return to Home Page"/>
+       </a>
     </form>
     <Footer/>
     </>

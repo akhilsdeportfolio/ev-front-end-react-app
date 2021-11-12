@@ -97,14 +97,23 @@ export default function LoginForm() {
             email,
             password
         }
-      console.log(user)
+      
        fetch("http://localhost:3000/user")
         .then((res)=>{
-            let data = res.json();
-            return data
+            let users = res.json();
+            return users
            
-        }).then((data)=>{
-            console.log(data)
+        }).then((users)=>{
+            console.log("user",user)
+            console.log("data",users)
+            for(var i = 0; i < users.length; i++){
+                if(users[i].email === user.email && users[i].password === user.password){
+                    alert("Login Successfull");
+                    return;
+                }
+            }
+
+            alert("No User Found Please Create an Account")
         }).catch(err=>err)
         event.target.email.value = null;
         event.target.password.value = null;

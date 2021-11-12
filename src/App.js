@@ -62,7 +62,7 @@ function App() {
         <Route exact path='/Raise2' ><Raise2/></Route>
          */}
 
-      <Switch>
+      {/* <Switch> */}
      {/*  <News/> */}
         {/* <Route exact path='/Home' ><Home/></Route>
         <Route exact path='/Search'><SearchResults/></Route>

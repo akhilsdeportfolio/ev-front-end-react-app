@@ -66,6 +66,15 @@ let styles = {
         height: "237px",
         cursor:"pointer",
     },
+    logout:{
+        position:"absolute",
+        left:"87%",
+        cursor:"pointer",
+        width:140,
+        height:140,
+        top:20
+
+    }
 }
 function ImageList(props){
         const images = props.Image;
@@ -78,9 +87,15 @@ function ImageList(props){
     }
 let user = JSON.parse(localStorage.getItem('users'))
 let row22 = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6qG7lZbQCeJFCS7nVtXIKZi1z-yKZEDSUQ&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6qG7lZbQCeJFCS7nVtXIKZi1z-yKZEDSUQ&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6qG7lZbQCeJFCS7nVtXIKZi1z-yKZEDSUQ&usqp=CAU"]
+
+let handleLogOut = ()=>{
+    localStorage.removeItem("users");
+
+}
 export let Account = (props)=>{
     return (
         <>
+            <img onClick = {handleLogOut} style  = {styles.logout} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31n4QVDs3AXoCCwpJYypzJLkQ-dT3EI3JZKk2Vl8Ty8M1lJwrGLT49wBhjIvrr5EMyk0&usqp=CAU" alt="" />
             <div style = {styles.container}><div style = {styles.box1}>
                <div style = {styles.account}>
                <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6qG7lZbQCeJFCS7nVtXIKZi1z-yKZEDSUQ&usqp=CAU" alt="profile pic" style = {styles.pic}/></div>

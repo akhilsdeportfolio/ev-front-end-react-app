@@ -78,8 +78,8 @@ function App() {
 
       {/* <LoginForm/> */}
       {/* <SignupForm/> */}
-      {/* <Account/> */}
-      <Gallery/>
+      <Account/>
+      {/* <Gallery/> */}
     </>
   ); 
 }

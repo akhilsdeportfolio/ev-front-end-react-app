@@ -5,13 +5,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import { Avatar, Button } from "@material-ui/core";
+import { Avatar, Button } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Review from './Review';
 import { Footer } from './Footer';
 import { Link } from 'react-router-dom';
 import AboutVehicle from "./AboutVehicle";
-
+import RatingSection from './RatingSection';
 import Wall from './Wall';
 import { Rating } from "@mui/material";
 import FeatureCard from "./FeatureCard";
@@ -40,6 +40,30 @@ export default function ProductDetails({})
           price :'13.8 Lakhs - 14.5 Lakhs',
           location :' Exshowroom price in Bangalore'
      }
+
+     let arr=[
+          {
+               name:"akhil",
+               date:"3/03/2020",
+               rating:3.5,
+               comment:"this is an awesome car with great value for money and nice riding experience"
+          },
+          {
+               name:"akhil",
+               date:"3/03/2020",
+               rating:3.5,
+               comment:"this is an awesome car with great value for money and nice riding experience"
+          },
+          {
+               name:"akhil",
+               date:"3/03/2020",
+               rating:3.5,
+               comment:"this is an awesome car with great value for money and nice riding experience"
+          }
+          
+          
+
+     ]
      const [vehicleData,setVehicleData]=useState(data);
      const [features,setFeatures]=useState([]);
      const [gallery,setGallery]=useState("/gallery");
@@ -89,7 +113,7 @@ export default function ProductDetails({})
      
       <Wall  pic1="https://images.unsplash.com/photo-1617886322168-72b886573c35?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" pic2="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=452&q=80" />
 
-     <Box style={{marginTop:'375px'}}>
+     <Box style={{marginTop:'475px'}}>
      <Typography variant="h1" color="black" component="div" style={styles}>
                     {vehicleData.vehicleName}
      </Typography>
@@ -126,7 +150,7 @@ export default function ProductDetails({})
      <Box sx={{margin:'auto',width:'80%'}}>
           <FeatureCard featureList={features}/>
      </Box>
-     <Box sx={{margin:'auto',width:'78.5%'}}>
+     <Box sx={{margin:'auto',width:'79%'}}>
           <AboutVehicle title="Nexon EV Latest Update" about="Latest Update: Tata will launch the Nexon BS6 facelift on January 22.
 
 Variants and Prices: The Nexon is available in eight variants: XE, XM, XMA, XT, XT+, XZ, XZ+, and XZA+ with some combinations offering a dual-tone roof and automatic transmission. Tata Motors also offers the Nexon in the special edition KRAZ trim. However, the features on offer remain the same. Tata’s sub-4m SUV is priced between Rs 6.73 lakh and Rs 11.4 lakh (ex-showroom Delhi).
@@ -140,16 +164,19 @@ Features: It gets a 6.5-inch touchscreen infotainment system by Harman-Kardon wi
 Rivals: The Nexon rivals the likes of Maruti Suzuki Vitara Brezza, Ford EcoSport, Ford Freestyle, Honda WR-V, Mahindra TUV300, and Mahindra XUV300. It will also take on the upcoming Renault HBC and the Kia QYI."/>
      </Box>
 
-
-
-     <div style={{width:'80%',margin:'auto'}}>
+     <Box sx={{margin:'auto',width:'78%'}}>
+          <RatingSection reviews={arr} title="Tata Nexon EV User Reviews" avgRating="4.2" totalReviews="70" />
+     </Box>
+     
+     
+     <Box style={{width:'81%',margin:'auto'}}>
      
      <FeatureCard title="Question &amp; Answers (FAQ)" isQuestions="true" questions={questions}>
      
      </FeatureCard>     
 
      
-     </div>
+     </Box>
      
 
      </>);

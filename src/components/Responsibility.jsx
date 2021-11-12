@@ -37,13 +37,15 @@ const Content = styled.div`
         margin-top: -75%;
         padding: 0;
         color: black;
-        font-size: 40px;
+        font-weight: 400;
+        font-size: 35px;
     }
     h2{
         color: white;
         font-size: 35px;
         text-decoration: underline;
         letter-spacing: 1px;
+        font-weight: 400;
     }
 
 

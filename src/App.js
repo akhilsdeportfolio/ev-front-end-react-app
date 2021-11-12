@@ -34,6 +34,8 @@ import LoginForm from './components/LoginForm';
 import Raise4 from './components/Raise4';
 import Raise5 from './components/Raise5';
 import About from './components/About';
+import Trending from './components/TrendingTopics';
+import { NewsSection } from './components/NewsSection';
 
  
 
@@ -61,8 +63,9 @@ function App() {
        </Switch> 
 
         
+        
+         
 
-     
     </>
   ); 
 }

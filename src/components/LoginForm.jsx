@@ -2,6 +2,9 @@ import Heading from "./HeadingInfo";
 import { InputInfo } from "./InputInfo";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { NavLink } from "react-router-dom";
+
+
 const styles = {
     box:{
         width:350,
@@ -136,9 +139,9 @@ export default function LoginForm() {
         <h1 style={styles.headin}>
        New User
     </h1>
-    <button type="submit" style = {
+    <NavLink to='/signup'><button type="submit" style = {
             styles.button2
-        }>CREATE AN ACCOUNT</button>
+        }>CREATE AN ACCOUNT</button></NavLink>
     </form>
     <Footer/>
     </>

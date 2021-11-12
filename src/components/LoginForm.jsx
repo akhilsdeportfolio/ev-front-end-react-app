@@ -16,8 +16,8 @@ const styles = {
         fontFamily: "Poppins",
         fontSize: "35px",
         fontStyle: "normal",
-        fontWeight: 500,
-         textAlign: "center",
+        fontWeight: 600,
+        textAlign: "center",
     },
     textFlex:{
         display:"flex",
@@ -25,6 +25,7 @@ const styles = {
         marginBottom:5
     },
     button2:{
+        cursor:"pointer",
         width:"352px",
         height:"40px",
         fontFamily: "Poppins",
@@ -32,9 +33,9 @@ const styles = {
         fontStyle: "normal",
         fontWeight: 500,
         marginBottom:5,
-       color:"white",
-       border:"none",
-       outline:"none",
+        color:"white",
+        border:"none",
+        outline:"none",
         backgroundColor:"#AD3648",
     },
     input:{
@@ -44,13 +45,14 @@ const styles = {
         fontSize: "16px",
         fontStyle: "normal",
         fontWeight: 500,
-       color: "#6C7592",
+        color: "#6C7592",
         
     },
     padding:{
         marginBottom:15
     },
     button:{
+        cursor:"pointer",
         width:"352px",
         height:"40px",
         fontFamily: "Poppins",
@@ -58,10 +60,10 @@ const styles = {
         fontStyle: "normal",
         fontWeight: 500,
         marginBottom:5,
-       marginTop:22,
-       color:"white",
-       border:"none",
-       outline:"none",
+        marginTop:22,
+        color:"white",
+        border:"none",
+        outline:"none",
         backgroundColor:"#FF546D"
     },
 }
@@ -90,7 +92,6 @@ export default function LoginForm() {
         let passwordCheck = password;
         let passpattern = /[0-9]/g;
         let result3 = passwordCheck.match(passpattern);
-        // console.log(result3,"r3")
         if(result3=== null){
             alert("password must include alphabet and digit both")
             return
@@ -99,7 +100,6 @@ export default function LoginForm() {
             email,
             password
         }
-      
        fetch("http://localhost:2000/users")
         .then((res)=>{
             let users = res.json();
@@ -107,8 +107,6 @@ export default function LoginForm() {
             return users
            
         }).then((users)=>{
-            console.log("user",user)
-            console.log("data",users)
             for(var i = 0; i < users.length; i++){
                 if(users[i].email === user.email && users[i].password === user.password){
                     alert("Login Successfull");
@@ -124,39 +122,37 @@ export default function LoginForm() {
     }
   return (
       <>
-      <Navbar/>
-    <form style={styles.box} onSubmit = {handleSubmit}>
-    <Heading heading=" Already Registered?" subheading = "Login"/>
-    <div style={styles.padding}>
-       <InputInfo data1 = "Email" data2="Required Fields"/>
-        <input style={styles.input} 
-        type="text" 
-        name = "email"
-        placeholder = "Enter Email"/>
-        
-    </div>
-    <div style={styles.padding}>
-       <InputInfo data1 = "Password"/>
-        <input style={styles.input} 
-        type="password"
-        name="password" 
-        required = "true"
-        placeholder = "Enter Password"/>
-        
-    </div>
-    <button style = {
-            styles.button
-        }>LOGIN</button>
-        <InputInfo data1 = "Lost your Password"/>
-        <br/>
-        <h1 style={styles.headin}>
-       New User
-    </h1>
-    <NavLink to='/signup'><button type="submit" style = {
-            styles.button2
-        }>CREATE AN ACCOUNT</button></NavLink>
-    </form>
-    <Footer/>
+        <Navbar/>
+            <form style={styles.box} onSubmit = {handleSubmit}>
+                <Heading heading=" Already Registered?" subheading = "Login"/>
+                <div style={styles.padding}>
+                    <InputInfo data1 = "Email" data2="Required Fields"/>
+                    <input style={styles.input} 
+                        type="text" 
+                        name = "email"
+                    placeholder = "Enter Email"/>
+                </div>
+                <div style={styles.padding}>
+                    <InputInfo data1 = "Password"/>
+                    <input style={styles.input} 
+                        type="password"
+                        name="password" 
+                        required = "true"
+                    placeholder = "Enter Password"/>
+                </div>
+                <button style = {
+                        styles.button
+                    }>LOGIN</button>
+                <InputInfo data1 = "Lost your Password"/>
+                    <br/>
+                    <h1 style={styles.headin}>
+                         New User
+                    </h1>
+                <NavLink to='/signup'><button type="submit" style = {
+                    styles.button2
+                }>CREATE AN ACCOUNT</button></NavLink>
+            </form>
+        <Footer/>
     </>
   )
 }

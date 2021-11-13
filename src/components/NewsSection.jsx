@@ -152,19 +152,19 @@ function NewsSection(){
             <Hr />
             <div /* style={styles.cont} */>
                 {newsArticles.map((e, index) => {
-                    /*  let url = String(e.images).split("\\")
+                     let url = String(e.images).split("\\")
                      let path = url[url.length-1]
-                     path = path.split(",")[0] */
+                     path = path
                     return (
                         <div key={index} >
                             <NavLink to='' style={styles.autodata}>
                                 <Card sx={{ display: 'flex' }} style={styles.cards}>
 
-                                    <img style={styles.image} src={NewsImage} alt={NewsImage} />
+                                    <img style={styles.image} src={path} alt={NewsImage} />
                                     <CardContent sx={{ flex: '1 0 auto' }}>
                                         <h4 style={styles.text}>{e.title}</h4>
                                         <h5 style={styles.date}>12/08/2010</h5>
-                                        <p style={styles.matter}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
+                                        <p style={styles.matter}>{ e.text.substring(0,80) } ...</p>
                                         <h5 style={styles.likes}>{likes} Likes<span style={styles.comments}>{comments} Comments</span><span><img style={styles.icon} src={forward} alt={forward} /></span></h5>
                 
                                     </CardContent>

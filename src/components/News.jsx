@@ -76,7 +76,7 @@ function News(){
                         {newsArticles.map((e, index) => {
                              let url = String(e.images).split("\\")
                              let path = url[url.length-1]
-                             path = path.split(",")
+                             path = path
                             return (
                                 <div key={index} >
                                     <Grid container>

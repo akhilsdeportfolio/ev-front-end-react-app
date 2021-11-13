@@ -64,13 +64,15 @@ function App() {
 
       <Switch>
      {/*  <News/> */}
-        {/* <Route exact path='/Home' ><Home/></Route>
+        <Route exact path='/Home' ><Home/></Route>
         <Route exact path='/Search'><SearchResults/></Route>
         <Route exact path = '/About'><About /></Route>
-        <Route exact path='/' component={Home} /> */}
+        <Route exact path="/News"><NewsSection /></Route>
         <Route exact path='/ProductDetails/:id' component={ProductDetails} />
+        <Route exact path='/' component={Home} />
+        
 
-      {/* </Switch>  */} 
+       </Switch>  
 
       {/*   <Trending /> */}
         {/* <Home /> */}

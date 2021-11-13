@@ -27,7 +27,7 @@ const styles = {
     }
 }
 const VehicleList = ({vehicleList, input}) => {
-    
+
     return (
       <>
       <VehicleSec>
@@ -43,7 +43,7 @@ const VehicleList = ({vehicleList, input}) => {
             return (
               <div key={index}>
                   <Card style={styles.cards}>
-               <NavLink to="" style={styles.Vehicletext}> <h3>{data.name}</h3></NavLink>
+               <NavLink to={`/Vehicles/${data._id}`} style={styles.Vehicletext}> <h3>{data.name}</h3></NavLink>
                </Card>
           </div>	
              )	

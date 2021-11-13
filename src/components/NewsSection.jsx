@@ -7,7 +7,6 @@ import CardContent from '@mui/material/CardContent';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import styled from 'styled-components';
-//import { useParams } from 'react-router-dom';
 
 const styles = {
     /*  cont: {
@@ -51,7 +50,7 @@ const styles = {
     },
     likes: {
         textAlign: 'left',
-        marginTop: '7%',
+        marginTop: '10%',
     },
     comments: {
         marginLeft: '20px'
@@ -65,7 +64,7 @@ const styles = {
     },
     mLeft: {
         marginLeft: '85%',
-        marginTop: '-170%'
+        marginTop: '-217%'
     },
     trendingHeading: {
         height: "37px",
@@ -118,18 +117,16 @@ const Hr = styled.hr`
     margin-bottom: 30px;
 `
 const Bottom = styled.div`
-    margin-bottom: 2000px;
+    margin-bottom: 2700px;
 `
 
-
-let array = []
 
 function NewsSection(){
 
     const [newsArticles, setNewsArticles] = useState([])
     const [likes, setLikes] = useState(0)
     const [comments, setComments] = useState(0)
-    //const { id }=useParams();
+
     useEffect(() => {
         getNews()
     }, [])
@@ -138,15 +135,9 @@ function NewsSection(){
         let res = await fetch('http://localhost:2000/news')
         let newsData = await res.json()
         setNewsArticles(newsData)
-        console.log("newsArticles",newsArticles);
     }
 
-    for(let i=newsArticles.length-1; i>0; i--){
-        array.push(JSON.stringify(newsArticles[i]));
-        
-    }
-
-
+   
     return (
         <>
         <Navbar />
@@ -155,12 +146,8 @@ function NewsSection(){
             <div /* style={styles.cont} */>
                 {newsArticles.map((e, index) => {
                      let url = String(e.images).split("\\")
-                     console.log(url);
                      let path = url[url.length-1]
-                     
                      path = path;
-                     console.log(path);
-                
                     return (
                         <div key={index} >
                             <NavLink to={`/News/${e._id}`} style={styles.autodata}>

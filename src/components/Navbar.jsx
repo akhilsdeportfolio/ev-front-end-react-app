@@ -31,7 +31,6 @@ const styles = {
         fontWeight: '700',
         fontSize: '15px',
         marginTop: '0.5%',
-         
     },
     btnlink: {
         textDecoration: 'none',
@@ -111,23 +110,23 @@ function Navbar() {
                         Your E-Assistant
                     </Typography>
                     <NavUnlisted>
-                        <NavLink to="/Home" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/Home" activeStyle={{fontWeight: "800" }}>
                             <li>Home</li>
                         </NavLink>
-                        <NavLink to="/News" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/News" activeStyle={{fontWeight: "800" }}>
                             <li>News</li>
                         </NavLink>
-                        <NavLink to="/Vehicles" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/Vehicles" activeStyle={{fontWeight: "800" }}>
                             <li>E-Vehicles</li>
                         </NavLink>
-                        <NavLink to="/About" activeStyle={{fontWeight: "600" }}>
+                        <NavLink to="/About" activeStyle={{fontWeight: "800" }}>
                             <li>About Us</li>
                         </NavLink>
 
-                        {isUserPresent()===true? <NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
+                        {isUserPresent()===true? <NavLink to="/Login" activeStyle={{fontWeight: "800" }}>
                             <li style={styles.welcome}>Hello! {userDetails.firstName} &nbsp; <Button variant="outlined" style={styles.logout} onClick={logout}>(Logout)</Button> </li>                            
 
-                        </NavLink> :<NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
+                        </NavLink> :<NavLink to="/Login" activeStyle={{fontWeight: "800" }}>
                             <li>Login</li>
                         </NavLink>}
                         

@@ -143,7 +143,7 @@ export default function LoginForm() {
                 <button style = {
                         styles.button
                     }>LOGIN</button>
-                <InputInfo data1 = "Lost your Password"/>
+                <InputInfo data1 = "Lost your Password ?"/>
                     <br/>
                     <h1 style={styles.headin}>
                          New User

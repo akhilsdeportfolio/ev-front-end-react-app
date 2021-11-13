@@ -5,18 +5,20 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import { Avatar, Button } from "@material-ui/core";
+import { Avatar, Button } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Review from './Review';
 import { Footer } from './Footer';
 import { Link } from 'react-router-dom';
 import AboutVehicle from "./AboutVehicle";
-
+import RatingSection from './RatingSection';
 import Wall from './Wall';
 import { Rating } from "@mui/material";
 import FeatureCard from "./FeatureCard";
 import IconText from "./IconText";
-import { Timer } from "@material-ui/icons";
+import { LocalConvenienceStoreOutlined, Timer } from "@material-ui/icons";
+import {useParams} from 'react-router-dom';
+import axios from  'axios';
 const styles={
      textAlign:'center',width:'100%',fontFamily:'Montserrat',fontSize:'37px',fontWeight:'600'
 };
@@ -31,7 +33,7 @@ const styles2={
 export default function ProductDetails({})
 {
 
-     let id ="123"
+     let { id }= useParams();
 
      let data ={
           vehicleName :'TATA NEXON',
@@ -40,15 +42,47 @@ export default function ProductDetails({})
           price :'13.8 Lakhs - 14.5 Lakhs',
           location :' Exshowroom price in Bangalore'
      }
+
+   /*   let arr=[
+          {
+               name:"akhil",
+               date:"3/03/2020",
+               rating:3.5,
+               comment:"this is an awesome car with great value for money and nice riding experience"
+          },
+          {
+               name:"akhil",
+               date:"3/03/2020",
+               rating:3.5,
+               comment:"this is an awesome car with great value for money and nice riding experience"
+          },
+          {
+               name:"akhil",
+               date:"3/03/2020",
+               rating:3.5,
+               comment:"this is an awesome car with great value for money and nice riding experience"
+          }
+          
+          
+
+     ] */
      const [vehicleData,setVehicleData]=useState(data);
      const [features,setFeatures]=useState([]);
      const [gallery,setGallery]=useState("/gallery");
+     const [reviews,setReviews]=useState([]);
 
+
+     //let getVehicleSpec=(int)=>{
+       //    return vehicleData.key_specs[int];
+     //}
+
+
+     
      let intro=[
-          <IconText icon="timer" feature="Time to charge" text="20mins"></IconText>,
-          <IconText icon="road" feature="Driving Ranges" text="200Km/fullcharge"></IconText>,
-          <IconText icon="battery" feature="Battery Capacity" text="30.2KWH"></IconText>
-          ,<IconText icon="power" feature="Power" text="127bhp"></IconText>
+          <IconText icon="timer" feature="Time to charge" text="20min"></IconText>,
+          <IconText icon="road" feature="Driving Ranges" text="20min"></IconText>,
+          <IconText icon="battery" feature="Battery Capacity" text="20min"></IconText>
+          ,<IconText icon="power" feature="Power" text="20min"></IconText>
      ]
 
 
@@ -56,16 +90,30 @@ export default function ProductDetails({})
      
 
      useEffect(()=>{
-          setVehicleData(data);
-          setFeatures(['black','red','white','black','black','red','white'])
 
-          console.log(vehicleData)
+          setVehicleData({data});
+          setFeatures(features);
+          axios.get(`http://localhost:2000/vehicles/${id}`).then((data)=>{
+               setVehicleData(data.data);
+               setFeatures(data.data.features);
+               console.log(data.data.features);
+               //setFeatures(/data.features);
+               
+          });
+          axios.get(`http://localhost:2000/vehicles/${id}/reviews`).then((data)=>{
+               setReviews(data.data.reviews);
+               console.log(reviews)
+          })
+          
+
+          console.log("vehicleDAta",vehicleData)
           setGallery(gallery+`/${id}`);
 
      },[]);
 
 
 
+  
 
 
      return(<>
@@ -89,12 +137,12 @@ export default function ProductDetails({})
      
       <Wall  pic1="https://images.unsplash.com/photo-1617886322168-72b886573c35?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" pic2="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=452&q=80" />
 
-     <Box style={{marginTop:'375px'}}>
+     <Box style={{marginTop:'475px'}}>
      <Typography variant="h1" color="black" component="div" style={styles}>
-                    {vehicleData.vehicleName}
+                    {vehicleData.name}
      </Typography>
      <div style={{textAlign:'center'}}>
-     <Rating value={vehicleData.rating} precision="0.5" readOnly="true" size="large" style={{fontSize:'30px'}}/>
+     <Rating value={vehicleData.star} precision="0.5" readOnly="true" size="large" style={{fontSize:'30px'}}/>
 
      <Typography variant="p" color="black" component="div" style={styles2} >
                     {vehicleData.totalReviews} Reviews
@@ -110,23 +158,18 @@ export default function ProductDetails({})
 
      <Link to={gallery} sx={{textColor:'white'}} style={{textDecoration:'none'}}><Button  variant="contained" style={{marginTop:'10px',backgroundColor:"#FF546D",color:"white"}}>
           Gallery</Button></Link>
-     </div>          
-     
-
-          
-
-     
+     </div>               
      </Box>          
      
 
      <Box sx={{margin:'auto',width:'80%'}}>
-          <FeatureCard titles="Key Specs of Tata Nexon EV" featureList={intro}/>
+          <FeatureCard titles="Key Specs of Tata Nexon EV" featureList={intro} isQuestions="false"/>
      </Box>
 
      <Box sx={{margin:'auto',width:'80%'}}>
           <FeatureCard featureList={features}/>
      </Box>
-     <Box sx={{margin:'auto',width:'78.5%'}}>
+     <Box sx={{margin:'auto',width:'79%'}}>
           <AboutVehicle title="Nexon EV Latest Update" about="Latest Update: Tata will launch the Nexon BS6 facelift on January 22.
 
 Variants and Prices: The Nexon is available in eight variants: XE, XM, XMA, XT, XT+, XZ, XZ+, and XZA+ with some combinations offering a dual-tone roof and automatic transmission. Tata Motors also offers the Nexon in the special edition KRAZ trim. However, the features on offer remain the same. Tata’s sub-4m SUV is priced between Rs 6.73 lakh and Rs 11.4 lakh (ex-showroom Delhi).
@@ -140,16 +183,21 @@ Features: It gets a 6.5-inch touchscreen infotainment system by Harman-Kardon wi
 Rivals: The Nexon rivals the likes of Maruti Suzuki Vitara Brezza, Ford EcoSport, Ford Freestyle, Honda WR-V, Mahindra TUV300, and Mahindra XUV300. It will also take on the upcoming Renault HBC and the Kia QYI."/>
      </Box>
 
-
-
-     <div style={{width:'80%',margin:'auto'}}>
+     <Box sx={{margin:'auto',width:'78%'}}>
+     
+          <RatingSection style={{overflow:'scroll'}} reviews={reviews} title="Tata Nexon EV User Reviews" avgRating="4.2" totalReviews="70" />
+     
+     </Box>
+     
+     
+     <Box style={{width:'81%',margin:'auto'}}>
      
      <FeatureCard title="Question &amp; Answers (FAQ)" isQuestions="true" questions={questions}>
      
      </FeatureCard>     
 
      
-     </div>
+     </Box>
      
 
      </>);

@@ -3,7 +3,8 @@ import { makeStyles } from '@mui/styles';
 import { Searchbar } from './Searchbar';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
-
+import {useHistory} from 'react-router-dom';
+import { useState } from "react";
 
 const useStyles = makeStyles({
     bar: {
@@ -67,7 +68,32 @@ const NavUnlisted = styled.ul`
 
 function Navbar() {
     const classes = useStyles()
+    const history = useHistory();
+//    const [userDetails,setUserDetals]=useState("");
 
+    let userDetails=null;
+    function isUserPresent()
+    {
+        let user=localStorage.getItem('activeUser');
+        
+        if(!user)
+            return false;
+        else
+        {
+            userDetails=JSON.parse(user);
+            console.log(userDetails);
+            return true;    
+        
+            
+        }
+    }
+
+    function logout()
+    {
+        localStorage.removeItem('activeUser');
+        history.push("/");
+        
+    }
     return (
         <>
             <AppBar style={styles.appbar}>
@@ -88,9 +114,14 @@ function Navbar() {
                         <NavLink to="/About" activeStyle={{fontWeight: "600" }}>
                             <li>About Us</li>
                         </NavLink>
-                        <NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
+
+                        {isUserPresent()===true? <NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
+                            <li>Welcome {userDetails.firstName} &nbsp; <Button variant="outlined" style={{color:'white',border:'1px solid gray'}} onClick={logout}>(Logout)</Button> </li>                            
+
+                        </NavLink> :<NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
                             <li>Login</li>
-                        </NavLink>
+                        </NavLink>}
+                        
                     </NavUnlisted>
                    <NavLink to="/Raise2" style={styles.btnlink}> <Button variant="outlined" style={styles.btn1} >Urgent</Button></NavLink>
                 </Toolbar>

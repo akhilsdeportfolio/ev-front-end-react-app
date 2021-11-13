@@ -1,0 +1,23 @@
+.rec.rec-arrow {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.rec.rec-dot {
+    background: #ff4343;
+    border: 2px #FF6AAB solid;
+    height: 10px;
+    width: 10px;
+    margin-top: 10%;
+    border-radius: #FF6AAB;
+  }
+
+  .rec.rec-arrow:hover {
+    background-color: #FF546D;
+    color: white;
+}
+
+   /* .rec.rec-dot.active{
+     background: #FF6AAB;
+     border-radius: #FF6AAB;
+  }  */

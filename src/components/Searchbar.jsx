@@ -3,6 +3,8 @@ import InputBase from '@mui/material/InputBase';
 import styled  from 'styled-components';
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
+import { SearchResults } from './SearchResults';
+import { Link } from "react-router-dom";
 
 const Search = styled.div`
   background-color: #FFB3D4;
@@ -17,11 +19,12 @@ const Search = styled.div`
 
 const SearchWrapper = styled.div`
  background-color: white;
- width: 16%;
+ width: 25%;
  height: 32px;
  border-radius: 20px;
  margin-top: 2.8px;
- margin-left: 1%;
+ margin-left: 40%;
+ margin-right: 1%;
 `
 
 
@@ -38,10 +41,18 @@ const StyledInputBase = styled(InputBase)(() => ({
     '&::placeholder': {
       color: 'black',
       fontSize: '15px',
-      fontWeight: '500'
+      fontWeight: '500',
+      
     }
   }
 }));
+
+const styles = {
+  searchbar:{
+    textDecoration: 'none',
+    cursor: 'auto'
+  }
+}
 
 const useStyles = makeStyles({
   icon:{
@@ -54,25 +65,20 @@ const useStyles = makeStyles({
 })
 
 function Searchbar(){
-  const [text, setText] = useState('')
   const classes = useStyles()
-
-  const handleChange = (e)=>{
-    setText(e.target.value)
-  }
   
     return(
         <>
+        <Link to='/Search' style={styles.searchbar}>
             <Search>
             <StyledInputBase
               placeholder="SEARCH"
-              value={text}
-              onChange={handleChange}
             />
             <SearchWrapper>
               <SearchIcon className={classes.icon}/>
               </SearchWrapper>
           </Search>
+          </Link>
         </>
     )
 }

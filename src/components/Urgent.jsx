@@ -74,7 +74,7 @@ function Urgent(){
             </Typography>
             <Typography variant='h6' style={styles.section1}>
             Where you can rais your problem in the form of ticket like your battery is discharged <br /> 
-            in the place of no where and having problem with your<Link href="" style={styles.anchr}> E-Vehicle</Link>. When Your application <br /> comes to us with your location we will assign the near by workshop to you and you will get
+            in the place of no where and having problem with your<Link to='' style={styles.anchr}> E-Vehicle</Link>. When Your application <br /> comes to us with your location we will assign the near by workshop to you and you will get
             </Typography>
             <Typography variant='h6' style={styles.section2}>
             every updates like
@@ -83,7 +83,7 @@ function Urgent(){
             How much time it will be taken for the technician to reach your Location?
             </Typography>
             <Typography variant='h6' style={styles.section4}>
-            So you don’t have to worry, your <Link href="" style={styles.anchr}> E-Vehicle Assistant </Link>is with you.
+            So you don’t have to worry, your <Link to='' style={styles.anchr}> E-Vehicle Assistant </Link>is with you.
             </Typography>
             <Typography variant='h6' style={styles.section5}>
             Belive It!

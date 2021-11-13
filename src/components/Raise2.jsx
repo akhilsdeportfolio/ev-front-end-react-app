@@ -131,14 +131,14 @@ const Raise2 = () => {
     }, [])
 
     const getform = () => {
-        fetch(`http://localhost:3001/raiseticket`)
+        fetch(`http://localhost:2000/raiseticket`)
             .then((d) => d.json())
             .then(setData)
     }
     console.log(data);
 
     const handleAddform = (task) => {
-        fetch("http://localhost:3001/raiseticket", {
+        fetch("http://localhost:2000/raiseticket", {
             method: "POST",
             body: JSON.stringify(task),
             headers: {

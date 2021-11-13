@@ -92,6 +92,11 @@ let handleLogOut = ()=>{
     localStorage.removeItem("users");
 
 }
+const AccountData = async () => {
+    let res = await fetch('http://localhost:2000/vehicles')
+    let vehiclesData = await res.json()
+    
+}
 export let Account = (props)=>{
     return (
         <>
@@ -125,14 +130,14 @@ export let Account = (props)=>{
            </button> 
            </div>
            <div style={styles.container}>
-           <p style = {styles.details}>Recent Blogs and news </p> 
+           <p style = {styles.details}>Recent Vehicles </p> 
            <ImageList Image = {row22}/>
            <button style = {styles.button}>
                view more
            </button> 
            </div>
            <div style={styles.container}>
-           <p style = {styles.details}>Recent Blogs and news </p> 
+           <p style = {styles.details}>Recent Tickets </p> 
            <ImageList Image = {row22}/>
            <button style = {styles.button}>
                view more

@@ -3,7 +3,7 @@ const styles = {
         fontFamily: "Poppins",
         fontSize: "35px",
         fontStyle: "normal",
-        fontWeight: 500,
+        fontWeight: 600,
          textAlign: "center",
     },
     info:{
@@ -11,7 +11,7 @@ const styles = {
         fontFamily: "Poppins",
         fontSize: "23px",
         fontStyle: "normal",
-        fontWeight: 400,
+        fontWeight: 600,
         
     },
 }

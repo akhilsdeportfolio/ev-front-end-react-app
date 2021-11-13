@@ -27,9 +27,9 @@ const Item = styled(Paper)(({ theme }) => ({
      color: theme.palette.text.secondary,
 }));
 
-export default function()
+export default function({name,email,star,text,date})
 {
-
+     console.log(name,email,star,text,date);
 
 
      const [value, setValue] = useState(4.2)
@@ -56,10 +56,10 @@ export default function()
       <Box sx={{ display: 'flex', flexDirection: 'column', }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h1" fontSize={25} fontFamily="Montserrat" fontWeight={500}>
-            By Akhil kamsala
+            {name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div" fontSize={21} fontFamily="Montserrat" fontWeight={300}> 
-            On July 2021
+            {date}
           </Typography>
 
           <Rating
@@ -68,13 +68,13 @@ export default function()
                color="#FFC700"
                readOnly={true}
                name="simple-controlled"
-               value={value}
+               value={star}
                onChange={(event, newValue) => {
                setValue(newValue);
           }}
                />
           <Typography variant="body1" color="text.primary" component="div" fontSize={21} fontFamily="Montserrat" fontWeight={400} > 
-          This is the only Electric Vehicle available with reliable latest battery aided technology coupled with safety - both features and builds quality. Added Automatic is a big plus. Looks - 5/5 Pickup/Drag - 5/5 Battery Range - 4/5 Only the slightest flaw I found is the Rotatory knob for shifting driving modes(Eco, City, Sport). Tata should consider this and replace it with some kind of Joystick technology.
+          {text}
           </Typography>     
           <br/>
           <Stack direction="row" spacing={2}>

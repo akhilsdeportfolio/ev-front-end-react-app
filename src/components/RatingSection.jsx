@@ -55,7 +55,8 @@ export default function({reviews,avgRating,totalReviews,title})
                     <br/>
                     <Stack direction="row" spacing={10}>
                               {reviews.map((review)=>{
-                                   return <ReviewCard name={review.name} rating={review.rating} comment={review.comment} date={review.date} />
+                                   console.log(review);
+                                   return <ReviewCard name={review.name} rating={review.star} comment={review.text} date={review.date} />
                               })}
                     </Stack>
 

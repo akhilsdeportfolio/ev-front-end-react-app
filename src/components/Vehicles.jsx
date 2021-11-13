@@ -54,12 +54,37 @@ const Line = styled.hr`
 
 const breakPoints = [{ width: 1, itemsToShow: 2 }];
 
-function Vehicles() {
+function Vehicles({vehiclesD}) {
     const [vehicleArticles, setVehicleArticles] = useState([])
 
+
+    
+    
     useEffect(() => {
-        getVehicle()
+            
+                
+                if(vehiclesD!=undefined)
+                {
+                        setVehicleArticles(vehiclesD);
+                        return;
+                }
+                else
+                {
+                    getVehicle();
+                }
+                
+                
+            console.log(vehicleArticles);
+            
+        
     }, [])
+
+
+    useEffect(()=>{
+        //setVehicleArticles(vehiclesD);    
+        //console.log("Data changed");
+        
+    },[vehiclesD]);
 
     const getVehicle = async () => {
         let res = await fetch('http://localhost:2000/vehicles')

@@ -86,10 +86,7 @@ export default function SignupForm() {
             
             return
         }
-        if(!email.includes(".com") || !email.includes(".in")){
-           alert("please provide valid email address") 
-           return
-        }
+        
         
         if(password.trim().length <= 6){
             alert("please enter more than six digit of password")
@@ -110,9 +107,7 @@ export default function SignupForm() {
         }
         console.log(user)
          
-        let req=await axios.post('http://localhost:2000/users',user);
-    
-        req.then(response =>{
+        axios.post('http://localhost:2000/users',user).then(response =>{
             if (response.status >= 200 && response.status < 300) {
                 console.log(response);
                 alert("created account successfully");

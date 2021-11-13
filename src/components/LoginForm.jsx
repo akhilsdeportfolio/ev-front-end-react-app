@@ -75,7 +75,7 @@ export default function LoginForm() {
         let password = event.target.password.value;
 
         event.preventDefault()
-        if(email.trim().length <= 6){
+       /*  if(email.trim().length <= 6){
             alert("please provide valid email address")
             
             return
@@ -88,7 +88,7 @@ export default function LoginForm() {
         if(password.trim().length <= 6){
             alert("please enter more than six digit of password")
             return
-        }
+        } */
         let passwordCheck = password;
         let passpattern = /[0-9]/g;
         let result3 = passwordCheck.match(passpattern);
@@ -104,9 +104,12 @@ export default function LoginForm() {
         .then((res)=>{
             let users = res.json();
             //console.log(users);
+            
             return users
            
         }).then((users)=>{
+
+            console.log(users);
             for(var i = 0; i < users.length; i++){
                 if(users[i].email === user.email && users[i].password === user.password){
                     alert("Login Successfull");
@@ -115,7 +118,7 @@ export default function LoginForm() {
                 }
             }
 
-            alert("No User Found Please Create an Account")
+            //alert("No User Found Please Create an Account")
         }).catch(err=>err)
         event.target.email.value = null;
         event.target.password.value = null;

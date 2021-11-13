@@ -1,4 +1,7 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { Footer } from "./Footer"
+import {useState} from 'react';
 let styles = {
     container:{
         width:"90%",
@@ -91,12 +94,30 @@ let handleLogOut = ()=>{
     localStorage.removeItem("users");
 
 }
+
+
 const AccountData = async () => {
     let res = await fetch('http://localhost:2000/vehicles')
     let vehiclesData = await res.json()
     
 }
 export let Account = (props)=>{
+
+
+    const [userRatings,setUserRating]=useState([]);
+
+    let data=JSON.parse(localStorage.getItem("activeUser"));
+
+
+    useEffect(()=>{
+        console.log("http://localhost:2000/users/tickets/${data._id}")
+        axios.get(`http://localhost:2000/users/tickets/${data._id}`).then((data)=>{
+            alert("data is",JSON.stringify(data));
+        }).catch((e)=>{alert("error")});
+        
+    },[]);
+
+
     return (
         <>
             <img onClick = {handleLogOut} style  = {styles.logout} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31n4QVDs3AXoCCwpJYypzJLkQ-dT3EI3JZKk2Vl8Ty8M1lJwrGLT49wBhjIvrr5EMyk0&usqp=CAU" alt="" />

@@ -66,6 +66,7 @@ function App() {
         <Route exact path='/News/:id' component={NewsSection} />
         <Route exact path='/' component={Home} />
         <Route exact path='/Search' component={SearchResults} />
+        <Route exact path='/Account' component={Account} />
         
         
         

@@ -7,10 +7,10 @@ import { Navbar } from "./Navbar";
 import Review from "./Review";
 
 
-let comment ={
+let initData ={
      name:'',
      email:'',
-     comment:'',
+     text:'',
      news_id:''
 }
 
@@ -18,7 +18,7 @@ let comment ={
 export default function()
 {
 
-
+     const [comment,setComment]=useState(initData);
 
      let {id} = useParams();
      let [newsArticle,setNewsArticle]=useState({
@@ -44,7 +44,26 @@ export default function()
      let handleSubmit=async (e)=>{
           
           comment["news_id"]=id;
-          axios.post(`http://localhost:2000/comments/`,comment).then((resp)=>{console.log(resp);alert("success");}).catch((e)=>
+          axios.post("http://localhost:2000/comments/",comment).then(async (resp)=>{console.log(resp);alert("success");
+          let data=await axios.get(`http://localhost:2000/news/${id}/comments`);
+          console.log(data.data.news);
+          setNewsArticle(data.data.news);
+          setComments(data.data.comments)
+
+          let k={
+               name:'',
+               email:'',
+               text:'',
+               news_id:''
+          }
+
+          setComment(k);
+          document.getElementById("name").value="";
+          document.getElementById("email").value="";
+          document.getElementById("text").value="";
+
+
+     }).catch((e)=>
           {
                console.log(e)
                alert("something wrong occured");
@@ -63,6 +82,7 @@ export default function()
           console.log(data.data.news);
           setNewsArticle(data.data.news);
           setComments(data.data.comments)
+          
           
      },[]);
 
@@ -101,11 +121,11 @@ export default function()
           <Typography variant="h6"  style={{fontFamily:"Montserrat",textAlign:"center",fontWeight:'700',marginTop:'100px'}}>Leave a Comment</Typography>
           <div style={{textAlign:'start',display:'flex',flexDirection:'column',gap:20,width:'80%',margin:'auto'}}>
           <Typography varaint="body2"  style={{fontWeight:500}}>Enter Name</Typography>          
-          <TextField label="Name" name="name" variant="filled" color="primary" focused onChange={handleChange}/>
+          <TextField label="Name" name="name" variant="filled" color="primary" focused onChange={handleChange} id="name"/>
           <Typography varaint="body2" style={{fontWeight:500}} >Enter Email</Typography>          
-          <TextField label="email" name="email" variant="filled" color="primary" focused onChange={handleChange} />
+          <TextField label="email" name="email" variant="filled" color="primary" focused onChange={handleChange}  id="email"/>
           <Typography varaint="body2" style={{fontWeight:500}} >Enter Comment</Typography>          
-          <TextField label="Comment" name="comment" variant="filled" color="primary" focused  style={{height:'150px'}} onChange={handleChange}/>
+          <TextField label="Comment" name="text" variant="filled" color="primary" focused  style={{height:'150px'}} onChange={handleChange} id="text"/>
 
 
           <div style={{textAlign:'center',gap:20,width:'80%',margin:'auto'}}>          

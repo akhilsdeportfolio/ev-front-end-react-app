@@ -37,6 +37,8 @@ import Raise5 from './components/Raise5';
 import About from './components/About';
 import Trending from './components/TrendingTopics';
 import { NewsSection } from './components/NewsSection';
+import Evehicles from './components/Evehicles';
+import Article from './components/Article';
 
  
 
@@ -52,20 +54,18 @@ function App() {
         <Route path="/raise4"><Raise4/></Route>
         <Route path="/raise5"><Raise5/></Route>
         <Route path="/about"> <About></About> </Route>
-        <Route exact path='/ProductDetails/:id' component={ProductDetails} />
+        <Route exact path='/Vehicles/:id' component={ProductDetails} />
         <Route exact path='/Gallery/:id' component={Gallery} />
         <Route exact path='/Reviews/:id' component={AllReviews} />        
         <Route exact path='/Home' component={Home} />
         <Route exact path='/Login' component={LoginForm} />
         <Route exact path='/signup' component={SignupForm} />
         <Route exact path='/News' component={NewsSection} />
-        <Route exact path='/News/:id' component={Home} />
-        <Route exact path='/Vehicles/:id' component={NewsSection} />
+        <Route exact path='/News/:id' component={Article} />
+        <Route exact path='/Vehicles/' component={Evehicles} />
         <Route exact path='/' component={Home} />
         <Route exact path='/Search' component={SearchResults} />
        </Switch> 
-
-        
             </>
   ); 
 }

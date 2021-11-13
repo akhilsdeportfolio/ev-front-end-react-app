@@ -80,7 +80,7 @@ function News(){
                             return (
                                 <div key={index} >
                                     <Grid container>
-                                        <NavLink to={`/News/${e.title}`} style={styles.autodata}>
+                                        <NavLink to={`/News/${e._id}`} style={styles.autodata}>
                                             <Card style={styles.cards}>
                                                 <img style={styles.image} src={path} alt={path} />
                                                 <h3>{e.title}</h3>

@@ -5,7 +5,7 @@ import TicketNumber from './TicketNumber'
 import Tickmark from './image/Group 76.png'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
-
+import { useHistory } from 'react-router-dom'
 
 const styles = {
     responseDiv:{
@@ -44,6 +44,7 @@ const styles = {
     }
 }
 const Raise4 = () => {
+    let history= useHistory();
     return (
         <>
         <Navbar></Navbar>
@@ -54,7 +55,14 @@ const Raise4 = () => {
          <img style={styles.mark} src={Tickmark} alt="..." />
          <div style={styles.solveAsapDiv}>We will solve your problem ASAP</div>  
          <Footer></Footer>
-        </>
+        
+
+
+        {setTimeout(()=>{
+                history.push("/")
+            },3000)}
+
+    </>    
     )
 }
 

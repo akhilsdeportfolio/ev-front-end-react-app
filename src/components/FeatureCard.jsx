@@ -51,13 +51,13 @@ export default function({featureList,isQuestions,questions,titles})
       >
         
           
-          {isQuestions==="true" ?<div ><SimpleAccordion questions={questions}/> </div>:
+           {isQuestions==="true" ?<div ><SimpleAccordion questions={questions}/> </div>:
           
                features.map((el)=>{
                     return <><Typography variant="body2" style={styles2} sx={{fontWeight:'400',marginRight:'30%'}}>{el}</Typography></>
                })
-          }
-        
+          } 
+         
        </Box>        
         </div>
       </CardContent>

@@ -1,6 +1,5 @@
 import forward from './image/forward.jpeg'
 import NewsImage from './image/newsimage.jpeg'
-import Grid from '@mui/material/Grid';
 import { Card } from "@mui/material"
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react"
@@ -74,11 +73,10 @@ const Line = styled.hr`
     margin-bottom: -4%;
 `
 
-let array = []
+
 
 const Trending = () => {
     const [newsArticles, setNewsArticles] = useState([])
-    const [likes, setLikes] = useState(0)
     const [comments, setComments] = useState(0)
 
     useEffect(() => {
@@ -91,33 +89,28 @@ const Trending = () => {
         setNewsArticles(newsData)
     }
 
-    for(let i=newsArticles.length-1; i>0; i--){
-        array.push(JSON.stringify(newsArticles[i]));
-        
-    }
-
+    
 
     return (
         <>
              <Line />
                 <h1 style={styles.head}>Trending Topics</h1>
             <div /* style={styles.cont} */>
-                {newsArticles.map((e, index) => {
-                    /*  let url = String(e.images).split("\\")
+                {newsArticles.slice(5).map((e, index) => {
+                     let url = String(e.images).split("\\")
                      let path = url[url.length-1]
-                     path = path.split(",")[0] */
+                     path = path
                     return (
                         <div key={index} >
-                            <NavLink to='' style={styles.autodata}>
+                            <NavLink to={`/News/${e._id}`} style={styles.autodata}>
                                 <Card sx={{ display: 'flex' }} style={styles.cards}>
 
-                                    <img style={styles.image} src={NewsImage} alt={NewsImage} />
+                                    <img style={styles.image} src={path} alt={NewsImage} />
                                     <CardContent sx={{ flex: '1 0 auto' }}>
                                         <h4 style={styles.text}>{e.title}</h4>
                                         <h5 style={styles.date}>12/08/2010</h5>
-                                        <p style={styles.matter}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
-                                        <h5 style={styles.likes}>{likes} Likes<span style={styles.comments}>{comments} Comments</span><span><img style={styles.icon} src={forward} alt={forward} /></span></h5>
-                
+                                        <p style={styles.matter}>{ e.text.substring(0,80) } ...</p>
+                                        <h5 style={styles.likes}>{e.likes? e.likes : 0} Likes<span style={styles.comments}>{comments} Comments</span><span><img style={styles.icon} src={forward} alt={forward} /></span></h5>
                                     </CardContent>
                                 </Card>
                             </NavLink>

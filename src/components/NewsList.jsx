@@ -41,7 +41,7 @@ const NewsList = ({newsList, input}) => {
             return (
               <div key={index}>
                   <Card style={styles.cards}>
-               <NavLink to='' style={styles.newstext}> <h3>{data.title}</h3></NavLink>
+               <NavLink to={`/News/${data._id}`} style={styles.newstext}> <h3>{data.title}</h3></NavLink>
                </Card>
           </div>	
              )	

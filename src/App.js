@@ -54,7 +54,7 @@ function App() {
         <Route path="/raise4"><Raise4/></Route>
         <Route path="/raise5"><Raise5/></Route>
         <Route path="/about"> <About></About> </Route>
-        <Route exact path='/ProductDetails/:id' component={ProductDetails} />
+        <Route exact path='/Vehicles/:id' component={ProductDetails} />
         <Route exact path='/Gallery/:id' component={Gallery} />
         <Route exact path='/Reviews/:id' component={AllReviews} />        
         <Route exact path='/Home' component={Home} />
@@ -63,17 +63,9 @@ function App() {
         <Route exact path='/News' component={NewsSection} />
         <Route exact path='/News/:id' component={Article} />
         <Route exact path='/Vehicles/' component={Evehicles} />
-        <Route exact path='/News/:id' component={NewsSection} />
         <Route exact path='/' component={Home} />
         <Route exact path='/Search' component={SearchResults} />
-        <Route exact path='/Account' component={Account} />
-        
-        
-        
-     
        </Switch> 
-
-        
             </>
   ); 
 }

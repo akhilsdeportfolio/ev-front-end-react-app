@@ -76,11 +76,11 @@ function News(){
                         {newsArticles.map((e, index) => {
                              let url = String(e.images).split("\\")
                              let path = url[url.length-1]
-                             path = path.split(",")
+                             path = path
                             return (
                                 <div key={index} >
                                     <Grid container>
-                                        <NavLink to='' style={styles.autodata}>
+                                        <NavLink to={`/News/${e._id}`} style={styles.autodata}>
                                             <Card style={styles.cards}>
                                                 <img style={styles.image} src={path} alt={path} />
                                                 <h3>{e.title}</h3>

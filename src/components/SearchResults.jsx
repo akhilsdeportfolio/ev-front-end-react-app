@@ -140,6 +140,7 @@ function SearchResults(){
           <Typography variant='h4' style={styles.text}>
               Find your results here!
           </Typography>
+          
           <NewsList newsList={newsList} input={input}></NewsList>
           <VehicleList vehicleList={vehicleList} input={input}></VehicleList>
         </>

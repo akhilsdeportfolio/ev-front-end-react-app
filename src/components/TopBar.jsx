@@ -4,6 +4,7 @@ import { Searchbar } from './Searchbar';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import { Responsibility } from "./Responsibility";
+import {useHistory} from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -32,12 +33,22 @@ const styles = {
         fontWeight: '700',
         fontSize: '15px',
         marginTop: '0.5%',
-         
     },
     btnlink: {
         textDecoration: 'none',
         marginLeft: '2%',
     },
+    logout:{
+        textDecoration: 'none',
+        color: 'white',
+        fontWeight: '400',
+        marginLeft: '-10%'
+    },
+    welcome: {
+        marginLeft: '2%',
+        display: 'flex',
+        flexDirection: 'column'
+    }
 }
 
 const NavUnlisted = styled.ul`
@@ -56,17 +67,43 @@ const NavUnlisted = styled.ul`
     list-style: none;
     font-weight: 400;
     font-family: 'Montserrat';
+    width: max-content
   }
 `
 
 function TopBar() {
     const classes = useStyles()
+    const history = useHistory();
+
+    let userDetails=null;
+    function isUserPresent()
+    {
+        let user=localStorage.getItem('activeUser');
+        
+        if(!user)
+            return false;
+        else
+        {
+            userDetails=JSON.parse(user);
+            console.log(userDetails);
+            return true;    
+        
+            
+        }
+    }
+
+    function logout()
+    {
+        localStorage.removeItem('activeUser');
+        history.push("/");
+        
+    }
 
     return (
         <>
             <AppBar style={styles.appbar}>
                 <Toolbar className={classes.bar} >
-                    <Typography variant="h5">
+                    <Typography variant="h5" style={{'marginLeft': '8%'}}>
                         Your E-Assistant
                     </Typography>
                     <NavUnlisted>
@@ -82,11 +119,14 @@ function TopBar() {
                         <NavLink to="/About" activeStyle={{fontWeight: "bolder" }}>
                             <li>About Us</li>
                         </NavLink>
-                        <NavLink to="/Login" activeStyle={{fontWeight: "bolder" }}>
+                        {isUserPresent()===true? <NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
+                            <li style={styles.welcome}>Hello! {userDetails.firstName} &nbsp; <Button variant="outlined" style={styles.logout} onClick={logout}>(Logout)</Button> </li>                            
+
+                        </NavLink> :<NavLink to="/Login" activeStyle={{fontWeight: "600" }}>
                             <li>Login</li>
-                        </NavLink>
+                        </NavLink>}
                     </NavUnlisted>
-                   <NavLink to="/Raise2" style={styles.btnlink}> <Button variant="outlined" style={styles.btn1} >Urgent</Button></NavLink>
+                   <NavLink to="/Raise1" style={styles.btnlink}> <Button variant="outlined" style={styles.btn1} >Urgent</Button></NavLink>
                 </Toolbar>
                 <Searchbar />
               <Responsibility />  

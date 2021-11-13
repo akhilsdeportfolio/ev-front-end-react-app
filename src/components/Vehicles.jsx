@@ -106,7 +106,7 @@ function Vehicles({vehiclesD}) {
                             return (
                                 <div key={index} >
                                     <Grid container>
-                                        <NavLink to='' style={styles.autodata}>
+                                        <NavLink to={`/Vehicles/${e._id}`} style={styles.autodata}>
                                             <Card style={styles.cards}>
                                                 <img style={styles.image} src={path} alt={path} />
                                                 <h3>{e.name}</h3>

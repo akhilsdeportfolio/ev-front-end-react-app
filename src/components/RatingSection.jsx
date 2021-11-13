@@ -4,6 +4,9 @@ import ReviewCard from "./ReviewCard";
 import {useState } from 'react';
 import RatingScreen from "./RatingScreen";
 
+
+
+
 const style = {
      position: 'absolute',
      top: '50%',
@@ -18,6 +21,7 @@ const style = {
    };
 export default function({reviews,avgRating,totalReviews,title})
 {
+     
 
      const [open, setOpen] = useState(false);
      const handleOpen = () => setOpen(true);
@@ -46,6 +50,8 @@ export default function({reviews,avgRating,totalReviews,title})
                          <Typography variant="h3">{avgRating}</Typography>
                          <Typography variant="body2" sx={{marginTop:'20px'}}>Based on {totalReviews} Reviews </Typography>
                          <div style={{flexGrow:1}}/>
+                         
+
                          <Button onClick={handleOpen} size="large" variant="outlined" sx={{padding:2}}>Write a Review</Button>
 
                          

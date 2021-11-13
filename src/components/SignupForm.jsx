@@ -3,6 +3,7 @@ import Heading from "./HeadingInfo";
 import { InputInfo } from "./InputInfo";
 import { Navbar } from "./Navbar";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 const styles = {
     box:{
@@ -160,7 +161,7 @@ export default function SignupForm() {
                         required = "true" placeholder = "Enter Password"/>
                     </div>
                 <button style = {styles.button }>Create</button>
-            <a href=""><InputInfo data1 = "or Return to Home Page"/></a>
+            <Link to=""><InputInfo data1 = "or Return to Home Page"/></Link>
         </form>
     <Footer/>
     </>

@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 
 import Modal from '@mui/material/Modal';
 import { blue } from "@mui/material/colors";
+import { Navbar } from "./Navbar";
 let styles = {
     style:{
         position: 'absolute',
@@ -99,7 +100,7 @@ let styles = {
     },
     blue:{
         position:"absolute",
-        top:"236%",
+        top:"280%",
         borderRadius:10,
         width: "28.4%",
         height: "10px",
@@ -248,6 +249,7 @@ export const Gallery = ()=>{
     const [colorLine2,setColorLine2] = React.useState({...styles.lines,background:"rgb(3, 128, 190)"})
     return (
         <>
+           <Navbar/> 
            <div style={styles.contain}>
                         <div style={styles.gallery}>Gallery</div>
                         <div style={colorLine}></div>

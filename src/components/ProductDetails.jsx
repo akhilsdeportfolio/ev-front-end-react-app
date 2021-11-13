@@ -35,6 +35,9 @@ export default function ProductDetails({})
 
      let { id }= useParams();
 
+
+
+
      let data ={
           vehicleName :'TATA NEXON',
           rating:4.5,
@@ -70,7 +73,7 @@ export default function ProductDetails({})
      const [features,setFeatures]=useState([]);
      const [gallery,setGallery]=useState("/gallery");
      const [reviews,setReviews]=useState([]);
-
+     const [rating,setRating]=useState(0);
 
      //let getVehicleSpec=(int)=>{
        //    return vehicleData.key_specs[int];
@@ -93,13 +96,18 @@ export default function ProductDetails({})
 
           setVehicleData({data});
           setFeatures(features);
+
+          //http://localhost:2000/vehicles/618b46a35cefe9cea7f31f94
           axios.get(`http://localhost:2000/vehicles/${id}`).then((data)=>{
-               setVehicleData(data.data);
-               setFeatures(data.data.features);
-               console.log(data.data.features);
+               console.log(data);
+               setVehicleData(data.data.vehicles);
+               setRating(data.data.rating);
+               setFeatures(data.data.vehicles.features);
+               console.log(vehicleData);
                //setFeatures(/data.features);
                
           });
+          
           axios.get(`http://localhost:2000/vehicles/${id}/reviews`).then((data)=>{
                setReviews(data.data.reviews);
                console.log(reviews)
@@ -142,18 +150,18 @@ export default function ProductDetails({})
                     {vehicleData.name}
      </Typography>
      <div style={{textAlign:'center'}}>
-     <Rating value={vehicleData.star} precision="0.5" readOnly="true" size="large" style={{fontSize:'30px'}}/>
+     <Rating value={rating} precision="0.5" readOnly="true" size="large" style={{fontSize:'30px'}}/>
 
      <Typography variant="p" color="black" component="div" style={styles2} >
-                    {vehicleData.totalReviews} Reviews
+                    {data.totalReviews} Reviews
      </Typography>
 
      <Typography variant="h6" color="black" component="div" style={styles2} >
-                    {vehicleData.price}
+                    {data.price}
      </Typography>
 
      <Typography variant="p" color="black" component="div" style={styles2} >
-                    {vehicleData.location}
+                    {data.location}
      </Typography>
 
      <Link to={gallery} sx={{textColor:'white'}} style={{textDecoration:'none'}}><Button  variant="contained" style={{marginTop:'10px',backgroundColor:"#FF546D",color:"white"}}>
@@ -163,14 +171,14 @@ export default function ProductDetails({})
      
 
      <Box sx={{margin:'auto',width:'80%'}}>
-          <FeatureCard titles="Key Specs of Tata Nexon EV" featureList={intro} isQuestions="false"/>
+          <FeatureCard titles={`Key Specs of ${vehicleData.name}`} featureList={intro} isQuestions="false"/>
      </Box>
 
      <Box sx={{margin:'auto',width:'80%'}}>
           <FeatureCard featureList={features}/>
      </Box>
      <Box sx={{margin:'auto',width:'79%'}}>
-          <AboutVehicle title="Nexon EV Latest Update" about="Latest Update: Tata will launch the Nexon BS6 facelift on January 22.
+          <AboutVehicle title={`${vehicleData.name} Latest update`} about="Latest Update: Tata will launch the Nexon BS6 facelift on January 22.
 
 Variants and Prices: The Nexon is available in eight variants: XE, XM, XMA, XT, XT+, XZ, XZ+, and XZA+ with some combinations offering a dual-tone roof and automatic transmission. Tata Motors also offers the Nexon in the special edition KRAZ trim. However, the features on offer remain the same. Tata’s sub-4m SUV is priced between Rs 6.73 lakh and Rs 11.4 lakh (ex-showroom Delhi).
 
@@ -184,9 +192,12 @@ Rivals: The Nexon rivals the likes of Maruti Suzuki Vitara Brezza, Ford EcoSport
      </Box>
 
      <Box sx={{margin:'auto',width:'78%'}}>
-     
-          <RatingSection style={{overflow:'scroll'}} reviews={reviews} title="Tata Nexon EV User Reviews" avgRating="4.2" totalReviews="70" />
-     
+          
+          <RatingSection style={{overflow:'scroll'}} reviews={reviews} title={`${vehicleData.name} User Reviews`} avgRating="4.2" totalReviews="70" />
+          
+
+          <br/>
+          <Link to={`/Reviews/${id}`} style={{textDecoration:'none'}}><Button variant="contained">All reviews</Button></Link>
      </Box>
      
      

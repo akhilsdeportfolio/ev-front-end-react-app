@@ -249,54 +249,53 @@ export const Gallery = ()=>{
     return (
         <>
            <div style={styles.contain}>
-           <div style={styles.gallery}>Gallery</div>
-            <div style={colorLine}></div>
-            <div style = {
-               colorLine2
-            }></div>
-            <div style={styles.exterior}>Exterior</div>
-            <ImageList image = {color}/>
-            <ImageList image = {color2}/>
-            <div style = {
-                colorLine2
-            }></div>
-            <div style={styles.exterior}>Interior</div>
-            <ImageList image = {color3}/>
-            <ImageList image = {color4}/>
-            <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={styles.style}>
-            <img src={pic} alt="" style = {styles.zoomIn} />
-        </Box>
-      </Modal>
-            <div style = {
-                colorLine2
-            }></div>
-            <div style={styles.exterior}>Colors</div>
-            <ColorList image = {row5Img}/>
-            <div style = {styles.selectColor}>
-                {visible && <p style = {styles.white}></p>}
-                {visible2 &&  <p style = {styles.grey}></p>}
-                {visible3 && <p style = {styles.blue}></p>}
-            </div>
-            <div style = {
-                colorLine2
-            }></div>
-            <div style={styles.exterior}>Road Test</div>
-            <ImageList image = {color6}/>
-            <div style = {
-                colorLine2
-            }></div>
-            <div style={styles.exterior}>Videos</div>
-            <VideoList image = {color7}/>
-          <div style = {styles.playButton}>
-          </div>
-           </div>
-          <Footer/>
+                        <div style={styles.gallery}>Gallery</div>
+                        <div style={colorLine}></div>
+                        <div style = {
+                            colorLine2
+                        }></div>
+                        <div style={styles.exterior}>Exterior</div>
+                        <ImageList image = {color}/>
+                        <ImageList image = {color2}/>
+                        <div style = {
+                        colorLine2
+                        }></div>
+                        <div style={styles.exterior}>Interior</div>
+                        <ImageList image = {color3}/>
+                        <ImageList image = {color4}/>
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        <Box sx={styles.style}>
+                            <img src={pic} alt="" style = {styles.zoomIn} />
+                        </Box>
+                    </Modal>
+                    <div style = {
+                        colorLine2
+                    }></div>
+                    <div style={styles.exterior}>Colors</div>
+                    <ColorList image = {row5Img}/>
+                    <div style = {styles.selectColor}>
+                        {visible && <p style = {styles.white}></p>}
+                        {visible2 &&  <p style = {styles.grey}></p>}
+                        {visible3 && <p style = {styles.blue}></p>}
+                    </div>
+                    <div style = {
+                        colorLine2
+                    }></div>
+                    <div style={styles.exterior}>Road Test</div>
+                    <ImageList image = {color6}/>
+                    <div style = {
+                        colorLine2
+                    }></div>
+                    <div style={styles.exterior}>Videos</div>
+                    <VideoList image = {color7}/>
+                    <div style = {styles.playButton}></div>
+                </div>
+            <Footer/>
         </>
     )
 }

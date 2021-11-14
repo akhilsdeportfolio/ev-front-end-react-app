@@ -76,7 +76,7 @@ let styles = {
     
     white:{
         position:"absolute",
-        top:"236%",
+        top:"268%",
         borderRadius:10,
         width: "29.2%",
         height: "10px",
@@ -88,7 +88,7 @@ let styles = {
     },
     grey:{
         position:"absolute",
-        top:"236%",
+        top:"268%",
         borderRadius:10,
         left:"35.6%",
         width: "29%",
@@ -100,7 +100,7 @@ let styles = {
     },
     blue:{
         position:"absolute",
-        top:"280%",
+        top:"268%",
         borderRadius:10,
         width: "28.4%",
         height: "10px",

@@ -1,10 +1,8 @@
 import { Footer } from "./Footer";
 import * as React from 'react';
 import Box from '@mui/material/Box';
-
 import Modal from '@mui/material/Modal';
-import { blue } from "@mui/material/colors";
-import { Navbar } from "./Navbar";
+import {Navbar} from "./Navbar"
 let styles = {
     style:{
         position: 'absolute',
@@ -17,8 +15,8 @@ let styles = {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
-      },
-      lines:{
+    },
+    lines:{
         width:10,
         height:65,
         background:"#FF546D",
@@ -35,14 +33,14 @@ let styles = {
         lineHeight: "49px",
         color: "#000000", 
     },
-      tt:{
+    tt:{
         width:100,
-    
-      },
-      zoomIn:{
-          width:"100%",
-          height:"100%"
-      },
+
+    },
+    zoomIn:{
+        width:"100%",
+        height:"100%"
+    },
     contain:{
         width: "90%",
         marginLeft: "5%",
@@ -73,16 +71,13 @@ let styles = {
         height: "237px",
         cursor:"pointer",
     },
-    
     white:{
         position:"absolute",
         top:"268%",
         borderRadius:10,
         width: "29.2%",
         height: "10px",
-       
         backgroundColor:"#5D6D61",
-       
         marginRight:"1.7%",
         float:"left"
     },
@@ -94,7 +89,6 @@ let styles = {
         width: "29%",
         height: "10px",
         marginRight:"1.7%",
-       
         backgroundColor: "#FF546D",
         float:"left"
     },
@@ -114,30 +108,30 @@ let styles = {
     },
     playButtonImg:{
         position: "relative",
-    top: "-170px",
-    left: "210px",
-    width: "40px",
-    height: "40px"
+        top: "-170px",
+        left: "210px",
+        width: "40px",
+        height: "40px"
     }  
 }
+
 export const Gallery = ()=>{
-    const [pic,setPic] = React.useState("xyz")
-    const [open, setOpen] = React.useState(false);
-     const handleOpen = ((e)=>{
+        const [pic,setPic] = React.useState("xyz")
+        const [open, setOpen] = React.useState(false);
+        const handleOpen = ((e)=>{
         setPic(e.target.src);
-         setOpen(true);
-        return
-    })
-    const handleClose = () => setOpen(false);
-    function ImageList(props){
+            setOpen(true);
+            return
+        })
+        const handleClose = () => setOpen(false);
+        function ImageList(props){
         const images = props.image;
         const listItems = images.map((el)=>
             <img style={styles.img} src = {el} alt="" onClick = {handleOpen}/>
         );
         return (
             <div style={styles.row1Img}>{listItems}</div>
-        )
-    }
+        )}
     function fun1(){
         setVisible3(false)
         setVisible2(false)
@@ -166,21 +160,21 @@ export const Gallery = ()=>{
             setColor7(whiteRow7)
         }
         else if(el.target.src ==="https://s3-alpha-sig.figma.com/img/1ed9/c597/d8de9e461aa8cc6700ff9fe8ba548e15?Expires=1637539200&Signature=bpqukmDRnptOkkZI8qsNDcb~m23U3KqwmLCc5UlMRAQ~x2CGOaCwQHzrm7GIBY-cZaVqR9dbdeh2tx52IoGT2fshig0fzuUhRKkpfeWrNIJCcrgy1mEQns2hfYbYH3NCdLInB9KIArUlfDTksaudMMqYcvdevFWDOTlRIi0Hb8x1SjbnfigTUs~ACzNiltA7XwETe2Rj7Fo3keqggu6nwsD8mnGf0GyUX3bnUR3aJuQGMOUhun6XtkcJxlh6dF7N8p0t4-aW7-qidbVw5HgF3gbqLbaeDkVfx9ZJeCuKZa4EzaAHKlWCi~HI8~1Mxhk9FN8sccPA9Zmp0Qe8N45FTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"){
-           fun2()
-           setColorLine({...styles.line,background:"rgb(3, 128, 190)"})
-           setColorLine2({...styles.lines,background:"rgb(3, 128, 190)"})
-           setColor6(row1Img)
-           setColor(row2Img)
-           setColor2(row3Img)
-           setColor3(row4Img)
-           setColor4(row6Img)
+            fun2()
+            setColorLine({...styles.line,background:"rgb(3, 128, 190)"})
+            setColorLine2({...styles.lines,background:"rgb(3, 128, 190)"})
+            setColor6(row1Img)
+            setColor(row2Img)
+            setColor2(row3Img)
+            setColor3(row4Img)
+            setColor4(row6Img)
             setColor7(row7Img)
         }
         else if(el.target.src ==="https://imgd.aeplcdn.com/1056x594/n/cw/ec/26918/xuv300-exterior-right-front-three-quarter-148706.jpeg?q=85&wm=1"){
             fun3()
             setColorLine({...styles.line,background:"rgb(255, 84, 109)"})
             setColorLine2({...styles.lines,background:"rgb(255, 84, 109)"})
-        setColor6(redRow6)   
+            setColor6(redRow6)   
             setColor(redRow1)
             setColor2(redRow2)
             setColor3(redRow3)
@@ -190,9 +184,7 @@ export const Gallery = ()=>{
     }
     function ColorList(props){
         const images = props.image;
-        
         const listItems = images.map((el)=>
-        
             <img style={styles.img} src = {el} alt="" onClick = {colorChange} />
         );
         return (
@@ -202,7 +194,6 @@ export const Gallery = ()=>{
 
     function VideoList(props){
         const images = props.image;
-        
         const listItems = images.map((el)=>
             <iframe  width="95%" height="245" src={`https://www.youtube.com/embed/${el}?autoplay=1&mute=1`} title = "Nexon" onClick = {handleOpen} >
             </iframe>
@@ -227,6 +218,7 @@ export const Gallery = ()=>{
     const whiteRow4 = ["https://stimg.cardekho.com/images/carinteriorimages/930x620/Tata/Nexon/7988/1617771639398/rear-view-mirror-courtesy-lamps-64.jpg","https://stimg.cardekho.com/images/carinteriorimages/930x620/Tata/Nexon/8497/Tata-Nexon-XZA-Plus-Dark-Edition/1625825579881/rear-seats-52.jpg","https://stimg.cardekho.com/images/carinteriorimages/930x620/Tata/Nexon/7988/1617771639398/knob-selector-184.jpg"]
     const whiteRow6 = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRqxD2NHW3KlgwhSvcqc-J9Vqk1Swr90Sklg&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVsjY4jlb7PVczQoNJTKzgnrWP7CsMHFJz_g&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMtj_uqVQToU11HHjBVUBJ2tQpgZMLpfflMA&usqp=CAU"]
     const whiteRow7 = ["3E_EAGt_RJU","zr7VE0FnwQY","tHNMWvW3BR8"]
+    
     const [color,setColor] = React.useState(row1Img)
     const [color2,setColor2] = React.useState(row2Img)
     const [color3,setColor3] = React.useState(row3Img)
@@ -250,54 +242,54 @@ export const Gallery = ()=>{
     return (
         <>
            <Navbar/> 
-           <div style={styles.contain}>
-                        <div style={styles.gallery}>Gallery</div>
+                <div style={styles.contain}>
+                    <div style={styles.gallery}>Gallery</div>
                         <div style={colorLine}></div>
-                        <div style = {
-                            colorLine2
-                        }></div>
-                        <div style={styles.exterior}>Exterior</div>
-                        <ImageList image = {color}/>
-                        <ImageList image = {color2}/>
-                        <div style = {
-                        colorLine2
-                        }></div>
+                            <div style = {
+                                colorLine2
+                                    }></div>
+                                        <div style={styles.exterior}>Exterior</div>
+                                            <ImageList image = {color}/>
+                                        <ImageList image = {color2}/>
+                                    <div style = {
+                                colorLine2
+                            }></div>
                         <div style={styles.exterior}>Interior</div>
-                        <ImageList image = {color3}/>
-                        <ImageList image = {color4}/>
-                    <Modal
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={styles.style}>
-                            <img src={pic} alt="" style = {styles.zoomIn} />
-                        </Box>
-                    </Modal>
-                    <div style = {
-                        colorLine2
-                    }></div>
-                    <div style={styles.exterior}>Colors</div>
-                    <ColorList image = {row5Img}/>
-                    <div style = {styles.selectColor}>
-                        {visible && <p style = {styles.white}></p>}
-                        {visible2 &&  <p style = {styles.grey}></p>}
-                        {visible3 && <p style = {styles.blue}></p>}
-                    </div>
-                    <div style = {
-                        colorLine2
-                    }></div>
-                    <div style={styles.exterior}>Road Test</div>
-                    <ImageList image = {color6}/>
-                    <div style = {
-                        colorLine2
-                    }></div>
-                    <div style={styles.exterior}>Videos</div>
-                    <VideoList image = {color7}/>
-                    <div style = {styles.playButton}></div>
-                </div>
-            <Footer/>
+                    <ImageList image = {color3}/>
+                <ImageList image = {color4}/>
+            <Modal
+        open={open}
+    onClose={handleClose}
+aria-labelledby="modal-modal-title"
+    aria-describedby="modal-modal-description"
+        >
+            <Box sx={styles.style}>
+                <img src={pic} alt="" style = {styles.zoomIn} />
+                    </Box>
+                        </Modal>
+                            <div style = {
+                                colorLine2
+                                    }></div>
+                                <div style={styles.exterior}>Colors</div>
+                            <ColorList image = {row5Img}/>
+                        <div style = {styles.selectColor}>
+                    {visible && <p style = {styles.white}></p>}
+                {visible2 &&  <p style = {styles.grey}></p>}
+            {visible3 && <p style = {styles.blue}></p>}
+        </div>
+    <div style = {
+colorLine2
+    }></div>
+        <div style={styles.exterior}>Road Test</div>
+            <ImageList image = {color6}/>
+                <div style = {
+                    colorLine2
+                        }></div>
+                <div style={styles.exterior}>Videos</div>
+            <VideoList image = {color7}/>
+         <div style = {styles.playButton}></div>
+    </div>
+<Footer/>
         </>
     )
 }
